@@ -1,48 +1,63 @@
-# ======================
-# Large data files
-# ======================
-/data/
-*.pkl
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
+env/
+conda_env/
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
+# Logs
+logs/
+log/
+*.log
+wandb/
+runs/
+tensorboard/
+
+# Data / datasets
+data/
+dataset/
+datasets/
+raw/
+processed/
+
+# Model checkpoints / weights
+checkpoints/
+checkpoint/
+ckpt/
+weights/
 *.pt
 *.pth
 *.ckpt
+
+# Large scientific files
+*.pkl
 *.npz
 *.npy
 *.h5
 *.hdf5
 *.lmdb
 
-# ======================
-# Training logs / outputs
-# ======================
-**/logs/
-**/outputs/
-**/output/
-**/results/
-**/runs/
-**/wandb/
-**/checkpoints/
-**/ckpt/
-**/weights/
+# Outputs
+outputs/
+output/
+results/
+result/
+tmp/
+temp/
 
-# ======================
-# Python cache
-# ======================
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-
-# ======================
-# IDE / system
-# ======================
-.vscode/
-.idea/
-.DS_Store
-
-# ======================
-# Temporary files
-# ======================
-*.log
-*.tmp
+# Backup files
 *.bak
+*.tmp

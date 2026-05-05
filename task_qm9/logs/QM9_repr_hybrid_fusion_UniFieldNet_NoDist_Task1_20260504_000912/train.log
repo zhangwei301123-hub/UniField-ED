@@ -377,3 +377,7 @@
 2026-05-05 13:44:24,869 - INFO -     >>> Val Avg RMSE (Real): 142.3260
 2026-05-05 13:44:24,869 - INFO -     >>> Val MAE Details: ['86.1848']
 2026-05-05 13:44:24,869 - INFO - ⏳ No improvement. Patience: 1/50
+2026-05-05 14:17:55,616 - INFO - [Epoch 84] Train Loss: 0.0089 | LR: 0.000062
+2026-05-05 14:17:55,617 - INFO -     >>> Val Avg RMSE (Real): 135.4343
+2026-05-05 14:17:55,617 - INFO -     >>> Val MAE Details: ['81.0286']
+2026-05-05 14:17:55,617 - INFO - ⏳ No improvement. Patience: 2/50

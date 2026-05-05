@@ -1,4 +1,0 @@
-data:
-  name: "ED5OEPointCloud"       # 对应新的数据集处理类
-  pkl_path: "/home/zw/ED_all/data/ED5_OE/ed_homo_lumo_5w_1024.pkl"
-  grid_size: 0.1

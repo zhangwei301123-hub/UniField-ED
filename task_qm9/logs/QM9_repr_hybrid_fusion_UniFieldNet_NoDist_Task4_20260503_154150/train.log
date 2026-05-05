@@ -477,3 +477,11 @@
 2026-05-05 13:42:24,012 - INFO -     >>> Val Avg RMSE (Real): 5874.1682
 2026-05-05 13:42:24,012 - INFO -     >>> Val MAE Details: ['436.6091', '8486.7637', '16.9781', '127.5645']
 2026-05-05 13:42:24,012 - INFO - ⏳ No improvement. Patience: 8/50
+2026-05-05 14:16:02,533 - INFO - [Epoch 109] Train Loss: 0.0029 | LR: 0.000043
+2026-05-05 14:16:02,533 - INFO -     >>> Val Avg RMSE (Real): 4302.7152
+2026-05-05 14:16:02,533 - INFO -     >>> Val MAE Details: ['407.4854', '5600.1621', '14.5012', '126.8412']
+2026-05-05 14:16:03,686 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_hybrid_fusion_UniFieldNet_NoDist_Task4_20260503_154150/best_model.pth
+2026-05-05 14:49:49,114 - INFO - [Epoch 110] Train Loss: 0.0028 | LR: 0.000042
+2026-05-05 14:49:49,115 - INFO -     >>> Val Avg RMSE (Real): 4628.8847
+2026-05-05 14:49:49,115 - INFO -     >>> Val MAE Details: ['511.7055', '6070.3652', '10.6609', '149.2902']
+2026-05-05 14:49:49,115 - INFO - ⏳ No improvement. Patience: 1/50

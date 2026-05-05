@@ -5,10 +5,10 @@ import sys
 import numpy as np
 import math
 
-# ================== 💡 核心补丁：修复 NumPy 兼容性 ==================
+
 if not hasattr(np, 'math'):
     np.math = math
-# ===================================================================
+
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 if current_dir not in sys.path:
