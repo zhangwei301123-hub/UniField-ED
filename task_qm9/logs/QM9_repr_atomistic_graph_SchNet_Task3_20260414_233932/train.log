@@ -1,0 +1,832 @@
+2026-04-14 23:39:32,710 - INFO - 💾 Config files backed up to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932
+2026-04-14 23:39:32,710 - INFO - 🎯 Multi-Task Targets (3): ['homo_meV', 'lumo_meV', 'gap_meV']
+2026-04-14 23:39:32,710 - INFO - ========================================
+2026-04-14 23:39:32,711 - INFO -         Training Configuration        
+2026-04-14 23:39:32,711 - INFO - ========================================
+2026-04-14 23:39:32,711 - INFO - 
+{'data': {'dataset_mode': 'repr_atomistic_graph',
+          'grid_size': 0.1,
+          'pkl_path': '../data/qm9/qm9_ed_1024_multi_prop_Bohr.pkl',
+          'targets': ['homo_meV', 'lumo_meV', 'gap_meV']},
+ 'model': {'cutoff': 10.0,
+           'hidden_channels': 128,
+           'max_neighbors': 32,
+           'n_interactions': 6,
+           'n_rbf': 300,
+           'name': 'SchNet'},
+ 'train': {'batch_size': 64,
+           'epochs': 200,
+           'grad_norm_clip': 1.0,
+           'lr': 0.0001,
+           'patience': 50,
+           'seed': 2025,
+           'weight_decay': 0.0001}}
+2026-04-14 23:39:32,711 - INFO - ========================================
+
+2026-04-14 23:39:32,711 - INFO - 🚀 Start Training on Device: cuda
+2026-04-14 23:39:32,711 - INFO - Loading Data...
+2026-04-14 23:39:32,711 - INFO - Loading Dataset Mode: repr_atomistic_graph...
+2026-04-14 23:39:38,961 - INFO - Stats - Mean: [[-6530.402     303.22983  6833.6294 ]], Std: [[ 604.5657 1276.8004 1293.2015]]
+2026-04-14 23:39:38,961 - INFO - Building Model: SchNet...
+2026-04-14 23:39:40,431 - INFO - Total Parameters: 0.6479 M
+
+2026-04-14 23:40:55,193 - INFO - [Epoch 1] Train Loss: 0.2194 | LR: 0.000100
+2026-04-14 23:40:55,194 - INFO -     >>> Val Avg RMSE (Real): 383.2494
+2026-04-14 23:40:55,194 - INFO -     >>> Val MAE Details: ['227.0267', '297.3029', '339.7107']
+2026-04-14 23:40:55,218 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-14 23:42:12,123 - INFO - [Epoch 2] Train Loss: 0.1268 | LR: 0.000100
+2026-04-14 23:42:12,123 - INFO -     >>> Val Avg RMSE (Real): 333.3151
+2026-04-14 23:42:12,123 - INFO -     >>> Val MAE Details: ['185.7710', '249.4768', '298.6670']
+2026-04-14 23:42:12,154 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-14 23:43:30,360 - INFO - [Epoch 3] Train Loss: 0.1089 | LR: 0.000100
+2026-04-14 23:43:30,360 - INFO -     >>> Val Avg RMSE (Real): 316.8230
+2026-04-14 23:43:30,360 - INFO -     >>> Val MAE Details: ['178.5744', '240.3203', '283.8626']
+2026-04-14 23:43:30,391 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-14 23:44:46,596 - INFO - [Epoch 4] Train Loss: 0.0990 | LR: 0.000100
+2026-04-14 23:44:46,596 - INFO -     >>> Val Avg RMSE (Real): 303.5123
+2026-04-14 23:44:46,596 - INFO -     >>> Val MAE Details: ['172.0112', '227.2273', '269.9810']
+2026-04-14 23:44:46,621 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-14 23:46:05,638 - INFO - [Epoch 5] Train Loss: 0.0913 | LR: 0.000100
+2026-04-14 23:46:05,638 - INFO -     >>> Val Avg RMSE (Real): 289.4108
+2026-04-14 23:46:05,638 - INFO -     >>> Val MAE Details: ['167.3889', '205.8943', '254.3147']
+2026-04-14 23:46:05,669 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-14 23:47:23,443 - INFO - [Epoch 6] Train Loss: 0.0861 | LR: 0.000100
+2026-04-14 23:47:23,443 - INFO -     >>> Val Avg RMSE (Real): 283.7658
+2026-04-14 23:47:23,443 - INFO -     >>> Val MAE Details: ['167.1887', '199.8779', '251.7178']
+2026-04-14 23:47:23,465 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-14 23:48:43,899 - INFO - [Epoch 7] Train Loss: 0.0813 | LR: 0.000100
+2026-04-14 23:48:43,900 - INFO -     >>> Val Avg RMSE (Real): 282.5660
+2026-04-14 23:48:43,900 - INFO -     >>> Val MAE Details: ['171.6563', '198.3378', '252.1738']
+2026-04-14 23:48:43,931 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-14 23:50:01,501 - INFO - [Epoch 8] Train Loss: 0.0781 | LR: 0.000100
+2026-04-14 23:50:01,502 - INFO -     >>> Val Avg RMSE (Real): 264.5327
+2026-04-14 23:50:01,502 - INFO -     >>> Val MAE Details: ['154.5872', '185.5280', '230.5758']
+2026-04-14 23:50:01,534 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-14 23:51:20,991 - INFO - [Epoch 9] Train Loss: 0.0748 | LR: 0.000100
+2026-04-14 23:51:20,991 - INFO -     >>> Val Avg RMSE (Real): 283.3534
+2026-04-14 23:51:20,991 - INFO -     >>> Val MAE Details: ['161.7052', '194.3502', '264.0023']
+2026-04-14 23:51:20,991 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-14 23:52:39,052 - INFO - [Epoch 10] Train Loss: 0.0732 | LR: 0.000099
+2026-04-14 23:52:39,052 - INFO -     >>> Val Avg RMSE (Real): 260.3190
+2026-04-14 23:52:39,052 - INFO -     >>> Val MAE Details: ['151.6362', '183.8867', '226.4946']
+2026-04-14 23:52:39,085 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-14 23:53:56,720 - INFO - [Epoch 11] Train Loss: 0.0713 | LR: 0.000099
+2026-04-14 23:53:56,720 - INFO -     >>> Val Avg RMSE (Real): 277.9136
+2026-04-14 23:53:56,720 - INFO -     >>> Val MAE Details: ['150.6964', '222.0686', '246.5725']
+2026-04-14 23:53:56,720 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-14 23:55:10,693 - INFO - [Epoch 12] Train Loss: 0.0695 | LR: 0.000099
+2026-04-14 23:55:10,694 - INFO -     >>> Val Avg RMSE (Real): 262.8266
+2026-04-14 23:55:10,694 - INFO -     >>> Val MAE Details: ['160.2652', '176.4080', '237.9620']
+2026-04-14 23:55:10,694 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-14 23:56:27,294 - INFO - [Epoch 13] Train Loss: 0.0689 | LR: 0.000099
+2026-04-14 23:56:27,294 - INFO -     >>> Val Avg RMSE (Real): 252.5251
+2026-04-14 23:56:27,294 - INFO -     >>> Val MAE Details: ['146.7980', '175.9370', '221.4121']
+2026-04-14 23:56:27,327 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-14 23:57:47,867 - INFO - [Epoch 14] Train Loss: 0.0679 | LR: 0.000099
+2026-04-14 23:57:47,867 - INFO -     >>> Val Avg RMSE (Real): 253.5450
+2026-04-14 23:57:47,867 - INFO -     >>> Val MAE Details: ['154.3678', '175.2603', '219.6899']
+2026-04-14 23:57:47,867 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-14 23:59:05,567 - INFO - [Epoch 15] Train Loss: 0.0659 | LR: 0.000099
+2026-04-14 23:59:05,567 - INFO -     >>> Val Avg RMSE (Real): 261.4152
+2026-04-14 23:59:05,567 - INFO -     >>> Val MAE Details: ['167.6713', '175.5259', '232.0180']
+2026-04-14 23:59:05,567 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 00:00:25,915 - INFO - [Epoch 16] Train Loss: 0.0653 | LR: 0.000098
+2026-04-15 00:00:25,915 - INFO -     >>> Val Avg RMSE (Real): 260.8448
+2026-04-15 00:00:25,916 - INFO -     >>> Val MAE Details: ['175.9072', '175.7661', '225.5225']
+2026-04-15 00:00:25,916 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-15 00:01:44,450 - INFO - [Epoch 17] Train Loss: 0.0649 | LR: 0.000098
+2026-04-15 00:01:44,450 - INFO -     >>> Val Avg RMSE (Real): 245.5831
+2026-04-15 00:01:44,450 - INFO -     >>> Val MAE Details: ['143.3548', '173.3000', '211.9015']
+2026-04-15 00:01:44,482 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 00:03:03,827 - INFO - [Epoch 18] Train Loss: 0.0639 | LR: 0.000098
+2026-04-15 00:03:03,828 - INFO -     >>> Val Avg RMSE (Real): 243.3606
+2026-04-15 00:03:03,828 - INFO -     >>> Val MAE Details: ['141.7479', '169.9729', '212.0577']
+2026-04-15 00:03:03,863 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 00:04:21,930 - INFO - [Epoch 19] Train Loss: 0.0632 | LR: 0.000098
+2026-04-15 00:04:21,930 - INFO -     >>> Val Avg RMSE (Real): 244.2946
+2026-04-15 00:04:21,930 - INFO -     >>> Val MAE Details: ['142.5355', '171.5700', '211.4732']
+2026-04-15 00:04:21,930 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 00:05:39,683 - INFO - [Epoch 20] Train Loss: 0.0622 | LR: 0.000098
+2026-04-15 00:05:39,683 - INFO -     >>> Val Avg RMSE (Real): 244.6304
+2026-04-15 00:05:39,684 - INFO -     >>> Val MAE Details: ['144.3771', '169.9970', '212.9427']
+2026-04-15 00:05:39,684 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 00:06:59,506 - INFO - [Epoch 21] Train Loss: 0.0619 | LR: 0.000097
+2026-04-15 00:06:59,506 - INFO -     >>> Val Avg RMSE (Real): 241.7100
+2026-04-15 00:06:59,506 - INFO -     >>> Val MAE Details: ['141.0378', '167.9763', '210.5266']
+2026-04-15 00:06:59,537 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 00:08:11,144 - INFO - [Epoch 22] Train Loss: 0.0615 | LR: 0.000097
+2026-04-15 00:08:11,145 - INFO -     >>> Val Avg RMSE (Real): 241.9560
+2026-04-15 00:08:11,145 - INFO -     >>> Val MAE Details: ['147.6511', '171.9782', '206.9249']
+2026-04-15 00:08:11,145 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 00:09:31,426 - INFO - [Epoch 23] Train Loss: 0.0609 | LR: 0.000097
+2026-04-15 00:09:31,426 - INFO -     >>> Val Avg RMSE (Real): 246.9503
+2026-04-15 00:09:31,426 - INFO -     >>> Val MAE Details: ['148.4320', '167.9339', '216.5371']
+2026-04-15 00:09:31,426 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 00:10:49,440 - INFO - [Epoch 24] Train Loss: 0.0598 | LR: 0.000096
+2026-04-15 00:10:49,441 - INFO -     >>> Val Avg RMSE (Real): 237.0202
+2026-04-15 00:10:49,441 - INFO -     >>> Val MAE Details: ['139.2492', '163.7975', '207.2546']
+2026-04-15 00:10:49,473 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 00:12:07,656 - INFO - [Epoch 25] Train Loss: 0.0595 | LR: 0.000096
+2026-04-15 00:12:07,657 - INFO -     >>> Val Avg RMSE (Real): 236.6844
+2026-04-15 00:12:07,657 - INFO -     >>> Val MAE Details: ['143.8658', '162.9374', '204.6919']
+2026-04-15 00:12:07,688 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 00:13:25,628 - INFO - [Epoch 26] Train Loss: 0.0587 | LR: 0.000096
+2026-04-15 00:13:25,628 - INFO -     >>> Val Avg RMSE (Real): 239.5240
+2026-04-15 00:13:25,628 - INFO -     >>> Val MAE Details: ['138.4259', '168.4221', '210.2980']
+2026-04-15 00:13:25,628 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 00:14:43,386 - INFO - [Epoch 27] Train Loss: 0.0584 | LR: 0.000096
+2026-04-15 00:14:43,386 - INFO -     >>> Val Avg RMSE (Real): 234.4773
+2026-04-15 00:14:43,386 - INFO -     >>> Val MAE Details: ['144.2137', '159.2242', '202.5012']
+2026-04-15 00:14:43,426 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 00:16:02,086 - INFO - [Epoch 28] Train Loss: 0.0581 | LR: 0.000095
+2026-04-15 00:16:02,086 - INFO -     >>> Val Avg RMSE (Real): 243.4323
+2026-04-15 00:16:02,086 - INFO -     >>> Val MAE Details: ['140.3327', '169.5985', '218.4312']
+2026-04-15 00:16:02,086 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 00:17:18,641 - INFO - [Epoch 29] Train Loss: 0.0574 | LR: 0.000095
+2026-04-15 00:17:18,641 - INFO -     >>> Val Avg RMSE (Real): 236.5110
+2026-04-15 00:17:18,641 - INFO -     >>> Val MAE Details: ['141.8072', '161.9888', '210.3762']
+2026-04-15 00:17:18,641 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 00:18:37,922 - INFO - [Epoch 30] Train Loss: 0.0575 | LR: 0.000095
+2026-04-15 00:18:37,922 - INFO -     >>> Val Avg RMSE (Real): 239.9219
+2026-04-15 00:18:37,922 - INFO -     >>> Val MAE Details: ['144.0182', '166.7004', '213.7431']
+2026-04-15 00:18:37,922 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-15 00:19:56,127 - INFO - [Epoch 31] Train Loss: 0.0565 | LR: 0.000094
+2026-04-15 00:19:56,128 - INFO -     >>> Val Avg RMSE (Real): 249.9330
+2026-04-15 00:19:56,128 - INFO -     >>> Val MAE Details: ['138.7507', '185.1154', '228.1803']
+2026-04-15 00:19:56,128 - INFO - ⏳ No improvement. Patience: 4/50
+2026-04-15 00:21:10,916 - INFO - [Epoch 32] Train Loss: 0.0562 | LR: 0.000094
+2026-04-15 00:21:10,916 - INFO -     >>> Val Avg RMSE (Real): 230.4103
+2026-04-15 00:21:10,916 - INFO -     >>> Val MAE Details: ['135.0823', '161.0616', '199.4848']
+2026-04-15 00:21:10,953 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 00:22:27,412 - INFO - [Epoch 33] Train Loss: 0.0559 | LR: 0.000093
+2026-04-15 00:22:27,412 - INFO -     >>> Val Avg RMSE (Real): 238.0139
+2026-04-15 00:22:27,412 - INFO -     >>> Val MAE Details: ['143.0664', '159.2773', '210.9194']
+2026-04-15 00:22:27,412 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 00:23:46,591 - INFO - [Epoch 34] Train Loss: 0.0552 | LR: 0.000093
+2026-04-15 00:23:46,591 - INFO -     >>> Val Avg RMSE (Real): 232.4371
+2026-04-15 00:23:46,591 - INFO -     >>> Val MAE Details: ['133.1581', '168.6131', '203.3369']
+2026-04-15 00:23:46,591 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 00:25:05,330 - INFO - [Epoch 35] Train Loss: 0.0551 | LR: 0.000093
+2026-04-15 00:25:05,330 - INFO -     >>> Val Avg RMSE (Real): 236.0500
+2026-04-15 00:25:05,330 - INFO -     >>> Val MAE Details: ['141.8353', '164.0366', '207.9043']
+2026-04-15 00:25:05,330 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-15 00:26:23,026 - INFO - [Epoch 36] Train Loss: 0.0548 | LR: 0.000092
+2026-04-15 00:26:23,026 - INFO -     >>> Val Avg RMSE (Real): 234.3377
+2026-04-15 00:26:23,026 - INFO -     >>> Val MAE Details: ['141.4596', '157.3474', '208.5499']
+2026-04-15 00:26:23,027 - INFO - ⏳ No improvement. Patience: 4/50
+2026-04-15 00:27:43,251 - INFO - [Epoch 37] Train Loss: 0.0543 | LR: 0.000092
+2026-04-15 00:27:43,251 - INFO -     >>> Val Avg RMSE (Real): 231.6539
+2026-04-15 00:27:43,251 - INFO -     >>> Val MAE Details: ['144.6059', '154.5073', '201.7822']
+2026-04-15 00:27:43,251 - INFO - ⏳ No improvement. Patience: 5/50
+2026-04-15 00:29:00,660 - INFO - [Epoch 38] Train Loss: 0.0542 | LR: 0.000091
+2026-04-15 00:29:00,660 - INFO -     >>> Val Avg RMSE (Real): 228.8956
+2026-04-15 00:29:00,660 - INFO -     >>> Val MAE Details: ['138.4338', '155.6339', '198.2980']
+2026-04-15 00:29:00,693 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 00:30:20,461 - INFO - [Epoch 39] Train Loss: 0.0538 | LR: 0.000091
+2026-04-15 00:30:20,461 - INFO -     >>> Val Avg RMSE (Real): 232.6101
+2026-04-15 00:30:20,461 - INFO -     >>> Val MAE Details: ['139.1914', '163.6247', '202.4893']
+2026-04-15 00:30:20,461 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 00:31:39,244 - INFO - [Epoch 40] Train Loss: 0.0534 | LR: 0.000090
+2026-04-15 00:31:39,244 - INFO -     >>> Val Avg RMSE (Real): 244.6558
+2026-04-15 00:31:39,244 - INFO -     >>> Val MAE Details: ['142.8891', '177.7675', '214.8876']
+2026-04-15 00:31:39,244 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 00:32:58,472 - INFO - [Epoch 41] Train Loss: 0.0533 | LR: 0.000090
+2026-04-15 00:32:58,472 - INFO -     >>> Val Avg RMSE (Real): 229.4856
+2026-04-15 00:32:58,472 - INFO -     >>> Val MAE Details: ['138.0330', '155.6640', '200.2979']
+2026-04-15 00:32:58,472 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-15 00:34:11,422 - INFO - [Epoch 42] Train Loss: 0.0532 | LR: 0.000090
+2026-04-15 00:34:11,422 - INFO -     >>> Val Avg RMSE (Real): 230.6566
+2026-04-15 00:34:11,422 - INFO -     >>> Val MAE Details: ['143.3519', '162.1476', '196.5120']
+2026-04-15 00:34:11,422 - INFO - ⏳ No improvement. Patience: 4/50
+2026-04-15 00:35:26,367 - INFO - [Epoch 43] Train Loss: 0.0523 | LR: 0.000089
+2026-04-15 00:35:26,368 - INFO -     >>> Val Avg RMSE (Real): 235.9112
+2026-04-15 00:35:26,368 - INFO -     >>> Val MAE Details: ['151.1248', '153.2204', '211.5168']
+2026-04-15 00:35:26,368 - INFO - ⏳ No improvement. Patience: 5/50
+2026-04-15 00:36:45,702 - INFO - [Epoch 44] Train Loss: 0.0525 | LR: 0.000089
+2026-04-15 00:36:45,703 - INFO -     >>> Val Avg RMSE (Real): 224.7627
+2026-04-15 00:36:45,703 - INFO -     >>> Val MAE Details: ['132.8056', '154.4529', '196.3295']
+2026-04-15 00:36:45,734 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 00:38:04,018 - INFO - [Epoch 45] Train Loss: 0.0519 | LR: 0.000088
+2026-04-15 00:38:04,018 - INFO -     >>> Val Avg RMSE (Real): 225.5203
+2026-04-15 00:38:04,018 - INFO -     >>> Val MAE Details: ['136.9815', '154.2534', '196.4414']
+2026-04-15 00:38:04,018 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 00:39:24,240 - INFO - [Epoch 46] Train Loss: 0.0516 | LR: 0.000088
+2026-04-15 00:39:24,240 - INFO -     >>> Val Avg RMSE (Real): 223.6532
+2026-04-15 00:39:24,240 - INFO -     >>> Val MAE Details: ['128.8229', '155.5124', '197.3891']
+2026-04-15 00:39:24,275 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 00:40:41,308 - INFO - [Epoch 47] Train Loss: 0.0511 | LR: 0.000087
+2026-04-15 00:40:41,308 - INFO -     >>> Val Avg RMSE (Real): 221.4691
+2026-04-15 00:40:41,308 - INFO -     >>> Val MAE Details: ['130.0581', '153.0896', '191.6509']
+2026-04-15 00:40:41,340 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 00:42:00,447 - INFO - [Epoch 48] Train Loss: 0.0512 | LR: 0.000086
+2026-04-15 00:42:00,447 - INFO -     >>> Val Avg RMSE (Real): 250.4256
+2026-04-15 00:42:00,447 - INFO -     >>> Val MAE Details: ['150.9565', '170.2437', '240.8469']
+2026-04-15 00:42:00,447 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 00:43:17,999 - INFO - [Epoch 49] Train Loss: 0.0508 | LR: 0.000086
+2026-04-15 00:43:18,000 - INFO -     >>> Val Avg RMSE (Real): 224.2573
+2026-04-15 00:43:18,000 - INFO -     >>> Val MAE Details: ['137.6758', '150.8307', '193.9600']
+2026-04-15 00:43:18,000 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 00:44:35,889 - INFO - [Epoch 50] Train Loss: 0.0506 | LR: 0.000085
+2026-04-15 00:44:35,889 - INFO -     >>> Val Avg RMSE (Real): 225.4842
+2026-04-15 00:44:35,889 - INFO -     >>> Val MAE Details: ['128.4402', '162.5169', '199.3957']
+2026-04-15 00:44:35,889 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-15 00:45:55,475 - INFO - [Epoch 51] Train Loss: 0.0501 | LR: 0.000085
+2026-04-15 00:45:55,475 - INFO -     >>> Val Avg RMSE (Real): 220.8127
+2026-04-15 00:45:55,475 - INFO -     >>> Val MAE Details: ['131.0387', '150.9892', '191.4999']
+2026-04-15 00:45:55,506 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 00:47:10,243 - INFO - [Epoch 52] Train Loss: 0.0498 | LR: 0.000084
+2026-04-15 00:47:10,243 - INFO -     >>> Val Avg RMSE (Real): 219.2828
+2026-04-15 00:47:10,243 - INFO -     >>> Val MAE Details: ['131.6039', '150.2197', '188.5214']
+2026-04-15 00:47:10,278 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 00:48:28,631 - INFO - [Epoch 53] Train Loss: 0.0496 | LR: 0.000084
+2026-04-15 00:48:28,631 - INFO -     >>> Val Avg RMSE (Real): 222.2643
+2026-04-15 00:48:28,631 - INFO -     >>> Val MAE Details: ['129.0025', '153.0685', '196.2832']
+2026-04-15 00:48:28,631 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 00:49:46,739 - INFO - [Epoch 54] Train Loss: 0.0495 | LR: 0.000083
+2026-04-15 00:49:46,739 - INFO -     >>> Val Avg RMSE (Real): 220.1124
+2026-04-15 00:49:46,739 - INFO -     >>> Val MAE Details: ['129.8197', '151.3641', '194.2841']
+2026-04-15 00:49:46,739 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 00:51:05,435 - INFO - [Epoch 55] Train Loss: 0.0490 | LR: 0.000082
+2026-04-15 00:51:05,435 - INFO -     >>> Val Avg RMSE (Real): 222.7817
+2026-04-15 00:51:05,435 - INFO -     >>> Val MAE Details: ['131.9767', '162.6099', '190.2335']
+2026-04-15 00:51:05,435 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-15 00:52:24,326 - INFO - [Epoch 56] Train Loss: 0.0487 | LR: 0.000082
+2026-04-15 00:52:24,326 - INFO -     >>> Val Avg RMSE (Real): 226.3130
+2026-04-15 00:52:24,326 - INFO -     >>> Val MAE Details: ['149.8382', '147.7836', '195.4520']
+2026-04-15 00:52:24,326 - INFO - ⏳ No improvement. Patience: 4/50
+2026-04-15 00:53:42,006 - INFO - [Epoch 57] Train Loss: 0.0488 | LR: 0.000081
+2026-04-15 00:53:42,007 - INFO -     >>> Val Avg RMSE (Real): 216.8015
+2026-04-15 00:53:42,007 - INFO -     >>> Val MAE Details: ['128.8148', '150.5755', '189.1134']
+2026-04-15 00:53:42,039 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 00:55:02,195 - INFO - [Epoch 58] Train Loss: 0.0485 | LR: 0.000081
+2026-04-15 00:55:02,195 - INFO -     >>> Val Avg RMSE (Real): 219.6799
+2026-04-15 00:55:02,195 - INFO -     >>> Val MAE Details: ['134.6456', '154.3181', '188.3793']
+2026-04-15 00:55:02,196 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 00:56:20,337 - INFO - [Epoch 59] Train Loss: 0.0489 | LR: 0.000080
+2026-04-15 00:56:20,337 - INFO -     >>> Val Avg RMSE (Real): 222.7228
+2026-04-15 00:56:20,337 - INFO -     >>> Val MAE Details: ['133.6289', '161.1980', '191.3267']
+2026-04-15 00:56:20,337 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 00:57:40,323 - INFO - [Epoch 60] Train Loss: 0.0482 | LR: 0.000079
+2026-04-15 00:57:40,323 - INFO -     >>> Val Avg RMSE (Real): 214.5486
+2026-04-15 00:57:40,323 - INFO -     >>> Val MAE Details: ['125.2006', '147.0942', '186.8835']
+2026-04-15 00:57:40,354 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 00:58:57,758 - INFO - [Epoch 61] Train Loss: 0.0480 | LR: 0.000079
+2026-04-15 00:58:57,758 - INFO -     >>> Val Avg RMSE (Real): 220.3612
+2026-04-15 00:58:57,758 - INFO -     >>> Val MAE Details: ['129.8703', '151.6957', '194.5298']
+2026-04-15 00:58:57,758 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 01:00:16,191 - INFO - [Epoch 62] Train Loss: 0.0479 | LR: 0.000078
+2026-04-15 01:00:16,192 - INFO -     >>> Val Avg RMSE (Real): 230.2957
+2026-04-15 01:00:16,192 - INFO -     >>> Val MAE Details: ['143.7217', '151.6260', '209.0012']
+2026-04-15 01:00:16,192 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 01:01:28,857 - INFO - [Epoch 63] Train Loss: 0.0479 | LR: 0.000077
+2026-04-15 01:01:28,857 - INFO -     >>> Val Avg RMSE (Real): 213.8179
+2026-04-15 01:01:28,857 - INFO -     >>> Val MAE Details: ['126.2601', '145.7814', '186.3943']
+2026-04-15 01:01:28,879 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 01:02:46,696 - INFO - [Epoch 64] Train Loss: 0.0475 | LR: 0.000077
+2026-04-15 01:02:46,696 - INFO -     >>> Val Avg RMSE (Real): 219.5037
+2026-04-15 01:02:46,696 - INFO -     >>> Val MAE Details: ['127.5685', '151.2642', '193.8170']
+2026-04-15 01:02:46,696 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 01:04:06,700 - INFO - [Epoch 65] Train Loss: 0.0474 | LR: 0.000076
+2026-04-15 01:04:06,700 - INFO -     >>> Val Avg RMSE (Real): 214.3877
+2026-04-15 01:04:06,700 - INFO -     >>> Val MAE Details: ['124.2846', '148.6812', '185.5086']
+2026-04-15 01:04:06,700 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 01:05:24,588 - INFO - [Epoch 66] Train Loss: 0.0473 | LR: 0.000075
+2026-04-15 01:05:24,588 - INFO -     >>> Val Avg RMSE (Real): 220.4927
+2026-04-15 01:05:24,588 - INFO -     >>> Val MAE Details: ['129.2720', '151.8887', '197.6527']
+2026-04-15 01:05:24,588 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-15 01:06:44,654 - INFO - [Epoch 67] Train Loss: 0.0466 | LR: 0.000075
+2026-04-15 01:06:44,654 - INFO -     >>> Val Avg RMSE (Real): 219.8705
+2026-04-15 01:06:44,654 - INFO -     >>> Val MAE Details: ['128.0736', '153.2645', '197.5876']
+2026-04-15 01:06:44,654 - INFO - ⏳ No improvement. Patience: 4/50
+2026-04-15 01:08:02,766 - INFO - [Epoch 68] Train Loss: 0.0468 | LR: 0.000074
+2026-04-15 01:08:02,767 - INFO -     >>> Val Avg RMSE (Real): 217.0675
+2026-04-15 01:08:02,767 - INFO -     >>> Val MAE Details: ['127.3877', '154.1985', '187.0196']
+2026-04-15 01:08:02,767 - INFO - ⏳ No improvement. Patience: 5/50
+2026-04-15 01:09:23,051 - INFO - [Epoch 69] Train Loss: 0.0465 | LR: 0.000073
+2026-04-15 01:09:23,052 - INFO -     >>> Val Avg RMSE (Real): 220.6455
+2026-04-15 01:09:23,052 - INFO -     >>> Val MAE Details: ['131.8834', '147.6044', '197.8688']
+2026-04-15 01:09:23,052 - INFO - ⏳ No improvement. Patience: 6/50
+2026-04-15 01:10:40,532 - INFO - [Epoch 70] Train Loss: 0.0464 | LR: 0.000073
+2026-04-15 01:10:40,533 - INFO -     >>> Val Avg RMSE (Real): 210.9965
+2026-04-15 01:10:40,533 - INFO -     >>> Val MAE Details: ['123.5167', '145.0878', '182.4501']
+2026-04-15 01:10:40,564 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 01:11:59,270 - INFO - [Epoch 71] Train Loss: 0.0460 | LR: 0.000072
+2026-04-15 01:11:59,271 - INFO -     >>> Val Avg RMSE (Real): 218.0802
+2026-04-15 01:11:59,271 - INFO -     >>> Val MAE Details: ['126.2476', '152.4398', '189.0354']
+2026-04-15 01:11:59,271 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 01:13:19,576 - INFO - [Epoch 72] Train Loss: 0.0460 | LR: 0.000071
+2026-04-15 01:13:19,576 - INFO -     >>> Val Avg RMSE (Real): 216.8081
+2026-04-15 01:13:19,576 - INFO -     >>> Val MAE Details: ['126.6365', '156.4876', '186.2636']
+2026-04-15 01:13:19,576 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 01:14:27,130 - INFO - [Epoch 73] Train Loss: 0.0455 | LR: 0.000071
+2026-04-15 01:14:27,131 - INFO -     >>> Val Avg RMSE (Real): 211.6376
+2026-04-15 01:14:27,131 - INFO -     >>> Val MAE Details: ['122.9134', '148.6608', '184.4500']
+2026-04-15 01:14:27,131 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-15 01:15:46,724 - INFO - [Epoch 74] Train Loss: 0.0456 | LR: 0.000070
+2026-04-15 01:15:46,724 - INFO -     >>> Val Avg RMSE (Real): 211.3087
+2026-04-15 01:15:46,724 - INFO -     >>> Val MAE Details: ['123.0760', '147.8574', '183.1681']
+2026-04-15 01:15:46,724 - INFO - ⏳ No improvement. Patience: 4/50
+2026-04-15 01:17:05,213 - INFO - [Epoch 75] Train Loss: 0.0455 | LR: 0.000069
+2026-04-15 01:17:05,213 - INFO -     >>> Val Avg RMSE (Real): 211.6962
+2026-04-15 01:17:05,213 - INFO -     >>> Val MAE Details: ['124.6660', '145.4400', '183.5422']
+2026-04-15 01:17:05,213 - INFO - ⏳ No improvement. Patience: 5/50
+2026-04-15 01:18:24,767 - INFO - [Epoch 76] Train Loss: 0.0454 | LR: 0.000068
+2026-04-15 01:18:24,767 - INFO -     >>> Val Avg RMSE (Real): 210.6606
+2026-04-15 01:18:24,767 - INFO -     >>> Val MAE Details: ['124.8305', '142.8401', '182.3271']
+2026-04-15 01:18:24,799 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 01:19:42,508 - INFO - [Epoch 77] Train Loss: 0.0450 | LR: 0.000068
+2026-04-15 01:19:42,508 - INFO -     >>> Val Avg RMSE (Real): 224.6660
+2026-04-15 01:19:42,508 - INFO -     >>> Val MAE Details: ['134.0101', '150.2633', '203.5018']
+2026-04-15 01:19:42,508 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 01:21:00,772 - INFO - [Epoch 78] Train Loss: 0.0452 | LR: 0.000067
+2026-04-15 01:21:00,772 - INFO -     >>> Val Avg RMSE (Real): 210.6567
+2026-04-15 01:21:00,772 - INFO -     >>> Val MAE Details: ['125.1892', '144.9626', '183.1578']
+2026-04-15 01:21:00,809 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 01:22:20,210 - INFO - [Epoch 79] Train Loss: 0.0447 | LR: 0.000066
+2026-04-15 01:22:20,210 - INFO -     >>> Val Avg RMSE (Real): 221.1464
+2026-04-15 01:22:20,211 - INFO -     >>> Val MAE Details: ['124.7998', '160.8293', '192.1846']
+2026-04-15 01:22:20,211 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 01:23:38,304 - INFO - [Epoch 80] Train Loss: 0.0447 | LR: 0.000065
+2026-04-15 01:23:38,304 - INFO -     >>> Val Avg RMSE (Real): 214.4245
+2026-04-15 01:23:38,304 - INFO -     >>> Val MAE Details: ['131.2865', '147.5564', '184.0600']
+2026-04-15 01:23:38,304 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 01:24:58,260 - INFO - [Epoch 81] Train Loss: 0.0445 | LR: 0.000065
+2026-04-15 01:24:58,260 - INFO -     >>> Val Avg RMSE (Real): 211.3176
+2026-04-15 01:24:58,260 - INFO -     >>> Val MAE Details: ['124.3035', '146.2759', '183.7903']
+2026-04-15 01:24:58,260 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-15 01:26:16,451 - INFO - [Epoch 82] Train Loss: 0.0443 | LR: 0.000064
+2026-04-15 01:26:16,451 - INFO -     >>> Val Avg RMSE (Real): 209.3813
+2026-04-15 01:26:16,451 - INFO -     >>> Val MAE Details: ['122.3471', '144.9327', '182.0272']
+2026-04-15 01:26:16,482 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 01:27:31,498 - INFO - [Epoch 83] Train Loss: 0.0442 | LR: 0.000063
+2026-04-15 01:27:31,499 - INFO -     >>> Val Avg RMSE (Real): 209.3409
+2026-04-15 01:27:31,499 - INFO -     >>> Val MAE Details: ['123.4584', '142.9813', '182.1978']
+2026-04-15 01:27:31,535 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 01:28:47,460 - INFO - [Epoch 84] Train Loss: 0.0441 | LR: 0.000062
+2026-04-15 01:28:47,460 - INFO -     >>> Val Avg RMSE (Real): 212.1532
+2026-04-15 01:28:47,460 - INFO -     >>> Val MAE Details: ['122.4895', '150.4293', '186.3345']
+2026-04-15 01:28:47,460 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 01:30:06,421 - INFO - [Epoch 85] Train Loss: 0.0440 | LR: 0.000062
+2026-04-15 01:30:06,421 - INFO -     >>> Val Avg RMSE (Real): 207.4505
+2026-04-15 01:30:06,421 - INFO -     >>> Val MAE Details: ['122.5393', '142.3690', '179.1294']
+2026-04-15 01:30:06,448 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 01:31:24,741 - INFO - [Epoch 86] Train Loss: 0.0439 | LR: 0.000061
+2026-04-15 01:31:24,741 - INFO -     >>> Val Avg RMSE (Real): 208.2571
+2026-04-15 01:31:24,741 - INFO -     >>> Val MAE Details: ['121.9128', '143.0684', '181.5843']
+2026-04-15 01:31:24,741 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 01:32:42,746 - INFO - [Epoch 87] Train Loss: 0.0437 | LR: 0.000060
+2026-04-15 01:32:42,746 - INFO -     >>> Val Avg RMSE (Real): 209.4991
+2026-04-15 01:32:42,746 - INFO -     >>> Val MAE Details: ['123.5787', '141.9082', '184.9456']
+2026-04-15 01:32:42,746 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 01:34:02,463 - INFO - [Epoch 88] Train Loss: 0.0435 | LR: 0.000059
+2026-04-15 01:34:02,463 - INFO -     >>> Val Avg RMSE (Real): 209.6137
+2026-04-15 01:34:02,463 - INFO -     >>> Val MAE Details: ['127.8616', '141.3221', '181.6668']
+2026-04-15 01:34:02,463 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-15 01:35:20,817 - INFO - [Epoch 89] Train Loss: 0.0435 | LR: 0.000059
+2026-04-15 01:35:20,817 - INFO -     >>> Val Avg RMSE (Real): 211.4222
+2026-04-15 01:35:20,817 - INFO -     >>> Val MAE Details: ['125.1874', '145.4326', '183.1061']
+2026-04-15 01:35:20,817 - INFO - ⏳ No improvement. Patience: 4/50
+2026-04-15 01:36:41,764 - INFO - [Epoch 90] Train Loss: 0.0432 | LR: 0.000058
+2026-04-15 01:36:41,764 - INFO -     >>> Val Avg RMSE (Real): 210.5622
+2026-04-15 01:36:41,764 - INFO -     >>> Val MAE Details: ['127.9944', '144.1820', '181.0454']
+2026-04-15 01:36:41,764 - INFO - ⏳ No improvement. Patience: 5/50
+2026-04-15 01:38:00,173 - INFO - [Epoch 91] Train Loss: 0.0430 | LR: 0.000057
+2026-04-15 01:38:00,173 - INFO -     >>> Val Avg RMSE (Real): 208.8511
+2026-04-15 01:38:00,173 - INFO -     >>> Val MAE Details: ['124.1943', '146.4648', '180.4536']
+2026-04-15 01:38:00,173 - INFO - ⏳ No improvement. Patience: 6/50
+2026-04-15 01:39:19,450 - INFO - [Epoch 92] Train Loss: 0.0431 | LR: 0.000056
+2026-04-15 01:39:19,450 - INFO -     >>> Val Avg RMSE (Real): 207.5466
+2026-04-15 01:39:19,450 - INFO -     >>> Val MAE Details: ['124.3139', '141.6957', '178.8775']
+2026-04-15 01:39:19,450 - INFO - ⏳ No improvement. Patience: 7/50
+2026-04-15 01:40:33,178 - INFO - [Epoch 93] Train Loss: 0.0429 | LR: 0.000055
+2026-04-15 01:40:33,179 - INFO -     >>> Val Avg RMSE (Real): 212.6777
+2026-04-15 01:40:33,179 - INFO -     >>> Val MAE Details: ['133.0397', '140.2414', '185.2745']
+2026-04-15 01:40:33,179 - INFO - ⏳ No improvement. Patience: 8/50
+2026-04-15 01:41:47,547 - INFO - [Epoch 94] Train Loss: 0.0429 | LR: 0.000055
+2026-04-15 01:41:47,547 - INFO -     >>> Val Avg RMSE (Real): 208.9119
+2026-04-15 01:41:47,548 - INFO -     >>> Val MAE Details: ['124.5582', '143.2290', '182.4879']
+2026-04-15 01:41:47,548 - INFO - ⏳ No improvement. Patience: 9/50
+2026-04-15 01:43:06,957 - INFO - [Epoch 95] Train Loss: 0.0428 | LR: 0.000054
+2026-04-15 01:43:06,957 - INFO -     >>> Val Avg RMSE (Real): 205.0431
+2026-04-15 01:43:06,957 - INFO -     >>> Val MAE Details: ['119.9142', '139.9996', '178.2926']
+2026-04-15 01:43:06,990 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 01:44:24,629 - INFO - [Epoch 96] Train Loss: 0.0425 | LR: 0.000053
+2026-04-15 01:44:24,629 - INFO -     >>> Val Avg RMSE (Real): 207.3062
+2026-04-15 01:44:24,629 - INFO -     >>> Val MAE Details: ['120.5968', '145.1621', '178.5144']
+2026-04-15 01:44:24,629 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 01:45:44,301 - INFO - [Epoch 97] Train Loss: 0.0424 | LR: 0.000052
+2026-04-15 01:45:44,301 - INFO -     >>> Val Avg RMSE (Real): 209.7903
+2026-04-15 01:45:44,301 - INFO -     >>> Val MAE Details: ['121.6097', '145.5505', '184.3938']
+2026-04-15 01:45:44,301 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 01:47:02,448 - INFO - [Epoch 98] Train Loss: 0.0424 | LR: 0.000052
+2026-04-15 01:47:02,449 - INFO -     >>> Val Avg RMSE (Real): 208.9789
+2026-04-15 01:47:02,449 - INFO -     >>> Val MAE Details: ['122.5490', '144.6930', '181.9930']
+2026-04-15 01:47:02,449 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-15 01:48:22,538 - INFO - [Epoch 99] Train Loss: 0.0423 | LR: 0.000051
+2026-04-15 01:48:22,538 - INFO -     >>> Val Avg RMSE (Real): 208.1064
+2026-04-15 01:48:22,538 - INFO -     >>> Val MAE Details: ['122.2775', '142.2833', '181.3853']
+2026-04-15 01:48:22,538 - INFO - ⏳ No improvement. Patience: 4/50
+2026-04-15 01:49:40,188 - INFO - [Epoch 100] Train Loss: 0.0420 | LR: 0.000050
+2026-04-15 01:49:40,188 - INFO -     >>> Val Avg RMSE (Real): 209.0827
+2026-04-15 01:49:40,188 - INFO -     >>> Val MAE Details: ['120.0153', '150.7076', '182.2550']
+2026-04-15 01:49:40,188 - INFO - ⏳ No improvement. Patience: 5/50
+2026-04-15 01:50:57,542 - INFO - [Epoch 101] Train Loss: 0.0419 | LR: 0.000049
+2026-04-15 01:50:57,542 - INFO -     >>> Val Avg RMSE (Real): 206.2411
+2026-04-15 01:50:57,542 - INFO -     >>> Val MAE Details: ['121.7699', '141.1254', '177.9128']
+2026-04-15 01:50:57,542 - INFO - ⏳ No improvement. Patience: 6/50
+2026-04-15 01:52:15,277 - INFO - [Epoch 102] Train Loss: 0.0417 | LR: 0.000048
+2026-04-15 01:52:15,277 - INFO -     >>> Val Avg RMSE (Real): 206.6925
+2026-04-15 01:52:15,277 - INFO -     >>> Val MAE Details: ['121.3544', '141.2409', '183.5155']
+2026-04-15 01:52:15,277 - INFO - ⏳ No improvement. Patience: 7/50
+2026-04-15 01:53:31,674 - INFO - [Epoch 103] Train Loss: 0.0418 | LR: 0.000048
+2026-04-15 01:53:31,675 - INFO -     >>> Val Avg RMSE (Real): 205.1810
+2026-04-15 01:53:31,675 - INFO -     >>> Val MAE Details: ['121.5763', '140.5829', '177.6325']
+2026-04-15 01:53:31,675 - INFO - ⏳ No improvement. Patience: 8/50
+2026-04-15 01:54:46,806 - INFO - [Epoch 104] Train Loss: 0.0415 | LR: 0.000047
+2026-04-15 01:54:46,806 - INFO -     >>> Val Avg RMSE (Real): 203.9064
+2026-04-15 01:54:46,806 - INFO -     >>> Val MAE Details: ['118.8270', '139.6492', '177.3529']
+2026-04-15 01:54:46,839 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 01:56:04,717 - INFO - [Epoch 105] Train Loss: 0.0414 | LR: 0.000046
+2026-04-15 01:56:04,717 - INFO -     >>> Val Avg RMSE (Real): 212.2711
+2026-04-15 01:56:04,717 - INFO -     >>> Val MAE Details: ['119.2198', '157.1420', '186.4958']
+2026-04-15 01:56:04,717 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 01:57:24,470 - INFO - [Epoch 106] Train Loss: 0.0415 | LR: 0.000045
+2026-04-15 01:57:24,470 - INFO -     >>> Val Avg RMSE (Real): 202.8959
+2026-04-15 01:57:24,470 - INFO -     >>> Val MAE Details: ['119.0756', '138.4278', '175.6516']
+2026-04-15 01:57:24,502 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 01:58:42,589 - INFO - [Epoch 107] Train Loss: 0.0413 | LR: 0.000045
+2026-04-15 01:58:42,589 - INFO -     >>> Val Avg RMSE (Real): 204.6888
+2026-04-15 01:58:42,589 - INFO -     >>> Val MAE Details: ['119.2262', '141.4075', '177.1694']
+2026-04-15 01:58:42,589 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 02:00:01,705 - INFO - [Epoch 108] Train Loss: 0.0413 | LR: 0.000044
+2026-04-15 02:00:01,706 - INFO -     >>> Val Avg RMSE (Real): 205.3737
+2026-04-15 02:00:01,706 - INFO -     >>> Val MAE Details: ['123.4400', '137.6453', '179.0636']
+2026-04-15 02:00:01,706 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 02:01:20,467 - INFO - [Epoch 109] Train Loss: 0.0411 | LR: 0.000043
+2026-04-15 02:01:20,467 - INFO -     >>> Val Avg RMSE (Real): 205.0487
+2026-04-15 02:01:20,467 - INFO -     >>> Val MAE Details: ['121.2149', '139.8749', '178.1004']
+2026-04-15 02:01:20,467 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-15 02:02:37,497 - INFO - [Epoch 110] Train Loss: 0.0410 | LR: 0.000042
+2026-04-15 02:02:37,497 - INFO -     >>> Val Avg RMSE (Real): 207.6544
+2026-04-15 02:02:37,497 - INFO -     >>> Val MAE Details: ['121.0484', '147.2016', '180.1243']
+2026-04-15 02:02:37,497 - INFO - ⏳ No improvement. Patience: 4/50
+2026-04-15 02:03:57,356 - INFO - [Epoch 111] Train Loss: 0.0411 | LR: 0.000041
+2026-04-15 02:03:57,357 - INFO -     >>> Val Avg RMSE (Real): 206.5465
+2026-04-15 02:03:57,357 - INFO -     >>> Val MAE Details: ['120.2551', '141.1186', '178.6373']
+2026-04-15 02:03:57,357 - INFO - ⏳ No improvement. Patience: 5/50
+2026-04-15 02:05:15,181 - INFO - [Epoch 112] Train Loss: 0.0408 | LR: 0.000041
+2026-04-15 02:05:15,181 - INFO -     >>> Val Avg RMSE (Real): 202.0497
+2026-04-15 02:05:15,181 - INFO -     >>> Val MAE Details: ['118.7557', '137.1215', '174.4052']
+2026-04-15 02:05:15,213 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 02:06:34,900 - INFO - [Epoch 113] Train Loss: 0.0409 | LR: 0.000040
+2026-04-15 02:06:34,900 - INFO -     >>> Val Avg RMSE (Real): 203.8816
+2026-04-15 02:06:34,900 - INFO -     >>> Val MAE Details: ['120.3389', '138.7514', '175.9734']
+2026-04-15 02:06:34,900 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 02:07:46,796 - INFO - [Epoch 114] Train Loss: 0.0406 | LR: 0.000039
+2026-04-15 02:07:46,797 - INFO -     >>> Val Avg RMSE (Real): 206.6733
+2026-04-15 02:07:46,797 - INFO -     >>> Val MAE Details: ['119.9360', '144.2976', '178.3040']
+2026-04-15 02:07:46,797 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 02:09:06,491 - INFO - [Epoch 115] Train Loss: 0.0405 | LR: 0.000038
+2026-04-15 02:09:06,491 - INFO -     >>> Val Avg RMSE (Real): 204.5291
+2026-04-15 02:09:06,491 - INFO -     >>> Val MAE Details: ['124.4915', '139.0442', '175.3493']
+2026-04-15 02:09:06,491 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-15 02:10:23,962 - INFO - [Epoch 116] Train Loss: 0.0405 | LR: 0.000038
+2026-04-15 02:10:23,962 - INFO -     >>> Val Avg RMSE (Real): 204.1818
+2026-04-15 02:10:23,962 - INFO -     >>> Val MAE Details: ['119.5496', '142.0019', '175.5421']
+2026-04-15 02:10:23,962 - INFO - ⏳ No improvement. Patience: 4/50
+2026-04-15 02:11:40,996 - INFO - [Epoch 117] Train Loss: 0.0404 | LR: 0.000037
+2026-04-15 02:11:40,996 - INFO -     >>> Val Avg RMSE (Real): 210.1618
+2026-04-15 02:11:40,996 - INFO -     >>> Val MAE Details: ['123.4515', '154.7342', '176.9587']
+2026-04-15 02:11:40,996 - INFO - ⏳ No improvement. Patience: 5/50
+2026-04-15 02:13:00,278 - INFO - [Epoch 118] Train Loss: 0.0401 | LR: 0.000036
+2026-04-15 02:13:00,278 - INFO -     >>> Val Avg RMSE (Real): 206.8467
+2026-04-15 02:13:00,278 - INFO -     >>> Val MAE Details: ['120.8638', '141.1167', '184.8499']
+2026-04-15 02:13:00,278 - INFO - ⏳ No improvement. Patience: 6/50
+2026-04-15 02:14:18,078 - INFO - [Epoch 119] Train Loss: 0.0401 | LR: 0.000035
+2026-04-15 02:14:18,078 - INFO -     >>> Val Avg RMSE (Real): 207.6991
+2026-04-15 02:14:18,078 - INFO -     >>> Val MAE Details: ['119.4932', '147.5744', '179.3322']
+2026-04-15 02:14:18,078 - INFO - ⏳ No improvement. Patience: 7/50
+2026-04-15 02:15:38,402 - INFO - [Epoch 120] Train Loss: 0.0401 | LR: 0.000035
+2026-04-15 02:15:38,402 - INFO -     >>> Val Avg RMSE (Real): 202.5861
+2026-04-15 02:15:38,402 - INFO -     >>> Val MAE Details: ['119.9877', '137.2554', '176.0555']
+2026-04-15 02:15:38,402 - INFO - ⏳ No improvement. Patience: 8/50
+2026-04-15 02:16:56,021 - INFO - [Epoch 121] Train Loss: 0.0400 | LR: 0.000034
+2026-04-15 02:16:56,021 - INFO -     >>> Val Avg RMSE (Real): 201.2344
+2026-04-15 02:16:56,021 - INFO -     >>> Val MAE Details: ['118.0878', '136.2296', '173.8366']
+2026-04-15 02:16:56,053 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 02:18:16,259 - INFO - [Epoch 122] Train Loss: 0.0398 | LR: 0.000033
+2026-04-15 02:18:16,259 - INFO -     >>> Val Avg RMSE (Real): 203.6842
+2026-04-15 02:18:16,259 - INFO -     >>> Val MAE Details: ['120.0145', '139.1467', '176.1743']
+2026-04-15 02:18:16,259 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 02:19:33,957 - INFO - [Epoch 123] Train Loss: 0.0398 | LR: 0.000032
+2026-04-15 02:19:33,957 - INFO -     >>> Val Avg RMSE (Real): 208.0287
+2026-04-15 02:19:33,957 - INFO -     >>> Val MAE Details: ['124.0733', '142.2289', '180.6602']
+2026-04-15 02:19:33,957 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 02:20:44,182 - INFO - [Epoch 124] Train Loss: 0.0397 | LR: 0.000032
+2026-04-15 02:20:44,182 - INFO -     >>> Val Avg RMSE (Real): 204.5032
+2026-04-15 02:20:44,182 - INFO -     >>> Val MAE Details: ['120.4896', '138.5434', '177.9818']
+2026-04-15 02:20:44,182 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-15 02:22:02,836 - INFO - [Epoch 125] Train Loss: 0.0395 | LR: 0.000031
+2026-04-15 02:22:02,836 - INFO -     >>> Val Avg RMSE (Real): 203.9947
+2026-04-15 02:22:02,836 - INFO -     >>> Val MAE Details: ['119.1576', '143.8586', '174.8461']
+2026-04-15 02:22:02,836 - INFO - ⏳ No improvement. Patience: 4/50
+2026-04-15 02:23:20,493 - INFO - [Epoch 126] Train Loss: 0.0394 | LR: 0.000030
+2026-04-15 02:23:20,493 - INFO -     >>> Val Avg RMSE (Real): 202.1644
+2026-04-15 02:23:20,493 - INFO -     >>> Val MAE Details: ['118.0874', '138.6135', '175.7688']
+2026-04-15 02:23:20,493 - INFO - ⏳ No improvement. Patience: 5/50
+2026-04-15 02:24:40,417 - INFO - [Epoch 127] Train Loss: 0.0394 | LR: 0.000029
+2026-04-15 02:24:40,417 - INFO -     >>> Val Avg RMSE (Real): 202.4376
+2026-04-15 02:24:40,417 - INFO -     >>> Val MAE Details: ['119.4000', '136.7179', '176.0781']
+2026-04-15 02:24:40,417 - INFO - ⏳ No improvement. Patience: 6/50
+2026-04-15 02:25:57,846 - INFO - [Epoch 128] Train Loss: 0.0393 | LR: 0.000029
+2026-04-15 02:25:57,846 - INFO -     >>> Val Avg RMSE (Real): 201.6046
+2026-04-15 02:25:57,846 - INFO -     >>> Val MAE Details: ['116.8016', '136.7207', '173.9816']
+2026-04-15 02:25:57,846 - INFO - ⏳ No improvement. Patience: 7/50
+2026-04-15 02:27:17,385 - INFO - [Epoch 129] Train Loss: 0.0391 | LR: 0.000028
+2026-04-15 02:27:17,385 - INFO -     >>> Val Avg RMSE (Real): 201.0655
+2026-04-15 02:27:17,385 - INFO -     >>> Val MAE Details: ['116.8433', '138.3929', '173.3811']
+2026-04-15 02:27:17,416 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 02:28:34,649 - INFO - [Epoch 130] Train Loss: 0.0391 | LR: 0.000027
+2026-04-15 02:28:34,649 - INFO -     >>> Val Avg RMSE (Real): 202.8390
+2026-04-15 02:28:34,649 - INFO -     >>> Val MAE Details: ['118.5623', '138.5839', '175.5351']
+2026-04-15 02:28:34,649 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 02:29:53,285 - INFO - [Epoch 131] Train Loss: 0.0389 | LR: 0.000027
+2026-04-15 02:29:53,285 - INFO -     >>> Val Avg RMSE (Real): 200.3472
+2026-04-15 02:29:53,285 - INFO -     >>> Val MAE Details: ['116.3000', '138.2409', '172.5700']
+2026-04-15 02:29:53,320 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 02:31:12,397 - INFO - [Epoch 132] Train Loss: 0.0388 | LR: 0.000026
+2026-04-15 02:31:12,398 - INFO -     >>> Val Avg RMSE (Real): 199.7266
+2026-04-15 02:31:12,398 - INFO -     >>> Val MAE Details: ['117.2473', '135.6812', '172.5291']
+2026-04-15 02:31:12,430 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 02:32:30,810 - INFO - [Epoch 133] Train Loss: 0.0388 | LR: 0.000025
+2026-04-15 02:32:30,810 - INFO -     >>> Val Avg RMSE (Real): 200.3079
+2026-04-15 02:32:30,810 - INFO -     >>> Val MAE Details: ['117.5297', '137.3813', '171.6233']
+2026-04-15 02:32:30,810 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 02:33:46,348 - INFO - [Epoch 134] Train Loss: 0.0388 | LR: 0.000025
+2026-04-15 02:33:46,348 - INFO -     >>> Val Avg RMSE (Real): 205.5079
+2026-04-15 02:33:46,348 - INFO -     >>> Val MAE Details: ['121.5437', '137.6653', '181.9194']
+2026-04-15 02:33:46,348 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 02:35:02,046 - INFO - [Epoch 135] Train Loss: 0.0387 | LR: 0.000024
+2026-04-15 02:35:02,046 - INFO -     >>> Val Avg RMSE (Real): 199.7314
+2026-04-15 02:35:02,046 - INFO -     >>> Val MAE Details: ['116.4385', '136.9473', '172.0816']
+2026-04-15 02:35:02,046 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-15 02:36:21,535 - INFO - [Epoch 136] Train Loss: 0.0387 | LR: 0.000023
+2026-04-15 02:36:21,535 - INFO -     >>> Val Avg RMSE (Real): 203.6253
+2026-04-15 02:36:21,535 - INFO -     >>> Val MAE Details: ['116.9933', '138.7880', '176.8225']
+2026-04-15 02:36:21,535 - INFO - ⏳ No improvement. Patience: 4/50
+2026-04-15 02:37:39,781 - INFO - [Epoch 137] Train Loss: 0.0385 | LR: 0.000023
+2026-04-15 02:37:39,782 - INFO -     >>> Val Avg RMSE (Real): 201.2416
+2026-04-15 02:37:39,782 - INFO -     >>> Val MAE Details: ['117.8093', '135.8658', '173.6858']
+2026-04-15 02:37:39,782 - INFO - ⏳ No improvement. Patience: 5/50
+2026-04-15 02:38:59,402 - INFO - [Epoch 138] Train Loss: 0.0385 | LR: 0.000022
+2026-04-15 02:38:59,402 - INFO -     >>> Val Avg RMSE (Real): 199.8625
+2026-04-15 02:38:59,402 - INFO -     >>> Val MAE Details: ['119.8812', '135.6826', '171.2800']
+2026-04-15 02:38:59,402 - INFO - ⏳ No improvement. Patience: 6/50
+2026-04-15 02:40:17,627 - INFO - [Epoch 139] Train Loss: 0.0384 | LR: 0.000021
+2026-04-15 02:40:17,627 - INFO -     >>> Val Avg RMSE (Real): 200.2378
+2026-04-15 02:40:17,627 - INFO -     >>> Val MAE Details: ['118.0206', '136.1357', '172.7738']
+2026-04-15 02:40:17,627 - INFO - ⏳ No improvement. Patience: 7/50
+2026-04-15 02:41:35,075 - INFO - [Epoch 140] Train Loss: 0.0383 | LR: 0.000021
+2026-04-15 02:41:35,075 - INFO -     >>> Val Avg RMSE (Real): 203.1763
+2026-04-15 02:41:35,075 - INFO -     >>> Val MAE Details: ['122.6653', '136.9433', '176.1064']
+2026-04-15 02:41:35,075 - INFO - ⏳ No improvement. Patience: 8/50
+2026-04-15 02:42:55,241 - INFO - [Epoch 141] Train Loss: 0.0382 | LR: 0.000020
+2026-04-15 02:42:55,241 - INFO -     >>> Val Avg RMSE (Real): 202.1316
+2026-04-15 02:42:55,241 - INFO -     >>> Val MAE Details: ['115.7323', '139.5018', '174.9304']
+2026-04-15 02:42:55,241 - INFO - ⏳ No improvement. Patience: 9/50
+2026-04-15 02:44:13,698 - INFO - [Epoch 142] Train Loss: 0.0381 | LR: 0.000019
+2026-04-15 02:44:13,698 - INFO -     >>> Val Avg RMSE (Real): 198.2957
+2026-04-15 02:44:13,698 - INFO -     >>> Val MAE Details: ['115.4655', '134.7083', '170.7222']
+2026-04-15 02:44:13,730 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 02:45:33,593 - INFO - [Epoch 143] Train Loss: 0.0381 | LR: 0.000019
+2026-04-15 02:45:33,593 - INFO -     >>> Val Avg RMSE (Real): 198.5897
+2026-04-15 02:45:33,593 - INFO -     >>> Val MAE Details: ['115.6858', '134.7041', '170.7778']
+2026-04-15 02:45:33,593 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 02:46:48,329 - INFO - [Epoch 144] Train Loss: 0.0379 | LR: 0.000018
+2026-04-15 02:46:48,329 - INFO -     >>> Val Avg RMSE (Real): 199.3385
+2026-04-15 02:46:48,329 - INFO -     >>> Val MAE Details: ['117.3582', '134.6748', '171.8306']
+2026-04-15 02:46:48,329 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 02:48:05,141 - INFO - [Epoch 145] Train Loss: 0.0379 | LR: 0.000018
+2026-04-15 02:48:05,141 - INFO -     >>> Val Avg RMSE (Real): 201.8630
+2026-04-15 02:48:05,141 - INFO -     >>> Val MAE Details: ['119.4727', '136.7021', '175.1987']
+2026-04-15 02:48:05,141 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-15 02:49:22,623 - INFO - [Epoch 146] Train Loss: 0.0379 | LR: 0.000017
+2026-04-15 02:49:22,623 - INFO -     >>> Val Avg RMSE (Real): 197.9519
+2026-04-15 02:49:22,623 - INFO -     >>> Val MAE Details: ['115.1510', '134.4442', '169.9594']
+2026-04-15 02:49:22,655 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 02:50:41,382 - INFO - [Epoch 147] Train Loss: 0.0377 | LR: 0.000016
+2026-04-15 02:50:41,382 - INFO -     >>> Val Avg RMSE (Real): 200.9508
+2026-04-15 02:50:41,382 - INFO -     >>> Val MAE Details: ['115.9402', '139.5134', '173.8071']
+2026-04-15 02:50:41,382 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 02:52:00,493 - INFO - [Epoch 148] Train Loss: 0.0376 | LR: 0.000016
+2026-04-15 02:52:00,493 - INFO -     >>> Val Avg RMSE (Real): 198.9269
+2026-04-15 02:52:00,493 - INFO -     >>> Val MAE Details: ['116.5790', '136.2968', '171.1272']
+2026-04-15 02:52:00,493 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 02:53:17,974 - INFO - [Epoch 149] Train Loss: 0.0376 | LR: 0.000015
+2026-04-15 02:53:17,974 - INFO -     >>> Val Avg RMSE (Real): 198.1808
+2026-04-15 02:53:17,974 - INFO -     >>> Val MAE Details: ['114.9202', '135.5594', '170.6953']
+2026-04-15 02:53:17,974 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-15 02:54:38,660 - INFO - [Epoch 150] Train Loss: 0.0375 | LR: 0.000015
+2026-04-15 02:54:38,660 - INFO -     >>> Val Avg RMSE (Real): 199.2858
+2026-04-15 02:54:38,660 - INFO -     >>> Val MAE Details: ['115.6734', '135.3142', '172.2792']
+2026-04-15 02:54:38,660 - INFO - ⏳ No improvement. Patience: 4/50
+2026-04-15 02:55:56,857 - INFO - [Epoch 151] Train Loss: 0.0374 | LR: 0.000014
+2026-04-15 02:55:56,857 - INFO -     >>> Val Avg RMSE (Real): 197.7429
+2026-04-15 02:55:56,857 - INFO -     >>> Val MAE Details: ['115.3390', '133.9293', '170.5843']
+2026-04-15 02:55:56,889 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 02:57:16,050 - INFO - [Epoch 152] Train Loss: 0.0374 | LR: 0.000014
+2026-04-15 02:57:16,050 - INFO -     >>> Val Avg RMSE (Real): 198.8261
+2026-04-15 02:57:16,050 - INFO -     >>> Val MAE Details: ['115.2332', '136.0494', '171.6016']
+2026-04-15 02:57:16,050 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 02:58:34,042 - INFO - [Epoch 153] Train Loss: 0.0373 | LR: 0.000013
+2026-04-15 02:58:34,042 - INFO -     >>> Val Avg RMSE (Real): 198.2479
+2026-04-15 02:58:34,042 - INFO -     >>> Val MAE Details: ['115.2302', '134.3131', '170.4130']
+2026-04-15 02:58:34,042 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 02:59:52,377 - INFO - [Epoch 154] Train Loss: 0.0373 | LR: 0.000012
+2026-04-15 02:59:52,377 - INFO -     >>> Val Avg RMSE (Real): 197.1622
+2026-04-15 02:59:52,377 - INFO -     >>> Val MAE Details: ['114.6820', '133.9098', '169.3245']
+2026-04-15 02:59:52,414 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 03:01:05,994 - INFO - [Epoch 155] Train Loss: 0.0371 | LR: 0.000012
+2026-04-15 03:01:05,994 - INFO -     >>> Val Avg RMSE (Real): 197.6882
+2026-04-15 03:01:05,994 - INFO -     >>> Val MAE Details: ['115.0238', '134.6352', '170.2679']
+2026-04-15 03:01:05,994 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 03:02:23,440 - INFO - [Epoch 156] Train Loss: 0.0371 | LR: 0.000011
+2026-04-15 03:02:23,440 - INFO -     >>> Val Avg RMSE (Real): 197.3951
+2026-04-15 03:02:23,440 - INFO -     >>> Val MAE Details: ['115.2581', '134.2287', '169.6488']
+2026-04-15 03:02:23,440 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 03:03:43,392 - INFO - [Epoch 157] Train Loss: 0.0371 | LR: 0.000011
+2026-04-15 03:03:43,393 - INFO -     >>> Val Avg RMSE (Real): 198.5499
+2026-04-15 03:03:43,393 - INFO -     >>> Val MAE Details: ['115.1817', '135.0237', '171.0377']
+2026-04-15 03:03:43,393 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-15 03:05:00,691 - INFO - [Epoch 158] Train Loss: 0.0370 | LR: 0.000010
+2026-04-15 03:05:00,691 - INFO -     >>> Val Avg RMSE (Real): 198.5527
+2026-04-15 03:05:00,691 - INFO -     >>> Val MAE Details: ['117.3992', '134.2338', '170.1813']
+2026-04-15 03:05:00,691 - INFO - ⏳ No improvement. Patience: 4/50
+2026-04-15 03:06:19,235 - INFO - [Epoch 159] Train Loss: 0.0369 | LR: 0.000010
+2026-04-15 03:06:19,235 - INFO -     >>> Val Avg RMSE (Real): 198.7794
+2026-04-15 03:06:19,235 - INFO -     >>> Val MAE Details: ['117.0734', '135.1980', '170.3036']
+2026-04-15 03:06:19,235 - INFO - ⏳ No improvement. Patience: 5/50
+2026-04-15 03:07:37,046 - INFO - [Epoch 160] Train Loss: 0.0369 | LR: 0.000010
+2026-04-15 03:07:37,046 - INFO -     >>> Val Avg RMSE (Real): 197.4467
+2026-04-15 03:07:37,047 - INFO -     >>> Val MAE Details: ['115.5155', '133.3194', '170.5013']
+2026-04-15 03:07:37,047 - INFO - ⏳ No improvement. Patience: 6/50
+2026-04-15 03:08:56,569 - INFO - [Epoch 161] Train Loss: 0.0369 | LR: 0.000009
+2026-04-15 03:08:56,569 - INFO -     >>> Val Avg RMSE (Real): 197.3614
+2026-04-15 03:08:56,569 - INFO -     >>> Val MAE Details: ['116.0313', '133.6930', '169.0569']
+2026-04-15 03:08:56,570 - INFO - ⏳ No improvement. Patience: 7/50
+2026-04-15 03:10:14,650 - INFO - [Epoch 162] Train Loss: 0.0368 | LR: 0.000009
+2026-04-15 03:10:14,650 - INFO -     >>> Val Avg RMSE (Real): 196.7444
+2026-04-15 03:10:14,650 - INFO -     >>> Val MAE Details: ['114.6752', '133.2092', '169.1996']
+2026-04-15 03:10:14,682 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 03:11:33,072 - INFO - [Epoch 163] Train Loss: 0.0368 | LR: 0.000008
+2026-04-15 03:11:33,072 - INFO -     >>> Val Avg RMSE (Real): 196.8733
+2026-04-15 03:11:33,072 - INFO -     >>> Val MAE Details: ['114.6894', '133.7339', '168.6750']
+2026-04-15 03:11:33,072 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 03:12:52,490 - INFO - [Epoch 164] Train Loss: 0.0366 | LR: 0.000008
+2026-04-15 03:12:52,491 - INFO -     >>> Val Avg RMSE (Real): 197.5163
+2026-04-15 03:12:52,491 - INFO -     >>> Val MAE Details: ['116.3983', '133.2276', '169.6589']
+2026-04-15 03:12:52,491 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 03:14:05,372 - INFO - [Epoch 165] Train Loss: 0.0366 | LR: 0.000007
+2026-04-15 03:14:05,373 - INFO -     >>> Val Avg RMSE (Real): 197.8935
+2026-04-15 03:14:05,373 - INFO -     >>> Val MAE Details: ['117.1457', '133.8467', '169.8136']
+2026-04-15 03:14:05,373 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-15 03:15:25,270 - INFO - [Epoch 166] Train Loss: 0.0365 | LR: 0.000007
+2026-04-15 03:15:25,271 - INFO -     >>> Val Avg RMSE (Real): 196.6918
+2026-04-15 03:15:25,271 - INFO -     >>> Val MAE Details: ['114.9953', '133.2547', '169.1525']
+2026-04-15 03:15:25,302 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 03:16:42,792 - INFO - [Epoch 167] Train Loss: 0.0365 | LR: 0.000007
+2026-04-15 03:16:42,793 - INFO -     >>> Val Avg RMSE (Real): 196.7148
+2026-04-15 03:16:42,793 - INFO -     >>> Val MAE Details: ['115.4466', '133.2209', '168.6412']
+2026-04-15 03:16:42,793 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 03:18:02,783 - INFO - [Epoch 168] Train Loss: 0.0365 | LR: 0.000006
+2026-04-15 03:18:02,784 - INFO -     >>> Val Avg RMSE (Real): 197.3177
+2026-04-15 03:18:02,784 - INFO -     >>> Val MAE Details: ['114.8338', '133.8098', '169.8040']
+2026-04-15 03:18:02,784 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 03:19:01,204 - INFO - [Epoch 169] Train Loss: 0.0364 | LR: 0.000006
+2026-04-15 03:19:01,205 - INFO -     >>> Val Avg RMSE (Real): 196.7957
+2026-04-15 03:19:01,205 - INFO -     >>> Val MAE Details: ['114.2662', '133.9115', '169.0078']
+2026-04-15 03:19:01,205 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-15 03:20:20,064 - INFO - [Epoch 170] Train Loss: 0.0364 | LR: 0.000005
+2026-04-15 03:20:20,064 - INFO -     >>> Val Avg RMSE (Real): 197.9310
+2026-04-15 03:20:20,064 - INFO -     >>> Val MAE Details: ['114.2956', '134.8339', '170.0673']
+2026-04-15 03:20:20,064 - INFO - ⏳ No improvement. Patience: 4/50
+2026-04-15 03:21:37,394 - INFO - [Epoch 171] Train Loss: 0.0363 | LR: 0.000005
+2026-04-15 03:21:37,394 - INFO -     >>> Val Avg RMSE (Real): 195.9248
+2026-04-15 03:21:37,394 - INFO -     >>> Val MAE Details: ['114.0401', '132.5269', '168.1070']
+2026-04-15 03:21:37,426 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 03:22:54,438 - INFO - [Epoch 172] Train Loss: 0.0363 | LR: 0.000005
+2026-04-15 03:22:54,438 - INFO -     >>> Val Avg RMSE (Real): 196.2009
+2026-04-15 03:22:54,438 - INFO -     >>> Val MAE Details: ['114.4988', '132.9648', '168.5321']
+2026-04-15 03:22:54,438 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 03:24:14,647 - INFO - [Epoch 173] Train Loss: 0.0362 | LR: 0.000004
+2026-04-15 03:24:14,647 - INFO -     >>> Val Avg RMSE (Real): 197.0235
+2026-04-15 03:24:14,647 - INFO -     >>> Val MAE Details: ['114.5424', '133.7970', '169.2770']
+2026-04-15 03:24:14,647 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 03:25:32,910 - INFO - [Epoch 174] Train Loss: 0.0362 | LR: 0.000004
+2026-04-15 03:25:32,910 - INFO -     >>> Val Avg RMSE (Real): 196.0496
+2026-04-15 03:25:32,910 - INFO -     >>> Val MAE Details: ['113.8782', '133.1810', '168.3023']
+2026-04-15 03:25:32,910 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-15 03:26:49,952 - INFO - [Epoch 175] Train Loss: 0.0361 | LR: 0.000004
+2026-04-15 03:26:49,952 - INFO -     >>> Val Avg RMSE (Real): 196.3058
+2026-04-15 03:26:49,952 - INFO -     >>> Val MAE Details: ['114.0848', '132.6433', '168.4073']
+2026-04-15 03:26:49,952 - INFO - ⏳ No improvement. Patience: 4/50
+2026-04-15 03:28:03,937 - INFO - [Epoch 176] Train Loss: 0.0361 | LR: 0.000004
+2026-04-15 03:28:03,937 - INFO -     >>> Val Avg RMSE (Real): 196.1870
+2026-04-15 03:28:03,937 - INFO -     >>> Val MAE Details: ['114.2722', '132.8675', '168.4608']
+2026-04-15 03:28:03,938 - INFO - ⏳ No improvement. Patience: 5/50
+2026-04-15 03:29:24,009 - INFO - [Epoch 177] Train Loss: 0.0361 | LR: 0.000003
+2026-04-15 03:29:24,009 - INFO -     >>> Val Avg RMSE (Real): 196.3051
+2026-04-15 03:29:24,009 - INFO -     >>> Val MAE Details: ['113.8192', '133.8529', '168.7282']
+2026-04-15 03:29:24,009 - INFO - ⏳ No improvement. Patience: 6/50
+2026-04-15 03:30:41,699 - INFO - [Epoch 178] Train Loss: 0.0360 | LR: 0.000003
+2026-04-15 03:30:41,699 - INFO -     >>> Val Avg RMSE (Real): 196.2493
+2026-04-15 03:30:41,699 - INFO -     >>> Val MAE Details: ['114.1252', '132.7766', '168.3002']
+2026-04-15 03:30:41,699 - INFO - ⏳ No improvement. Patience: 7/50
+2026-04-15 03:32:00,722 - INFO - [Epoch 179] Train Loss: 0.0360 | LR: 0.000003
+2026-04-15 03:32:00,722 - INFO -     >>> Val Avg RMSE (Real): 195.9908
+2026-04-15 03:32:00,722 - INFO -     >>> Val MAE Details: ['113.8030', '132.6402', '168.0878']
+2026-04-15 03:32:00,722 - INFO - ⏳ No improvement. Patience: 8/50
+2026-04-15 03:33:20,157 - INFO - [Epoch 180] Train Loss: 0.0359 | LR: 0.000002
+2026-04-15 03:33:20,157 - INFO -     >>> Val Avg RMSE (Real): 195.7323
+2026-04-15 03:33:20,157 - INFO -     >>> Val MAE Details: ['113.6995', '132.5908', '167.8625']
+2026-04-15 03:33:20,189 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 03:34:37,591 - INFO - [Epoch 181] Train Loss: 0.0359 | LR: 0.000002
+2026-04-15 03:34:37,591 - INFO -     >>> Val Avg RMSE (Real): 196.5652
+2026-04-15 03:34:37,591 - INFO -     >>> Val MAE Details: ['114.9610', '132.8729', '169.4230']
+2026-04-15 03:34:37,591 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 03:35:56,328 - INFO - [Epoch 182] Train Loss: 0.0359 | LR: 0.000002
+2026-04-15 03:35:56,328 - INFO -     >>> Val Avg RMSE (Real): 195.7896
+2026-04-15 03:35:56,328 - INFO -     >>> Val MAE Details: ['113.6923', '132.6552', '167.8052']
+2026-04-15 03:35:56,328 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 03:37:13,620 - INFO - [Epoch 183] Train Loss: 0.0359 | LR: 0.000002
+2026-04-15 03:37:13,620 - INFO -     >>> Val Avg RMSE (Real): 195.9752
+2026-04-15 03:37:13,620 - INFO -     >>> Val MAE Details: ['113.6026', '132.7483', '168.3580']
+2026-04-15 03:37:13,620 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-15 03:38:33,838 - INFO - [Epoch 184] Train Loss: 0.0359 | LR: 0.000002
+2026-04-15 03:38:33,838 - INFO -     >>> Val Avg RMSE (Real): 195.9950
+2026-04-15 03:38:33,838 - INFO -     >>> Val MAE Details: ['113.6720', '133.4639', '168.4099']
+2026-04-15 03:38:33,838 - INFO - ⏳ No improvement. Patience: 4/50
+2026-04-15 03:39:51,299 - INFO - [Epoch 185] Train Loss: 0.0358 | LR: 0.000001
+2026-04-15 03:39:51,300 - INFO -     >>> Val Avg RMSE (Real): 195.6046
+2026-04-15 03:39:51,300 - INFO -     >>> Val MAE Details: ['113.6531', '132.3862', '167.7558']
+2026-04-15 03:39:51,321 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 03:41:03,152 - INFO - [Epoch 186] Train Loss: 0.0358 | LR: 0.000001
+2026-04-15 03:41:03,152 - INFO -     >>> Val Avg RMSE (Real): 195.7134
+2026-04-15 03:41:03,153 - INFO -     >>> Val MAE Details: ['113.8315', '132.4399', '167.7580']
+2026-04-15 03:41:03,153 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 03:42:22,743 - INFO - [Epoch 187] Train Loss: 0.0358 | LR: 0.000001
+2026-04-15 03:42:22,743 - INFO -     >>> Val Avg RMSE (Real): 196.1147
+2026-04-15 03:42:22,743 - INFO -     >>> Val MAE Details: ['113.7567', '133.7136', '168.3357']
+2026-04-15 03:42:22,743 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 03:43:40,031 - INFO - [Epoch 188] Train Loss: 0.0358 | LR: 0.000001
+2026-04-15 03:43:40,031 - INFO -     >>> Val Avg RMSE (Real): 195.5695
+2026-04-15 03:43:40,031 - INFO -     >>> Val MAE Details: ['113.6492', '132.4731', '167.7926']
+2026-04-15 03:43:40,065 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 03:45:00,243 - INFO - [Epoch 189] Train Loss: 0.0357 | LR: 0.000001
+2026-04-15 03:45:00,243 - INFO -     >>> Val Avg RMSE (Real): 195.5647
+2026-04-15 03:45:00,243 - INFO -     >>> Val MAE Details: ['113.6467', '132.3739', '167.6624']
+2026-04-15 03:45:00,275 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 03:46:18,193 - INFO - [Epoch 190] Train Loss: 0.0357 | LR: 0.000001
+2026-04-15 03:46:18,193 - INFO -     >>> Val Avg RMSE (Real): 195.5484
+2026-04-15 03:46:18,193 - INFO -     >>> Val MAE Details: ['113.7100', '132.4138', '167.7866']
+2026-04-15 03:46:18,225 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 03:47:37,515 - INFO - [Epoch 191] Train Loss: 0.0357 | LR: 0.000000
+2026-04-15 03:47:37,516 - INFO -     >>> Val Avg RMSE (Real): 195.5540
+2026-04-15 03:47:37,516 - INFO -     >>> Val MAE Details: ['113.6098', '132.3593', '167.6217']
+2026-04-15 03:47:37,516 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 03:48:47,881 - INFO - [Epoch 192] Train Loss: 0.0357 | LR: 0.000000
+2026-04-15 03:48:47,882 - INFO -     >>> Val Avg RMSE (Real): 195.5946
+2026-04-15 03:48:47,882 - INFO -     >>> Val MAE Details: ['113.5803', '132.4005', '167.8803']
+2026-04-15 03:48:47,882 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 03:49:57,155 - INFO - [Epoch 193] Train Loss: 0.0357 | LR: 0.000000
+2026-04-15 03:49:57,155 - INFO -     >>> Val Avg RMSE (Real): 195.4961
+2026-04-15 03:49:57,155 - INFO -     >>> Val MAE Details: ['113.5370', '132.3932', '167.6449']
+2026-04-15 03:49:57,181 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 03:51:07,011 - INFO - [Epoch 194] Train Loss: 0.0357 | LR: 0.000000
+2026-04-15 03:51:07,011 - INFO -     >>> Val Avg RMSE (Real): 195.6056
+2026-04-15 03:51:07,011 - INFO -     >>> Val MAE Details: ['113.6530', '132.3433', '167.6906']
+2026-04-15 03:51:07,011 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 03:52:13,537 - INFO - [Epoch 195] Train Loss: 0.0357 | LR: 0.000000
+2026-04-15 03:52:13,537 - INFO -     >>> Val Avg RMSE (Real): 195.5170
+2026-04-15 03:52:13,537 - INFO -     >>> Val MAE Details: ['113.5264', '132.4109', '167.7325']
+2026-04-15 03:52:13,537 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 03:53:16,642 - INFO - [Epoch 196] Train Loss: 0.0357 | LR: 0.000000
+2026-04-15 03:53:16,643 - INFO -     >>> Val Avg RMSE (Real): 195.5247
+2026-04-15 03:53:16,643 - INFO -     >>> Val MAE Details: ['113.5873', '132.3628', '167.6070']
+2026-04-15 03:53:16,643 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-15 03:54:26,188 - INFO - [Epoch 197] Train Loss: 0.0356 | LR: 0.000000
+2026-04-15 03:54:26,188 - INFO -     >>> Val Avg RMSE (Real): 195.4275
+2026-04-15 03:54:26,188 - INFO -     >>> Val MAE Details: ['113.5199', '132.3334', '167.6158']
+2026-04-15 03:54:26,225 - INFO - 💾 Saved Best Model to ./logs/QM9_repr_atomistic_graph_SchNet_Task3_20260414_233932/best_model.pth
+2026-04-15 03:55:34,313 - INFO - [Epoch 198] Train Loss: 0.0356 | LR: 0.000000
+2026-04-15 03:55:34,313 - INFO -     >>> Val Avg RMSE (Real): 195.4462
+2026-04-15 03:55:34,313 - INFO -     >>> Val MAE Details: ['113.5191', '132.3202', '167.5727']
+2026-04-15 03:55:34,313 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 03:56:44,637 - INFO - [Epoch 199] Train Loss: 0.0356 | LR: 0.000000
+2026-04-15 03:56:44,638 - INFO -     >>> Val Avg RMSE (Real): 195.4516
+2026-04-15 03:56:44,638 - INFO -     >>> Val MAE Details: ['113.5273', '132.3314', '167.5858']
+2026-04-15 03:56:44,638 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 03:57:55,060 - INFO - [Epoch 200] Train Loss: 0.0356 | LR: 0.000000
+2026-04-15 03:57:55,061 - INFO -     >>> Val Avg RMSE (Real): 195.4446
+2026-04-15 03:57:55,061 - INFO -     >>> Val MAE Details: ['113.5228', '132.3176', '167.5740']
+2026-04-15 03:57:55,061 - INFO - ⏳ No improvement. Patience: 3/50

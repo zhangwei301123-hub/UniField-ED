@@ -1,0 +1,16 @@
+2026-05-03 23:57:04,149 - INFO - 🎯 Evaluating Targets: ['formation_energy_meV']
+2026-05-03 23:57:04,149 - INFO - 📂 Loading checkpoint from: /home/zw/ED_all/task_qmugs/logs/QMugs_repr_atomistic_graph_Equiformer_Task1_20260502_215051/best_model.pth
+2026-05-03 23:57:04,149 - INFO - 📝 Test log will be saved to: /home/zw/ED_all/task_qmugs/logs/QMugs_repr_atomistic_graph_Equiformer_Task1_20260502_215051/test.log
+2026-05-03 23:57:11,278 - INFO - ✅ Successfully loaded checkpoint from Epoch 198
+2026-05-03 23:57:11,278 - INFO -     Validation Avg RMSE at this epoch was: 955.5831
+2026-05-03 23:57:25,203 - INFO - ========================================
+2026-05-03 23:57:25,203 - INFO -  🎉 Test Set Evaluation Results 🎉
+2026-05-03 23:57:25,203 - INFO - ========================================
+2026-05-03 23:57:25,216 - INFO - Target Property : formation_energy_meV
+2026-05-03 23:57:25,216 - INFO - Test RMSE       : 773.1771
+2026-05-03 23:57:25,216 - INFO - Test MAE        : 567.1666
+2026-05-03 23:57:25,216 - INFO - Test Pearson r  : 1.0000
+2026-05-03 23:57:25,216 - INFO - Test Spearman r : 0.9999
+2026-05-03 23:57:25,216 - INFO - ----------------------------------------
+2026-05-03 23:57:25,216 - INFO - 🏆 Average Test RMSE (All 1 Targets): 773.1771
+2026-05-03 23:57:25,216 - INFO - ========================================

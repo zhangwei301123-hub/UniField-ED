@@ -1,0 +1,52 @@
+2026-04-10 21:23:48,685 - INFO - 🎯 Evaluating Targets: ['homo_2', 'homo_1', 'homo_0', 'lumo_0', 'lumo_1', 'lumo_2', 'lumo_3']
+2026-04-10 21:23:48,686 - INFO - 📂 Loading checkpoint from: /home/zw/ED_all/task_ED5_OE/logs/ED5_repr_atomistic_graph_DimeNetPP_MultiTask7_20260408_213225/best_model.pth
+2026-04-10 21:23:48,686 - INFO - 📝 Test log will be saved to: /home/zw/ED_all/task_ED5_OE/logs/ED5_repr_atomistic_graph_DimeNetPP_MultiTask7_20260408_213225/test.log
+2026-04-10 21:24:04,647 - INFO - ✅ Successfully loaded checkpoint from Epoch 76
+2026-04-10 21:24:04,647 - INFO -     Validation Avg RMSE at this epoch was: 452.7277
+2026-04-10 21:24:09,656 - INFO - ========================================
+2026-04-10 21:24:09,656 - INFO -  🎉 Test Set Evaluation Results 🎉
+2026-04-10 21:24:09,656 - INFO - ========================================
+2026-04-10 21:24:09,659 - INFO - Target Property : homo_2
+2026-04-10 21:24:09,659 - INFO - Test RMSE       : 394.0651
+2026-04-10 21:24:09,659 - INFO - Test MAE        : 297.2099
+2026-04-10 21:24:09,659 - INFO - Test Pearson r  : 0.7872
+2026-04-10 21:24:09,659 - INFO - Test Spearman r : 0.8002
+2026-04-10 21:24:09,659 - INFO - ----------------------------------------
+2026-04-10 21:24:09,661 - INFO - Target Property : homo_1
+2026-04-10 21:24:09,661 - INFO - Test RMSE       : 331.2473
+2026-04-10 21:24:09,662 - INFO - Test MAE        : 255.1520
+2026-04-10 21:24:09,662 - INFO - Test Pearson r  : 0.8497
+2026-04-10 21:24:09,662 - INFO - Test Spearman r : 0.8534
+2026-04-10 21:24:09,662 - INFO - ----------------------------------------
+2026-04-10 21:24:09,664 - INFO - Target Property : homo_0
+2026-04-10 21:24:09,664 - INFO - Test RMSE       : 338.5832
+2026-04-10 21:24:09,664 - INFO - Test MAE        : 249.4802
+2026-04-10 21:24:09,664 - INFO - Test Pearson r  : 0.8805
+2026-04-10 21:24:09,664 - INFO - Test Spearman r : 0.8889
+2026-04-10 21:24:09,664 - INFO - ----------------------------------------
+2026-04-10 21:24:09,666 - INFO - Target Property : lumo_0
+2026-04-10 21:24:09,666 - INFO - Test RMSE       : 511.1783
+2026-04-10 21:24:09,666 - INFO - Test MAE        : 390.6346
+2026-04-10 21:24:09,666 - INFO - Test Pearson r  : 0.9155
+2026-04-10 21:24:09,667 - INFO - Test Spearman r : 0.9225
+2026-04-10 21:24:09,667 - INFO - ----------------------------------------
+2026-04-10 21:24:09,669 - INFO - Target Property : lumo_1
+2026-04-10 21:24:09,669 - INFO - Test RMSE       : 515.6340
+2026-04-10 21:24:09,669 - INFO - Test MAE        : 402.0319
+2026-04-10 21:24:09,669 - INFO - Test Pearson r  : 0.8933
+2026-04-10 21:24:09,669 - INFO - Test Spearman r : 0.9035
+2026-04-10 21:24:09,669 - INFO - ----------------------------------------
+2026-04-10 21:24:09,671 - INFO - Target Property : lumo_2
+2026-04-10 21:24:09,671 - INFO - Test RMSE       : 497.5656
+2026-04-10 21:24:09,671 - INFO - Test MAE        : 388.7498
+2026-04-10 21:24:09,671 - INFO - Test Pearson r  : 0.8958
+2026-04-10 21:24:09,671 - INFO - Test Spearman r : 0.9193
+2026-04-10 21:24:09,671 - INFO - ----------------------------------------
+2026-04-10 21:24:09,674 - INFO - Target Property : lumo_3
+2026-04-10 21:24:09,674 - INFO - Test RMSE       : 507.9772
+2026-04-10 21:24:09,674 - INFO - Test MAE        : 388.2324
+2026-04-10 21:24:09,674 - INFO - Test Pearson r  : 0.8896
+2026-04-10 21:24:09,674 - INFO - Test Spearman r : 0.9015
+2026-04-10 21:24:09,674 - INFO - ----------------------------------------
+2026-04-10 21:24:09,674 - INFO - 🏆 Average Test RMSE (All 7 Targets): 442.3215
+2026-04-10 21:24:09,674 - INFO - ========================================

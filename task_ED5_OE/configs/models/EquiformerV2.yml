@@ -1,0 +1,34 @@
+name: "EquiformerV2"
+# 核心结构
+num_layers: 4
+sphere_channels: 64
+attn_hidden_channels: 64
+num_heads: 8
+attn_alpha_channels: 64
+attn_value_channels: 16
+ffn_hidden_channels: 128
+
+# 几何参数
+lmax_list: [4]
+mmax_list: [2]
+max_neighbors: 20
+max_radius: 12.0
+grid_resolution: 18
+num_sphere_samples: 128
+
+# 嵌入与基函数
+edge_channels: 128
+num_distance_basis: 512
+distance_function: "gaussian"
+use_atom_edge_embedding: True
+share_atom_edge_embedding: False
+
+# 激活与正则
+norm_type: "layer_norm_sh"
+attn_activation: "silu"
+ffn_activation: "silu"
+use_attn_renorm: True
+use_grid_mlp: True
+use_sep_s2_act: True
+alpha_drop: 0.1
+drop_path_rate: 0.05

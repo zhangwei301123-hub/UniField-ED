@@ -1,0 +1,6 @@
+name: "SchNet"
+hidden_channels: 128        # <--- 保持 128，兼顾速度与精度
+n_interactions: 6           # <--- 💡 核心修改：提升到 6 层，确保长程信息传递全覆盖
+n_rbf: 300                  # <--- 高斯基底分辨率足够
+cutoff: 10.0                # <--- ✅ 完美！5.3 Å 物理感受野
+max_neighbors: 32           # <--- 覆盖 QM9 所有原子 (最大 29 体系)

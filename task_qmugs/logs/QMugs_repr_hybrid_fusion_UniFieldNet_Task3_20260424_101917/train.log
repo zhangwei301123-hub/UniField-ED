@@ -1,0 +1,97 @@
+2026-04-24 10:19:17,220 - INFO - 💾 Config files backed up to ./logs/QMugs_repr_hybrid_fusion_UniFieldNet_Task3_20260424_101917
+2026-04-24 10:19:17,220 - INFO - 🎯 Multi-Task Targets (3): ['homo_energy_meV', 'lumo_energy_meV', 'homo_lumo_gap_meV']
+2026-04-24 10:19:17,220 - INFO - ========================================
+2026-04-24 10:19:17,220 - INFO -         Training Configuration        
+2026-04-24 10:19:17,220 - INFO - ========================================
+2026-04-24 10:19:17,221 - INFO - 
+{'data': {'dataset_mode': 'repr_hybrid_fusion',
+          'grid_size': 0.1,
+          'max_radius': 10.0,
+          'pkl_path': '../data/QMugs/qmugs_ed_1024_dft_meV_fps.pkl',
+          'targets': ['homo_energy_meV',
+                      'lumo_energy_meV',
+                      'homo_lumo_gap_meV']},
+ 'model': {'equiformer_args': {'basis_type': 'gaussian',
+                               'fc_neurons': [128, 128],
+                               'irreps_feature': '512x0e',
+                               'irreps_head': '64x0e+32x1e+16x2e',
+                               'irreps_in': '5x0e',
+                               'irreps_node_attr': '1x0e',
+                               'irreps_node_embedding': '128x0e+64x1e+32x2e',
+                               'irreps_sh': '1x0e+1x1o+1x2e+1x3o',
+                               'max_radius': 10.0,
+                               'num_heads': 8,
+                               'num_layers': 4,
+                               'number_of_basis': 256,
+                               'output_dim': 64},
+           'head_input_dim': 64,
+           'name': 'UniFieldNet',
+           'ptv3_args': {'dec_channels': [64, 64, 128, 256],
+                         'enc_channels': [32, 64, 128, 256, 512],
+                         'enc_depths': [2, 2, 2, 6, 2],
+                         'in_channels': 1,
+                         'patch_size': 64}},
+ 'train': {'batch_size': 32,
+           'epochs': 200,
+           'grad_norm_clip': 1.0,
+           'lr': 0.0001,
+           'patience': 50,
+           'seed': 2025,
+           'weight_decay': 0.0001}}
+2026-04-24 10:19:17,221 - INFO - ========================================
+
+2026-04-24 10:19:17,221 - INFO - 🚀 Start Training on Device: cuda
+2026-04-24 10:19:17,221 - INFO - Loading Data...
+2026-04-24 10:19:17,221 - INFO - Loading Dataset Mode: repr_hybrid_fusion...
+2026-04-24 10:19:20,118 - INFO - Stats - Mean: [[-7851.8887    392.37622  8244.265  ]], Std: [[502.80716 721.1641  813.3487 ]]
+2026-04-24 10:19:20,119 - INFO - Building Model: UniFieldNet...
+2026-04-24 10:19:30,537 - INFO - Total Parameters: 49.6800 M
+
+2026-04-24 10:32:48,704 - INFO - [Epoch 1] Train Loss: 0.4411 | LR: 0.000100
+2026-04-24 10:32:48,705 - INFO -     >>> Val Avg RMSE (Real): 360.9767
+2026-04-24 10:32:48,705 - INFO -     >>> Val MAE Details: ['232.8786', '259.6683', '333.3985']
+2026-04-24 10:32:49,361 - INFO - 💾 Saved Best Model to ./logs/QMugs_repr_hybrid_fusion_UniFieldNet_Task3_20260424_101917/best_model.pth
+2026-04-24 10:45:54,848 - INFO - [Epoch 2] Train Loss: 0.2465 | LR: 0.000100
+2026-04-24 10:45:54,848 - INFO -     >>> Val Avg RMSE (Real): 307.8085
+2026-04-24 10:45:54,848 - INFO -     >>> Val MAE Details: ['201.3226', '245.3618', '271.0291']
+2026-04-24 10:45:55,919 - INFO - 💾 Saved Best Model to ./logs/QMugs_repr_hybrid_fusion_UniFieldNet_Task3_20260424_101917/best_model.pth
+2026-04-24 10:59:02,503 - INFO - [Epoch 3] Train Loss: 0.1972 | LR: 0.000100
+2026-04-24 10:59:02,503 - INFO -     >>> Val Avg RMSE (Real): 288.1542
+2026-04-24 10:59:02,504 - INFO -     >>> Val MAE Details: ['175.8836', '227.5627', '264.8708']
+2026-04-24 10:59:03,506 - INFO - 💾 Saved Best Model to ./logs/QMugs_repr_hybrid_fusion_UniFieldNet_Task3_20260424_101917/best_model.pth
+2026-04-24 11:12:09,150 - INFO - [Epoch 4] Train Loss: 0.1704 | LR: 0.000100
+2026-04-24 11:12:09,151 - INFO -     >>> Val Avg RMSE (Real): 285.5059
+2026-04-24 11:12:09,151 - INFO -     >>> Val MAE Details: ['170.7568', '241.8991', '258.3613']
+2026-04-24 11:12:10,238 - INFO - 💾 Saved Best Model to ./logs/QMugs_repr_hybrid_fusion_UniFieldNet_Task3_20260424_101917/best_model.pth
+2026-04-24 11:25:12,612 - INFO - [Epoch 5] Train Loss: 0.1510 | LR: 0.000100
+2026-04-24 11:25:12,613 - INFO -     >>> Val Avg RMSE (Real): 243.9871
+2026-04-24 11:25:12,613 - INFO -     >>> Val MAE Details: ['163.6742', '178.4820', '220.8920']
+2026-04-24 11:25:13,407 - INFO - 💾 Saved Best Model to ./logs/QMugs_repr_hybrid_fusion_UniFieldNet_Task3_20260424_101917/best_model.pth
+2026-04-24 11:38:17,102 - INFO - [Epoch 6] Train Loss: 0.1392 | LR: 0.000100
+2026-04-24 11:38:17,103 - INFO -     >>> Val Avg RMSE (Real): 218.3849
+2026-04-24 11:38:17,103 - INFO -     >>> Val MAE Details: ['144.7315', '155.3331', '196.4092']
+2026-04-24 11:38:18,040 - INFO - 💾 Saved Best Model to ./logs/QMugs_repr_hybrid_fusion_UniFieldNet_Task3_20260424_101917/best_model.pth
+2026-04-24 11:51:20,359 - INFO - [Epoch 7] Train Loss: 0.1265 | LR: 0.000100
+2026-04-24 11:51:20,360 - INFO -     >>> Val Avg RMSE (Real): 214.6265
+2026-04-24 11:51:20,360 - INFO -     >>> Val MAE Details: ['148.0363', '148.0218', '195.8792']
+2026-04-24 11:51:21,297 - INFO - 💾 Saved Best Model to ./logs/QMugs_repr_hybrid_fusion_UniFieldNet_Task3_20260424_101917/best_model.pth
+2026-04-24 12:04:23,123 - INFO - [Epoch 8] Train Loss: 0.1147 | LR: 0.000100
+2026-04-24 12:04:23,124 - INFO -     >>> Val Avg RMSE (Real): 211.5572
+2026-04-24 12:04:23,124 - INFO -     >>> Val MAE Details: ['135.8176', '147.0836', '195.0074']
+2026-04-24 12:04:24,047 - INFO - 💾 Saved Best Model to ./logs/QMugs_repr_hybrid_fusion_UniFieldNet_Task3_20260424_101917/best_model.pth
+2026-04-24 12:17:28,775 - INFO - [Epoch 9] Train Loss: 0.1093 | LR: 0.000100
+2026-04-24 12:17:28,775 - INFO -     >>> Val Avg RMSE (Real): 217.7778
+2026-04-24 12:17:28,775 - INFO -     >>> Val MAE Details: ['130.1591', '159.9746', '204.7774']
+2026-04-24 12:17:28,775 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-24 12:30:29,901 - INFO - [Epoch 10] Train Loss: 0.1023 | LR: 0.000099
+2026-04-24 12:30:29,902 - INFO -     >>> Val Avg RMSE (Real): 218.6838
+2026-04-24 12:30:29,902 - INFO -     >>> Val MAE Details: ['136.5111', '163.0593', '197.6842']
+2026-04-24 12:30:29,902 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-24 12:43:29,092 - INFO - [Epoch 11] Train Loss: 0.0971 | LR: 0.000099
+2026-04-24 12:43:29,092 - INFO -     >>> Val Avg RMSE (Real): 183.7479
+2026-04-24 12:43:29,092 - INFO -     >>> Val MAE Details: ['126.4872', '125.4689', '167.0987']
+2026-04-24 12:43:30,175 - INFO - 💾 Saved Best Model to ./logs/QMugs_repr_hybrid_fusion_UniFieldNet_Task3_20260424_101917/best_model.pth
+2026-04-24 12:56:29,703 - INFO - [Epoch 12] Train Loss: 0.0940 | LR: 0.000099
+2026-04-24 12:56:29,704 - INFO -     >>> Val Avg RMSE (Real): 208.3880
+2026-04-24 12:56:29,704 - INFO -     >>> Val MAE Details: ['153.8089', '125.3405', '190.9043']
+2026-04-24 12:56:29,704 - INFO - ⏳ No improvement. Patience: 1/50

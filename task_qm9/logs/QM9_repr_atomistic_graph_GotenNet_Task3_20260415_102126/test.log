@@ -1,0 +1,28 @@
+2026-04-16 10:13:42,662 - INFO - 🎯 Evaluating Targets: ['homo_meV', 'lumo_meV', 'gap_meV']
+2026-04-16 10:13:42,662 - INFO - 📂 Loading checkpoint from: /home/zw/ED_all/task_qm9/logs/QM9_repr_atomistic_graph_GotenNet_Task3_20260415_102126/best_model.pth
+2026-04-16 10:13:42,662 - INFO - 📝 Test log will be saved to: /home/zw/ED_all/task_qm9/logs/QM9_repr_atomistic_graph_GotenNet_Task3_20260415_102126/test.log
+2026-04-16 10:13:48,092 - INFO - ✅ Successfully loaded checkpoint from Epoch 194
+2026-04-16 10:13:48,092 - INFO -     Validation Avg RMSE at this epoch was: 80.2179
+2026-04-16 10:13:57,323 - INFO - ========================================
+2026-04-16 10:13:57,323 - INFO -  🎉 Test Set Evaluation Results 🎉
+2026-04-16 10:13:57,323 - INFO - ========================================
+2026-04-16 10:13:57,326 - INFO - Target Property : homo_meV
+2026-04-16 10:13:57,326 - INFO - Test RMSE       : 61.8329
+2026-04-16 10:13:57,326 - INFO - Test MAE        : 39.1788
+2026-04-16 10:13:57,326 - INFO - Test Pearson r  : 0.9945
+2026-04-16 10:13:57,326 - INFO - Test Spearman r : 0.9932
+2026-04-16 10:13:57,326 - INFO - ----------------------------------------
+2026-04-16 10:13:57,328 - INFO - Target Property : lumo_meV
+2026-04-16 10:13:57,328 - INFO - Test RMSE       : 68.5282
+2026-04-16 10:13:57,328 - INFO - Test MAE        : 44.6472
+2026-04-16 10:13:57,328 - INFO - Test Pearson r  : 0.9986
+2026-04-16 10:13:57,328 - INFO - Test Spearman r : 0.9984
+2026-04-16 10:13:57,328 - INFO - ----------------------------------------
+2026-04-16 10:13:57,330 - INFO - Target Property : gap_meV
+2026-04-16 10:13:57,330 - INFO - Test RMSE       : 89.1581
+2026-04-16 10:13:57,330 - INFO - Test MAE        : 57.9262
+2026-04-16 10:13:57,330 - INFO - Test Pearson r  : 0.9976
+2026-04-16 10:13:57,330 - INFO - Test Spearman r : 0.9977
+2026-04-16 10:13:57,330 - INFO - ----------------------------------------
+2026-04-16 10:13:57,330 - INFO - 🏆 Average Test RMSE (All 3 Targets): 73.1731
+2026-04-16 10:13:57,330 - INFO - ========================================

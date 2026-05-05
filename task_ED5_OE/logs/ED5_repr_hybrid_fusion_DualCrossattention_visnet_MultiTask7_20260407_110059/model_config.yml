@@ -1,0 +1,36 @@
+# configs/models/Dual_crossattention_visnet.yml
+name: "DualCrossattention_visnet"
+
+# 跨域交互的半径 (Bipartite Graph)
+interaction_radius: 2.0
+
+# ================= 1. ViSNet (图网络) 配置 =================
+visnet:
+  hidden_channels: 128
+  num_heads: 8
+  num_layers: 6
+  num_rbf: 32
+  lmax: 2
+  cutoff: 5.0
+  max_num_neighbors: 32
+  activation: "silu"
+  attn_activation: "silu"
+  vecnorm_type: "none"
+  trainable_vecnorm: false
+  rbf_type: "expnorm"
+  trainable_rbf: false
+  max_z: 100
+  vertex_type: "Edge"
+
+# ================= 2. PTv3 (点云网络) 配置 =================
+ptv3:
+  in_channels: 1
+  patch_size: 256
+  enc_depths: [2, 2, 2, 6, 2]
+  enc_channels: [32, 64, 128, 256, 512]
+  dec_channels: [64, 64, 128, 256]
+  # 编码器注意力头数，通常随深度加倍
+  enc_num_head: [2, 4, 8, 16, 32]
+  # 解码器注意力头数
+  dec_num_head: [4, 8, 16, 32]
+  drop_path_rate: 0.3

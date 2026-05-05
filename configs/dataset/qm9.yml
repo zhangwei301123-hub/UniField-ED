@@ -1,0 +1,5 @@
+data:
+  name: "QM9EDPointCloud"       # 用于在代码中指示实例化哪个类
+  pkl_path: "/home/zw/ED_all/data/qm9/qm9_ed_1024_multi_prop_Bohr.pkl"
+  grid_size: 0.1
+  # 这里可以加入特定于 QM9 的配置，比如只预测某些属性

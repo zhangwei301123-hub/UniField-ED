@@ -1,0 +1,12 @@
+dataset_mode: "repr_hybrid_fusion"
+pkl_path:  '../data/QMugs/qmugs_ed_1024_dft_meV_fps.pkl'
+# 针对点云的配置
+grid_size: 0.1
+
+# 针对分子图 (图神经网络) 的配置
+max_radius: 10.0
+
+targets: 
+  - 'homo_energy_meV'
+  - 'lumo_energy_meV'
+  - 'homo_lumo_gap_meV'

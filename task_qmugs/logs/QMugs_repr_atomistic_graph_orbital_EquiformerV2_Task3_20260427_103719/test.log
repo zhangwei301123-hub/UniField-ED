@@ -1,0 +1,28 @@
+2026-04-28 08:56:32,984 - INFO - 🎯 Evaluating Targets: ['homo_energy_meV', 'lumo_energy_meV', 'homo_lumo_gap_meV']
+2026-04-28 08:56:32,985 - INFO - 📂 Loading checkpoint from: /home/zw/ED_all/task_qmugs/logs/QMugs_repr_atomistic_graph_orbital_EquiformerV2_Task3_20260427_103719/best_model.pth
+2026-04-28 08:56:32,985 - INFO - 📝 Test log will be saved to: /home/zw/ED_all/task_qmugs/logs/QMugs_repr_atomistic_graph_orbital_EquiformerV2_Task3_20260427_103719/test.log
+2026-04-28 08:56:37,817 - INFO - ✅ Successfully loaded checkpoint from Epoch 191
+2026-04-28 08:56:37,817 - INFO -     Validation Avg RMSE at this epoch was: 140.4502
+2026-04-28 08:56:49,846 - INFO - ========================================
+2026-04-28 08:56:49,847 - INFO -  🎉 Test Set Evaluation Results 🎉
+2026-04-28 08:56:49,847 - INFO - ========================================
+2026-04-28 08:56:49,895 - INFO - Target Property : homo_energy_meV
+2026-04-28 08:56:49,895 - INFO - Test RMSE       : 115.2803
+2026-04-28 08:56:49,895 - INFO - Test MAE        : 86.0189
+2026-04-28 08:56:49,896 - INFO - Test Pearson r  : 0.9730
+2026-04-28 08:56:49,896 - INFO - Test Spearman r : 0.9735
+2026-04-28 08:56:49,896 - INFO - ----------------------------------------
+2026-04-28 08:56:49,901 - INFO - Target Property : lumo_energy_meV
+2026-04-28 08:56:49,901 - INFO - Test RMSE       : 125.3598
+2026-04-28 08:56:49,901 - INFO - Test MAE        : 88.8896
+2026-04-28 08:56:49,901 - INFO - Test Pearson r  : 0.9852
+2026-04-28 08:56:49,902 - INFO - Test Spearman r : 0.9865
+2026-04-28 08:56:49,902 - INFO - ----------------------------------------
+2026-04-28 08:56:49,907 - INFO - Target Property : homo_lumo_gap_meV
+2026-04-28 08:56:49,907 - INFO - Test RMSE       : 164.3350
+2026-04-28 08:56:49,907 - INFO - Test MAE        : 119.8723
+2026-04-28 08:56:49,907 - INFO - Test Pearson r  : 0.9801
+2026-04-28 08:56:49,907 - INFO - Test Spearman r : 0.9791
+2026-04-28 08:56:49,907 - INFO - ----------------------------------------
+2026-04-28 08:56:49,908 - INFO - 🏆 Average Test RMSE (All 3 Targets): 134.9917
+2026-04-28 08:56:49,908 - INFO - ========================================

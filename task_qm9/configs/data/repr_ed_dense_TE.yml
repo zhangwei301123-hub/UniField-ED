@@ -1,0 +1,9 @@
+dataset_mode: "repr_ed_dense"
+pkl_path: "../data/qm9/qm9_ed_1024_multi_prop_Bohr.pkl"
+grid_size: 0.1
+# 注意：严格按照真实字典的 Key，去掉了 U 和 H 后面的 298
+targets: 
+  - "U0_meV"
+  - "U_meV"
+  - "H_meV"
+  - "G298_meV"

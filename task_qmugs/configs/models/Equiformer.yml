@@ -1,0 +1,17 @@
+name: "Equiformer"
+head_input_dim: 64
+
+equiformer_args:
+  irreps_in: "5x0e"
+  irreps_node_embedding: "128x0e+64x1e+32x2e" 
+  num_layers: 4 
+  irreps_node_attr: "1x0e"
+  irreps_sh: "1x0e+1x1o+1x2e+1x3o"
+  max_radius: 10.0 
+  number_of_basis: 256
+  basis_type: "gaussian"
+  fc_neurons: [128, 128]
+  irreps_feature: "512x0e" 
+  irreps_head: "64x0e+32x1e+16x2e"
+  num_heads: 8
+  output_dim: 64  # Equiformer 提取后的单头维度

@@ -1,0 +1,16 @@
+2026-04-17 10:04:52,893 - INFO - 🎯 Evaluating Targets: ['formation_energy_meV']
+2026-04-17 10:04:52,893 - INFO - 📂 Loading checkpoint from: /home/zw/zw/ED_all/task_qmugs/logs/QMugs_repr_atomistic_graph_ComENet_Task1_20260416_212033/best_model.pth
+2026-04-17 10:04:52,893 - INFO - 📝 Test log will be saved to: /home/zw/zw/ED_all/task_qmugs/logs/QMugs_repr_atomistic_graph_ComENet_Task1_20260416_212033/test.log
+2026-04-17 10:05:30,092 - INFO - ✅ Successfully loaded checkpoint from Epoch 152
+2026-04-17 10:05:30,093 - INFO -     Validation Avg RMSE at this epoch was: 5065.4747
+2026-04-17 10:05:37,001 - INFO - ========================================
+2026-04-17 10:05:37,002 - INFO -  🎉 Test Set Evaluation Results 🎉
+2026-04-17 10:05:37,002 - INFO - ========================================
+2026-04-17 10:05:37,006 - INFO - Target Property : formation_energy_meV
+2026-04-17 10:05:37,006 - INFO - Test RMSE       : 5192.4023
+2026-04-17 10:05:37,006 - INFO - Test MAE        : 2566.6448
+2026-04-17 10:05:37,006 - INFO - Test Pearson r  : 0.9983
+2026-04-17 10:05:37,007 - INFO - Test Spearman r : 0.9984
+2026-04-17 10:05:37,007 - INFO - ----------------------------------------
+2026-04-17 10:05:37,007 - INFO - 🏆 Average Test RMSE (All 1 Targets): 5192.4023
+2026-04-17 10:05:37,007 - INFO - ========================================

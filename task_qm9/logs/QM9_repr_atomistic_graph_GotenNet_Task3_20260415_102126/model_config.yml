@@ -1,0 +1,4 @@
+name: "GotenNet"
+hidden_channels: 128       # <--- 💡 核心修改：降维防过拟合，提速！
+num_layers: 6              # <--- 💡 核心修改：6 层足够看透整个 QM9 分子，避免过平滑
+cutoff: 10.0               # <--- ✅ 完美保持 10.0 Bohr

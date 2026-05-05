@@ -1,0 +1,19 @@
+2026-04-21 18:25:26,588 - INFO - 🎯 Evaluating Targets: ['mu_mD']
+2026-04-21 18:25:26,589 - INFO - 📂 Loading checkpoint from: /home/zw/ED_all/task_qm9/logs/QM9_repr_ed_dense_PointNext_Task1_20260420_193608/best_model.pth
+2026-04-21 18:25:26,589 - INFO - 📝 Test log will be saved to: /home/zw/ED_all/task_qm9/logs/QM9_repr_ed_dense_PointNext_Task1_20260420_193608/test.log
+2026-04-21 18:26:22,690 - INFO - 🎯 Evaluating Targets: ['mu_mD']
+2026-04-21 18:26:22,690 - INFO - 📂 Loading checkpoint from: /home/zw/ED_all/task_qm9/logs/QM9_repr_ed_dense_PointNext_Task1_20260420_193608/best_model.pth
+2026-04-21 18:26:22,691 - INFO - 📝 Test log will be saved to: /home/zw/ED_all/task_qm9/logs/QM9_repr_ed_dense_PointNext_Task1_20260420_193608/test.log
+2026-04-21 18:26:28,290 - INFO - ✅ Successfully loaded checkpoint from Epoch 61
+2026-04-21 18:26:28,290 - INFO -     Validation Avg RMSE at this epoch was: 1507.5023
+2026-04-21 18:26:49,866 - INFO - ========================================
+2026-04-21 18:26:49,866 - INFO -  🎉 Test Set Evaluation Results 🎉
+2026-04-21 18:26:49,867 - INFO - ========================================
+2026-04-21 18:26:49,879 - INFO - Target Property : mu_mD
+2026-04-21 18:26:49,879 - INFO - Test RMSE       : 1469.0800
+2026-04-21 18:26:49,879 - INFO - Test MAE        : 1132.4301
+2026-04-21 18:26:49,879 - INFO - Test Pearson r  : 0.2306
+2026-04-21 18:26:49,880 - INFO - Test Spearman r : 0.2353
+2026-04-21 18:26:49,880 - INFO - ----------------------------------------
+2026-04-21 18:26:49,880 - INFO - 🏆 Average Test RMSE (All 1 Targets): 1469.0800
+2026-04-21 18:26:49,880 - INFO - ========================================

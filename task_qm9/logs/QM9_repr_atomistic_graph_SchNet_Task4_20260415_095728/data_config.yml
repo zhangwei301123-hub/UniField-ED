@@ -1,0 +1,8 @@
+dataset_mode: "repr_atomistic_graph"
+pkl_path: "../data/qm9/qm9_ed_1024_multi_prop_Bohr.pkl" # 确保该 pkl 中包含 atom_pos, atom_z 等信息
+grid_size: 0.1
+targets: 
+  - "alpha_mBohr3"
+  - "r2_mBohr2"
+  - "zpve_meV"
+  - "Cv_mcal"

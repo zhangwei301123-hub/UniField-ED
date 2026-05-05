@@ -1,0 +1,34 @@
+2026-04-23 11:42:44,492 - INFO - 🎯 Evaluating Targets: ['alpha_mBohr3', 'r2_mBohr2', 'zpve_meV', 'Cv_mcal']
+2026-04-23 11:42:44,492 - INFO - 📂 Loading checkpoint from: /home/zw/ED_all/task_qm9/logs/QM9_repr_ed_dense_PointNext_Task4_20260421_201027/best_model.pth
+2026-04-23 11:42:44,492 - INFO - 📝 Test log will be saved to: /home/zw/ED_all/task_qm9/logs/QM9_repr_ed_dense_PointNext_Task4_20260421_201027/test.log
+2026-04-23 11:42:50,252 - INFO - ✅ Successfully loaded checkpoint from Epoch 114
+2026-04-23 11:42:50,252 - INFO -     Validation Avg RMSE at this epoch was: 136713.3180
+2026-04-23 11:43:11,730 - INFO - ========================================
+2026-04-23 11:43:11,731 - INFO -  🎉 Test Set Evaluation Results 🎉
+2026-04-23 11:43:11,731 - INFO - ========================================
+2026-04-23 11:43:11,743 - INFO - Target Property : alpha_mBohr3
+2026-04-23 11:43:11,743 - INFO - Test RMSE       : 8032.0640
+2026-04-23 11:43:11,744 - INFO - Test MAE        : 6115.2197
+2026-04-23 11:43:11,744 - INFO - Test Pearson r  : 0.3170
+2026-04-23 11:43:11,744 - INFO - Test Spearman r : 0.3228
+2026-04-23 11:43:11,744 - INFO - ----------------------------------------
+2026-04-23 11:43:11,754 - INFO - Target Property : r2_mBohr2
+2026-04-23 11:43:11,754 - INFO - Test RMSE       : 270179.0625
+2026-04-23 11:43:11,754 - INFO - Test MAE        : 191630.0000
+2026-04-23 11:43:11,754 - INFO - Test Pearson r  : 0.2623
+2026-04-23 11:43:11,754 - INFO - Test Spearman r : 0.2541
+2026-04-23 11:43:11,755 - INFO - ----------------------------------------
+2026-04-23 11:43:11,764 - INFO - Target Property : zpve_meV
+2026-04-23 11:43:11,764 - INFO - Test RMSE       : 905.4525
+2026-04-23 11:43:11,764 - INFO - Test MAE        : 720.1342
+2026-04-23 11:43:11,764 - INFO - Test Pearson r  : 0.3852
+2026-04-23 11:43:11,764 - INFO - Test Spearman r : 0.3769
+2026-04-23 11:43:11,764 - INFO - ----------------------------------------
+2026-04-23 11:43:11,773 - INFO - Target Property : Cv_mcal
+2026-04-23 11:43:11,773 - INFO - Test RMSE       : 3908.4941
+2026-04-23 11:43:11,773 - INFO - Test MAE        : 3078.6538
+2026-04-23 11:43:11,773 - INFO - Test Pearson r  : 0.2682
+2026-04-23 11:43:11,774 - INFO - Test Spearman r : 0.2655
+2026-04-23 11:43:11,774 - INFO - ----------------------------------------
+2026-04-23 11:43:11,774 - INFO - 🏆 Average Test RMSE (All 4 Targets): 70756.2656
+2026-04-23 11:43:11,774 - INFO - ========================================

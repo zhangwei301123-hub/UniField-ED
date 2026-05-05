@@ -1,0 +1,48 @@
+# ======================
+# Large data files
+# ======================
+/data/
+*.pkl
+*.pt
+*.pth
+*.ckpt
+*.npz
+*.npy
+*.h5
+*.hdf5
+*.lmdb
+
+# ======================
+# Training logs / outputs
+# ======================
+**/logs/
+**/outputs/
+**/output/
+**/results/
+**/runs/
+**/wandb/
+**/checkpoints/
+**/ckpt/
+**/weights/
+
+# ======================
+# Python cache
+# ======================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# ======================
+# IDE / system
+# ======================
+.vscode/
+.idea/
+.DS_Store
+
+# ======================
+# Temporary files
+# ======================
+*.log
+*.tmp
+*.bak

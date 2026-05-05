@@ -1,0 +1,8 @@
+train:
+  seed: 2025
+  epochs: 300
+  patience: 50
+  batch_size: 24
+  lr: 1.0e-4
+  weight_decay: 1.0e-4
+  grad_norm_clip: 1.0

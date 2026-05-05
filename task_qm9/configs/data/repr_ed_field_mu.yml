@@ -1,0 +1,5 @@
+dataset_mode: "repr_ed_field"
+pkl_path: "../data/qm9/qm9_ed_1024_multi_prop_Bohr.pkl"
+grid_size: 0.1
+targets: 
+  - "mu_mD"

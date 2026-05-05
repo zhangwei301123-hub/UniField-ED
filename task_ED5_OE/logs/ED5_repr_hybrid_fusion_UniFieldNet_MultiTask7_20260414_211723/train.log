@@ -1,0 +1,1227 @@
+2026-04-14 21:17:23,027 - INFO - 💾 Config files backed up to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723
+2026-04-14 21:17:23,027 - INFO - 🎯 Multi-Task Targets (7): ['homo_2', 'homo_1', 'homo_0', 'lumo_0', 'lumo_1', 'lumo_2', 'lumo_3']
+2026-04-14 21:17:23,028 - INFO - ========================================
+2026-04-14 21:17:23,028 - INFO -         Training Configuration        
+2026-04-14 21:17:23,028 - INFO - ========================================
+2026-04-14 21:17:23,029 - INFO - 
+{'data': {'dataset_mode': 'repr_hybrid_fusion',
+          'grid_size': 0.1,
+          'max_radius': 5.0,
+          'pkl_path': '/home/zw/ED_all/data/ED5_OE/ed_homo_lumo_5w_1024_fusion.pkl',
+          'targets': ['homo_2',
+                      'homo_1',
+                      'homo_0',
+                      'lumo_0',
+                      'lumo_1',
+                      'lumo_2',
+                      'lumo_3']},
+ 'model': {'equiformer_args': {'basis_type': 'gaussian',
+                               'fc_neurons': [128, 128],
+                               'irreps_feature': '1024x0e',
+                               'irreps_head': '64x0e+32x1e+16x2e',
+                               'irreps_in': '5x0e',
+                               'irreps_node_attr': '1x0e',
+                               'irreps_node_embedding': '256x0e+128x1e+64x2e',
+                               'irreps_sh': '1x0e+1x1o+1x2e+1x3o',
+                               'max_radius': 5.0,
+                               'num_heads': 8,
+                               'num_layers': 8,
+                               'number_of_basis': 256,
+                               'output_dim': 64},
+           'head_input_dim': 64,
+           'name': 'UniFieldNet',
+           'ptv3_args': {'dec_channels': [32, 64, 128],
+                         'enc_channels': [32, 64, 128, 256],
+                         'enc_depths': [2, 2, 4, 2],
+                         'in_channels': 1,
+                         'patch_size': 64}},
+ 'train': {'batch_size': 32,
+           'epochs': 300,
+           'grad_norm_clip': 1.0,
+           'lr': 0.0001,
+           'patience': 50,
+           'seed': 2025,
+           'weight_decay': 0.0001}}
+2026-04-14 21:17:23,029 - INFO - ========================================
+
+2026-04-14 21:17:23,029 - INFO - 🚀 Start Training on Device: cuda
+2026-04-14 21:17:23,029 - INFO - Loading Data...
+2026-04-14 21:17:23,029 - INFO - Loading Dataset Mode: repr_hybrid_fusion...
+2026-04-14 21:17:26,519 - INFO - Stats - Mean: [[-7445.8413  -6840.216   -6120.3984   -467.5637    424.04166  1219.15
+   1809.3903 ]], Std: [[ 740.80115  706.1094   754.61444 1186.4424  1122.4873  1107.2244
+  1080.7959 ]]
+2026-04-14 21:17:26,519 - INFO - Building Model: UniFieldNet...
+2026-04-14 21:17:39,622 - INFO - Total Parameters: 23.8107 M
+
+2026-04-14 21:26:57,453 - INFO - [Epoch 1] Train Loss: 0.2402 | LR: 0.000100
+2026-04-14 21:26:57,454 - INFO -     >>> Val Avg RMSE (Real): 375.1607
+2026-04-14 21:26:57,454 - INFO -     >>> Val MAE Details: ['228.5216', '227.4938', '261.6158', '414.6595', '311.9161', '269.4515', '278.0046']
+2026-04-14 21:26:57,934 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-14 21:36:09,435 - INFO - [Epoch 2] Train Loss: 0.1138 | LR: 0.000100
+2026-04-14 21:36:09,436 - INFO -     >>> Val Avg RMSE (Real): 290.9796
+2026-04-14 21:36:09,436 - INFO -     >>> Val MAE Details: ['202.9099', '199.9578', '210.4760', '223.1057', '232.0126', '217.1062', '214.9427']
+2026-04-14 21:36:09,970 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-14 21:45:22,072 - INFO - [Epoch 3] Train Loss: 0.0916 | LR: 0.000100
+2026-04-14 21:45:22,073 - INFO -     >>> Val Avg RMSE (Real): 282.2917
+2026-04-14 21:45:22,073 - INFO -     >>> Val MAE Details: ['192.5979', '191.3014', '197.7874', '225.4155', '220.8851', '221.2606', '203.6032']
+2026-04-14 21:45:22,621 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-14 21:54:28,993 - INFO - [Epoch 4] Train Loss: 0.0797 | LR: 0.000100
+2026-04-14 21:54:28,993 - INFO -     >>> Val Avg RMSE (Real): 269.2517
+2026-04-14 21:54:28,993 - INFO -     >>> Val MAE Details: ['181.5909', '189.6761', '185.8343', '217.9251', '219.0259', '198.5761', '192.7843']
+2026-04-14 21:54:29,729 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-14 22:03:40,163 - INFO - [Epoch 5] Train Loss: 0.0720 | LR: 0.000100
+2026-04-14 22:03:40,164 - INFO -     >>> Val Avg RMSE (Real): 265.4438
+2026-04-14 22:03:40,164 - INFO -     >>> Val MAE Details: ['189.5396', '184.7094', '178.6298', '189.3491', '233.1076', '203.9257', '195.1445']
+2026-04-14 22:03:40,667 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-14 22:12:49,809 - INFO - [Epoch 6] Train Loss: 0.0676 | LR: 0.000100
+2026-04-14 22:12:49,809 - INFO -     >>> Val Avg RMSE (Real): 254.3300
+2026-04-14 22:12:49,810 - INFO -     >>> Val MAE Details: ['174.6114', '178.9299', '175.7020', '200.5813', '191.8689', '193.2388', '192.1022']
+2026-04-14 22:12:50,349 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-14 22:22:01,568 - INFO - [Epoch 7] Train Loss: 0.0629 | LR: 0.000100
+2026-04-14 22:22:01,568 - INFO -     >>> Val Avg RMSE (Real): 247.0451
+2026-04-14 22:22:01,568 - INFO -     >>> Val MAE Details: ['173.4181', '170.7642', '170.9994', '178.1366', '191.2153', '191.6497', '184.2845']
+2026-04-14 22:22:02,069 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-14 22:31:11,578 - INFO - [Epoch 8] Train Loss: 0.0585 | LR: 0.000100
+2026-04-14 22:31:11,578 - INFO -     >>> Val Avg RMSE (Real): 244.7449
+2026-04-14 22:31:11,578 - INFO -     >>> Val MAE Details: ['165.6350', '162.0076', '160.6735', '174.7335', '209.9770', '185.0577', '183.7113']
+2026-04-14 22:31:12,120 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-14 22:40:22,312 - INFO - [Epoch 9] Train Loss: 0.0558 | LR: 0.000100
+2026-04-14 22:40:22,313 - INFO -     >>> Val Avg RMSE (Real): 254.8062
+2026-04-14 22:40:22,313 - INFO -     >>> Val MAE Details: ['164.3738', '159.4164', '174.4987', '202.4129', '201.4825', '219.6423', '190.0295']
+2026-04-14 22:40:22,314 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-14 22:49:28,868 - INFO - [Epoch 10] Train Loss: 0.0537 | LR: 0.000100
+2026-04-14 22:49:28,869 - INFO -     >>> Val Avg RMSE (Real): 246.0372
+2026-04-14 22:49:28,869 - INFO -     >>> Val MAE Details: ['165.5214', '159.8571', '170.1813', '197.8968', '194.1792', '185.6713', '190.9566']
+2026-04-14 22:49:28,869 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-14 22:58:40,108 - INFO - [Epoch 11] Train Loss: 0.0507 | LR: 0.000100
+2026-04-14 22:58:40,109 - INFO -     >>> Val Avg RMSE (Real): 234.6166
+2026-04-14 22:58:40,109 - INFO -     >>> Val MAE Details: ['165.2882', '157.9155', '156.2202', '168.7780', '185.2648', '183.1880', '176.2659']
+2026-04-14 22:58:40,742 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-14 23:07:52,282 - INFO - [Epoch 12] Train Loss: 0.0491 | LR: 0.000100
+2026-04-14 23:07:52,282 - INFO -     >>> Val Avg RMSE (Real): 231.6923
+2026-04-14 23:07:52,282 - INFO -     >>> Val MAE Details: ['167.5806', '157.3008', '153.7447', '162.5619', '178.4424', '177.9927', '173.6010']
+2026-04-14 23:07:52,860 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-14 23:17:59,523 - INFO - [Epoch 13] Train Loss: 0.0469 | LR: 0.000100
+2026-04-14 23:17:59,524 - INFO -     >>> Val Avg RMSE (Real): 232.3476
+2026-04-14 23:17:59,524 - INFO -     >>> Val MAE Details: ['166.6574', '154.0891', '150.2207', '164.0757', '182.4303', '180.1006', '175.1819']
+2026-04-14 23:17:59,524 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-14 23:29:25,238 - INFO - [Epoch 14] Train Loss: 0.0458 | LR: 0.000099
+2026-04-14 23:29:25,239 - INFO -     >>> Val Avg RMSE (Real): 239.5212
+2026-04-14 23:29:25,239 - INFO -     >>> Val MAE Details: ['168.2122', '161.1524', '153.1957', '191.7892', '193.3353', '181.8114', '176.0099']
+2026-04-14 23:29:25,239 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-14 23:41:23,940 - INFO - [Epoch 15] Train Loss: 0.0445 | LR: 0.000099
+2026-04-14 23:41:23,941 - INFO -     >>> Val Avg RMSE (Real): 232.1945
+2026-04-14 23:41:23,941 - INFO -     >>> Val MAE Details: ['156.6474', '151.7278', '151.6702', '186.2796', '190.1152', '184.3013', '170.9927']
+2026-04-14 23:41:23,941 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-14 23:54:37,005 - INFO - [Epoch 16] Train Loss: 0.0430 | LR: 0.000099
+2026-04-14 23:54:37,005 - INFO -     >>> Val Avg RMSE (Real): 223.1616
+2026-04-14 23:54:37,005 - INFO -     >>> Val MAE Details: ['149.9303', '149.8150', '146.8975', '166.2856', '172.2363', '170.9129', '169.6114']
+2026-04-14 23:54:37,534 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-15 00:07:56,485 - INFO - [Epoch 17] Train Loss: 0.0421 | LR: 0.000099
+2026-04-15 00:07:56,486 - INFO -     >>> Val Avg RMSE (Real): 218.6821
+2026-04-15 00:07:56,486 - INFO -     >>> Val MAE Details: ['148.2623', '145.0386', '141.9067', '149.2794', '171.8026', '170.6136', '169.4524']
+2026-04-15 00:07:57,252 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-15 00:21:14,440 - INFO - [Epoch 18] Train Loss: 0.0414 | LR: 0.000099
+2026-04-15 00:21:14,440 - INFO -     >>> Val Avg RMSE (Real): 220.0584
+2026-04-15 00:21:14,440 - INFO -     >>> Val MAE Details: ['151.9197', '148.6769', '141.2417', '147.4150', '174.7122', '166.6373', '168.2104']
+2026-04-15 00:21:14,441 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 00:34:24,153 - INFO - [Epoch 19] Train Loss: 0.0405 | LR: 0.000099
+2026-04-15 00:34:24,153 - INFO -     >>> Val Avg RMSE (Real): 216.0771
+2026-04-15 00:34:24,153 - INFO -     >>> Val MAE Details: ['144.8456', '140.0813', '145.9768', '152.4234', '166.2585', '173.0223', '166.9825']
+2026-04-15 00:34:24,666 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-15 00:47:42,686 - INFO - [Epoch 20] Train Loss: 0.0396 | LR: 0.000099
+2026-04-15 00:47:42,687 - INFO -     >>> Val Avg RMSE (Real): 218.8841
+2026-04-15 00:47:42,687 - INFO -     >>> Val MAE Details: ['145.3401', '144.1966', '138.0690', '151.0128', '165.9289', '172.0509', '177.5635']
+2026-04-15 00:47:42,687 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 01:01:03,630 - INFO - [Epoch 21] Train Loss: 0.0389 | LR: 0.000099
+2026-04-15 01:01:03,630 - INFO -     >>> Val Avg RMSE (Real): 211.7552
+2026-04-15 01:01:03,630 - INFO -     >>> Val MAE Details: ['144.3709', '138.3959', '138.5685', '149.7094', '162.0263', '164.4702', '161.9756']
+2026-04-15 01:01:04,177 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-15 01:14:22,010 - INFO - [Epoch 22] Train Loss: 0.0381 | LR: 0.000099
+2026-04-15 01:14:22,011 - INFO -     >>> Val Avg RMSE (Real): 210.9454
+2026-04-15 01:14:22,011 - INFO -     >>> Val MAE Details: ['147.4470', '146.5012', '137.8561', '141.1807', '159.1763', '164.4387', '161.3698']
+2026-04-15 01:14:22,562 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-15 01:27:45,143 - INFO - [Epoch 23] Train Loss: 0.0378 | LR: 0.000099
+2026-04-15 01:27:45,143 - INFO -     >>> Val Avg RMSE (Real): 219.0085
+2026-04-15 01:27:45,144 - INFO -     >>> Val MAE Details: ['155.5778', '145.3834', '140.2050', '150.7234', '169.8205', '163.9642', '167.8891']
+2026-04-15 01:27:45,144 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 01:40:56,685 - INFO - [Epoch 24] Train Loss: 0.0371 | LR: 0.000098
+2026-04-15 01:40:56,686 - INFO -     >>> Val Avg RMSE (Real): 215.0453
+2026-04-15 01:40:56,686 - INFO -     >>> Val MAE Details: ['150.4602', '138.5689', '136.8074', '163.8319', '160.1257', '162.9242', '164.2374']
+2026-04-15 01:40:56,686 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 01:54:16,920 - INFO - [Epoch 25] Train Loss: 0.0364 | LR: 0.000098
+2026-04-15 01:54:16,920 - INFO -     >>> Val Avg RMSE (Real): 212.0350
+2026-04-15 01:54:16,921 - INFO -     >>> Val MAE Details: ['147.7915', '142.2305', '134.7161', '154.3832', '163.8709', '165.3047', '163.7050']
+2026-04-15 01:54:16,921 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-15 02:07:32,817 - INFO - [Epoch 26] Train Loss: 0.0361 | LR: 0.000098
+2026-04-15 02:07:32,818 - INFO -     >>> Val Avg RMSE (Real): 206.4073
+2026-04-15 02:07:32,818 - INFO -     >>> Val MAE Details: ['143.8927', '136.9982', '134.2173', '142.6609', '157.6253', '161.2294', '156.4752']
+2026-04-15 02:07:33,562 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-15 02:20:54,018 - INFO - [Epoch 27] Train Loss: 0.0356 | LR: 0.000098
+2026-04-15 02:20:54,018 - INFO -     >>> Val Avg RMSE (Real): 210.9866
+2026-04-15 02:20:54,019 - INFO -     >>> Val MAE Details: ['155.2800', '138.5432', '130.8791', '142.1145', '170.8914', '164.9044', '157.6111']
+2026-04-15 02:20:54,019 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 02:34:03,019 - INFO - [Epoch 28] Train Loss: 0.0350 | LR: 0.000098
+2026-04-15 02:34:03,019 - INFO -     >>> Val Avg RMSE (Real): 206.8113
+2026-04-15 02:34:03,019 - INFO -     >>> Val MAE Details: ['146.7391', '139.5703', '129.4407', '139.5913', '159.5942', '158.9265', '160.6577']
+2026-04-15 02:34:03,019 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 02:47:22,026 - INFO - [Epoch 29] Train Loss: 0.0346 | LR: 0.000098
+2026-04-15 02:47:22,027 - INFO -     >>> Val Avg RMSE (Real): 210.0624
+2026-04-15 02:47:22,027 - INFO -     >>> Val MAE Details: ['143.8474', '137.7404', '150.1839', '149.7240', '159.7433', '158.8295', '159.1895']
+2026-04-15 02:47:22,027 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-15 03:00:42,605 - INFO - [Epoch 30] Train Loss: 0.0339 | LR: 0.000098
+2026-04-15 03:00:42,605 - INFO -     >>> Val Avg RMSE (Real): 208.8635
+2026-04-15 03:00:42,605 - INFO -     >>> Val MAE Details: ['146.7890', '137.3823', '133.7739', '139.7741', '155.4005', '162.5907', '164.9630']
+2026-04-15 03:00:42,605 - INFO - ⏳ No improvement. Patience: 4/50
+2026-04-15 03:13:58,691 - INFO - [Epoch 31] Train Loss: 0.0338 | LR: 0.000097
+2026-04-15 03:13:58,691 - INFO -     >>> Val Avg RMSE (Real): 210.5116
+2026-04-15 03:13:58,691 - INFO -     >>> Val MAE Details: ['142.6197', '148.5219', '135.3364', '140.7106', '174.3407', '167.0807', '156.3569']
+2026-04-15 03:13:58,691 - INFO - ⏳ No improvement. Patience: 5/50
+2026-04-15 03:27:21,483 - INFO - [Epoch 32] Train Loss: 0.0335 | LR: 0.000097
+2026-04-15 03:27:21,484 - INFO -     >>> Val Avg RMSE (Real): 204.9485
+2026-04-15 03:27:21,484 - INFO -     >>> Val MAE Details: ['139.5521', '135.2692', '130.1245', '142.3422', '153.4300', '161.7471', '154.1268']
+2026-04-15 03:27:21,974 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-15 03:40:49,952 - INFO - [Epoch 33] Train Loss: 0.0329 | LR: 0.000097
+2026-04-15 03:40:49,952 - INFO -     >>> Val Avg RMSE (Real): 207.4444
+2026-04-15 03:40:49,952 - INFO -     >>> Val MAE Details: ['141.9331', '136.1784', '132.2343', '152.6491', '161.8839', '159.0499', '155.2605']
+2026-04-15 03:40:49,952 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 03:52:44,642 - INFO - [Epoch 34] Train Loss: 0.0324 | LR: 0.000097
+2026-04-15 03:52:44,643 - INFO -     >>> Val Avg RMSE (Real): 203.3961
+2026-04-15 03:52:44,643 - INFO -     >>> Val MAE Details: ['137.4085', '130.2940', '125.6977', '150.5102', '152.2921', '159.3176', '155.9563']
+2026-04-15 03:52:45,191 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-15 04:02:10,161 - INFO - [Epoch 35] Train Loss: 0.0321 | LR: 0.000097
+2026-04-15 04:02:10,162 - INFO -     >>> Val Avg RMSE (Real): 204.0858
+2026-04-15 04:02:10,162 - INFO -     >>> Val MAE Details: ['144.3703', '132.0585', '125.3258', '135.5906', '153.4866', '161.6944', '157.9003']
+2026-04-15 04:02:10,162 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 04:11:22,319 - INFO - [Epoch 36] Train Loss: 0.0319 | LR: 0.000096
+2026-04-15 04:11:22,319 - INFO -     >>> Val Avg RMSE (Real): 210.8090
+2026-04-15 04:11:22,320 - INFO -     >>> Val MAE Details: ['149.2233', '141.8899', '122.6586', '146.1613', '182.0810', '154.2128', '157.0486']
+2026-04-15 04:11:22,320 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 04:20:31,916 - INFO - [Epoch 37] Train Loss: 0.0318 | LR: 0.000096
+2026-04-15 04:20:31,917 - INFO -     >>> Val Avg RMSE (Real): 204.2422
+2026-04-15 04:20:31,917 - INFO -     >>> Val MAE Details: ['141.8796', '139.0325', '130.8029', '135.6628', '149.5077', '158.4926', '159.7770']
+2026-04-15 04:20:31,917 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-15 04:29:38,838 - INFO - [Epoch 38] Train Loss: 0.0314 | LR: 0.000096
+2026-04-15 04:29:38,839 - INFO -     >>> Val Avg RMSE (Real): 202.9272
+2026-04-15 04:29:38,839 - INFO -     >>> Val MAE Details: ['135.0936', '134.6367', '128.9917', '139.5384', '154.5751', '150.8535', '161.7714']
+2026-04-15 04:29:39,669 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-15 04:38:51,599 - INFO - [Epoch 39] Train Loss: 0.0310 | LR: 0.000096
+2026-04-15 04:38:51,600 - INFO -     >>> Val Avg RMSE (Real): 200.6671
+2026-04-15 04:38:51,600 - INFO -     >>> Val MAE Details: ['139.7419', '133.7600', '124.8959', '138.5193', '150.7967', '151.0266', '159.3746']
+2026-04-15 04:38:52,147 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-15 04:48:02,622 - INFO - [Epoch 40] Train Loss: 0.0309 | LR: 0.000096
+2026-04-15 04:48:02,623 - INFO -     >>> Val Avg RMSE (Real): 199.1714
+2026-04-15 04:48:02,623 - INFO -     >>> Val MAE Details: ['139.4774', '132.9089', '123.7882', '133.8192', '151.5247', '149.6052', '153.9514']
+2026-04-15 04:48:03,206 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-15 04:57:14,516 - INFO - [Epoch 41] Train Loss: 0.0305 | LR: 0.000095
+2026-04-15 04:57:14,516 - INFO -     >>> Val Avg RMSE (Real): 200.4702
+2026-04-15 04:57:14,517 - INFO -     >>> Val MAE Details: ['137.9868', '130.0843', '126.6640', '135.6431', '151.9700', '157.6391', '155.3287']
+2026-04-15 04:57:14,517 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 05:06:23,258 - INFO - [Epoch 42] Train Loss: 0.0302 | LR: 0.000095
+2026-04-15 05:06:23,258 - INFO -     >>> Val Avg RMSE (Real): 201.9868
+2026-04-15 05:06:23,258 - INFO -     >>> Val MAE Details: ['144.3443', '135.0299', '123.7025', '138.3230', '151.8526', '150.9979', '157.8789']
+2026-04-15 05:06:23,258 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 05:15:30,278 - INFO - [Epoch 43] Train Loss: 0.0302 | LR: 0.000095
+2026-04-15 05:15:30,279 - INFO -     >>> Val Avg RMSE (Real): 199.2165
+2026-04-15 05:15:30,279 - INFO -     >>> Val MAE Details: ['136.0152', '133.2917', '123.0895', '131.8746', '150.2959', '154.7700', '161.9413']
+2026-04-15 05:15:30,279 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-15 05:24:38,731 - INFO - [Epoch 44] Train Loss: 0.0297 | LR: 0.000095
+2026-04-15 05:24:38,732 - INFO -     >>> Val Avg RMSE (Real): 201.1564
+2026-04-15 05:24:38,732 - INFO -     >>> Val MAE Details: ['136.8040', '130.0954', '126.6379', '132.5574', '151.7107', '155.2988', '159.7626']
+2026-04-15 05:24:38,732 - INFO - ⏳ No improvement. Patience: 4/50
+2026-04-15 05:33:47,829 - INFO - [Epoch 45] Train Loss: 0.0299 | LR: 0.000095
+2026-04-15 05:33:47,830 - INFO -     >>> Val Avg RMSE (Real): 203.4154
+2026-04-15 05:33:47,830 - INFO -     >>> Val MAE Details: ['137.1407', '129.5855', '123.0259', '134.6296', '154.3577', '164.9251', '164.4777']
+2026-04-15 05:33:47,830 - INFO - ⏳ No improvement. Patience: 5/50
+2026-04-15 05:42:59,390 - INFO - [Epoch 46] Train Loss: 0.0291 | LR: 0.000094
+2026-04-15 05:42:59,391 - INFO -     >>> Val Avg RMSE (Real): 203.5538
+2026-04-15 05:42:59,391 - INFO -     >>> Val MAE Details: ['139.8385', '137.0095', '126.2444', '143.5086', '153.0895', '152.0054', '155.5402']
+2026-04-15 05:42:59,391 - INFO - ⏳ No improvement. Patience: 6/50
+2026-04-15 05:52:11,110 - INFO - [Epoch 47] Train Loss: 0.0295 | LR: 0.000094
+2026-04-15 05:52:11,110 - INFO -     >>> Val Avg RMSE (Real): 199.9435
+2026-04-15 05:52:11,111 - INFO -     >>> Val MAE Details: ['133.2576', '131.5321', '123.5133', '133.9195', '154.8994', '154.5295', '151.7046']
+2026-04-15 05:52:11,111 - INFO - ⏳ No improvement. Patience: 7/50
+2026-04-15 06:01:00,866 - INFO - [Epoch 48] Train Loss: 0.0291 | LR: 0.000094
+2026-04-15 06:01:00,866 - INFO -     >>> Val Avg RMSE (Real): 197.6059
+2026-04-15 06:01:00,866 - INFO -     >>> Val MAE Details: ['133.7117', '130.3396', '120.5957', '139.0969', '148.1429', '152.4745', '154.9042']
+2026-04-15 06:01:01,584 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-15 06:10:11,946 - INFO - [Epoch 49] Train Loss: 0.0288 | LR: 0.000094
+2026-04-15 06:10:11,947 - INFO -     >>> Val Avg RMSE (Real): 197.3625
+2026-04-15 06:10:11,947 - INFO -     >>> Val MAE Details: ['132.1325', '128.6378', '130.3114', '138.4365', '147.1945', '151.7036', '150.8072']
+2026-04-15 06:10:12,579 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-15 06:19:24,702 - INFO - [Epoch 50] Train Loss: 0.0284 | LR: 0.000093
+2026-04-15 06:19:24,703 - INFO -     >>> Val Avg RMSE (Real): 196.6314
+2026-04-15 06:19:24,703 - INFO -     >>> Val MAE Details: ['135.8257', '130.3036', '138.3702', '131.6377', '147.1571', '147.1522', '152.0277']
+2026-04-15 06:19:25,237 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-15 06:28:34,691 - INFO - [Epoch 51] Train Loss: 0.0282 | LR: 0.000093
+2026-04-15 06:28:34,692 - INFO -     >>> Val Avg RMSE (Real): 198.6644
+2026-04-15 06:28:34,692 - INFO -     >>> Val MAE Details: ['135.2698', '127.4683', '122.7181', '140.7574', '151.6931', '155.3857', '156.3025']
+2026-04-15 06:28:34,692 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 06:37:43,541 - INFO - [Epoch 52] Train Loss: 0.0282 | LR: 0.000093
+2026-04-15 06:37:43,541 - INFO -     >>> Val Avg RMSE (Real): 196.6269
+2026-04-15 06:37:43,542 - INFO -     >>> Val MAE Details: ['136.5647', '127.4287', '125.9063', '131.9072', '146.7584', '154.1960', '155.0772']
+2026-04-15 06:37:44,048 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-15 06:46:52,730 - INFO - [Epoch 53] Train Loss: 0.0281 | LR: 0.000092
+2026-04-15 06:46:52,730 - INFO -     >>> Val Avg RMSE (Real): 197.7435
+2026-04-15 06:46:52,730 - INFO -     >>> Val MAE Details: ['132.8925', '131.7651', '121.1606', '132.9140', '164.5419', '152.9271', '151.5527']
+2026-04-15 06:46:52,731 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 06:56:02,946 - INFO - [Epoch 54] Train Loss: 0.0276 | LR: 0.000092
+2026-04-15 06:56:02,947 - INFO -     >>> Val Avg RMSE (Real): 196.3513
+2026-04-15 06:56:02,947 - INFO -     >>> Val MAE Details: ['137.8729', '127.2269', '120.3682', '140.0100', '145.0780', '147.5023', '148.7242']
+2026-04-15 06:56:03,481 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-15 07:05:13,513 - INFO - [Epoch 55] Train Loss: 0.0275 | LR: 0.000092
+2026-04-15 07:05:13,513 - INFO -     >>> Val Avg RMSE (Real): 200.9869
+2026-04-15 07:05:13,513 - INFO -     >>> Val MAE Details: ['139.3699', '131.2535', '136.2705', '133.3077', '148.4151', '152.8760', '153.3202']
+2026-04-15 07:05:13,513 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 07:14:26,472 - INFO - [Epoch 56] Train Loss: 0.0278 | LR: 0.000092
+2026-04-15 07:14:26,472 - INFO -     >>> Val Avg RMSE (Real): 199.1448
+2026-04-15 07:14:26,472 - INFO -     >>> Val MAE Details: ['137.8876', '129.9692', '125.3599', '137.2189', '153.6262', '149.1702', '153.7803']
+2026-04-15 07:14:26,472 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 07:23:37,476 - INFO - [Epoch 57] Train Loss: 0.0273 | LR: 0.000091
+2026-04-15 07:23:37,477 - INFO -     >>> Val Avg RMSE (Real): 196.0062
+2026-04-15 07:23:37,477 - INFO -     >>> Val MAE Details: ['136.7233', '128.8386', '116.5841', '129.7276', '149.0168', '150.5004', '152.9518']
+2026-04-15 07:23:37,995 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-15 07:32:46,568 - INFO - [Epoch 58] Train Loss: 0.0271 | LR: 0.000091
+2026-04-15 07:32:46,569 - INFO -     >>> Val Avg RMSE (Real): 195.4820
+2026-04-15 07:32:46,569 - INFO -     >>> Val MAE Details: ['130.1250', '129.0303', '115.3374', '133.4768', '147.0126', '148.5165', '153.7718']
+2026-04-15 07:32:47,087 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-15 07:42:01,275 - INFO - [Epoch 59] Train Loss: 0.0270 | LR: 0.000091
+2026-04-15 07:42:01,275 - INFO -     >>> Val Avg RMSE (Real): 193.7133
+2026-04-15 07:42:01,275 - INFO -     >>> Val MAE Details: ['131.9362', '127.3389', '118.1485', '132.6765', '143.6266', '147.2225', '146.5566']
+2026-04-15 07:42:01,994 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-15 07:51:12,386 - INFO - [Epoch 60] Train Loss: 0.0270 | LR: 0.000090
+2026-04-15 07:51:12,387 - INFO -     >>> Val Avg RMSE (Real): 192.5545
+2026-04-15 07:51:12,387 - INFO -     >>> Val MAE Details: ['130.5638', '127.3274', '122.7763', '129.8783', '146.2054', '146.2046', '146.2198']
+2026-04-15 07:51:12,911 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-15 08:00:24,162 - INFO - [Epoch 61] Train Loss: 0.0267 | LR: 0.000090
+2026-04-15 08:00:24,163 - INFO -     >>> Val Avg RMSE (Real): 198.9845
+2026-04-15 08:00:24,163 - INFO -     >>> Val MAE Details: ['134.5501', '131.1005', '124.7374', '138.1221', '155.6993', '156.1725', '150.9589']
+2026-04-15 08:00:24,163 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 08:09:33,506 - INFO - [Epoch 62] Train Loss: 0.0268 | LR: 0.000090
+2026-04-15 08:09:33,507 - INFO -     >>> Val Avg RMSE (Real): 192.1839
+2026-04-15 08:09:33,507 - INFO -     >>> Val MAE Details: ['130.0157', '125.6165', '116.8453', '124.5474', '149.6091', '144.3627', '148.8854']
+2026-04-15 08:09:34,043 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-15 08:18:42,500 - INFO - [Epoch 63] Train Loss: 0.0266 | LR: 0.000090
+2026-04-15 08:18:42,501 - INFO -     >>> Val Avg RMSE (Real): 192.6148
+2026-04-15 08:18:42,501 - INFO -     >>> Val MAE Details: ['129.3687', '128.3355', '117.2580', '127.2360', '150.2011', '146.2345', '151.8518']
+2026-04-15 08:18:42,501 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 08:27:56,875 - INFO - [Epoch 64] Train Loss: 0.0264 | LR: 0.000089
+2026-04-15 08:27:56,876 - INFO -     >>> Val Avg RMSE (Real): 193.0673
+2026-04-15 08:27:56,876 - INFO -     >>> Val MAE Details: ['130.1875', '125.2151', '128.4560', '131.9740', '143.2923', '146.5384', '149.0133']
+2026-04-15 08:27:56,876 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 08:36:56,918 - INFO - [Epoch 65] Train Loss: 0.0263 | LR: 0.000089
+2026-04-15 08:36:56,919 - INFO -     >>> Val Avg RMSE (Real): 195.2945
+2026-04-15 08:36:56,919 - INFO -     >>> Val MAE Details: ['131.1020', '124.9659', '128.7359', '132.9109', '146.0860', '148.5584', '148.4147']
+2026-04-15 08:36:56,919 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-15 08:46:08,167 - INFO - [Epoch 66] Train Loss: 0.0259 | LR: 0.000089
+2026-04-15 08:46:08,168 - INFO -     >>> Val Avg RMSE (Real): 196.5499
+2026-04-15 08:46:08,168 - INFO -     >>> Val MAE Details: ['130.1514', '122.7928', '116.8554', '141.5026', '148.5905', '150.3118', '150.5374']
+2026-04-15 08:46:08,168 - INFO - ⏳ No improvement. Patience: 4/50
+2026-04-15 08:55:20,207 - INFO - [Epoch 67] Train Loss: 0.0257 | LR: 0.000088
+2026-04-15 08:55:20,208 - INFO -     >>> Val Avg RMSE (Real): 196.4219
+2026-04-15 08:55:20,208 - INFO -     >>> Val MAE Details: ['135.5573', '122.3357', '113.3020', '134.9772', '166.8951', '146.0220', '152.2724']
+2026-04-15 08:55:20,208 - INFO - ⏳ No improvement. Patience: 5/50
+2026-04-15 09:04:22,368 - INFO - [Epoch 68] Train Loss: 0.0257 | LR: 0.000088
+2026-04-15 09:04:22,368 - INFO -     >>> Val Avg RMSE (Real): 197.0502
+2026-04-15 09:04:22,369 - INFO -     >>> Val MAE Details: ['132.0386', '128.6440', '122.9429', '140.4340', '145.3605', '152.8822', '154.1433']
+2026-04-15 09:04:22,369 - INFO - ⏳ No improvement. Patience: 6/50
+2026-04-15 09:12:05,313 - INFO - [Epoch 69] Train Loss: 0.0257 | LR: 0.000088
+2026-04-15 09:12:05,314 - INFO -     >>> Val Avg RMSE (Real): 192.8803
+2026-04-15 09:12:05,314 - INFO -     >>> Val MAE Details: ['137.8088', '125.0137', '122.0369', '128.7325', '146.0050', '144.5103', '146.2790']
+2026-04-15 09:12:05,314 - INFO - ⏳ No improvement. Patience: 7/50
+2026-04-15 09:19:34,268 - INFO - [Epoch 70] Train Loss: 0.0255 | LR: 0.000087
+2026-04-15 09:19:34,268 - INFO -     >>> Val Avg RMSE (Real): 193.3581
+2026-04-15 09:19:34,268 - INFO -     >>> Val MAE Details: ['132.7508', '124.3089', '120.9722', '127.9292', '149.5205', '145.9996', '152.6130']
+2026-04-15 09:19:34,269 - INFO - ⏳ No improvement. Patience: 8/50
+2026-04-15 09:27:14,244 - INFO - [Epoch 71] Train Loss: 0.0253 | LR: 0.000087
+2026-04-15 09:27:14,244 - INFO -     >>> Val Avg RMSE (Real): 189.9939
+2026-04-15 09:27:14,244 - INFO -     >>> Val MAE Details: ['130.4377', '128.4171', '128.5786', '125.4660', '140.8109', '142.3706', '141.9447']
+2026-04-15 09:27:14,774 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-15 09:34:54,024 - INFO - [Epoch 72] Train Loss: 0.0252 | LR: 0.000086
+2026-04-15 09:34:54,024 - INFO -     >>> Val Avg RMSE (Real): 195.6483
+2026-04-15 09:34:54,024 - INFO -     >>> Val MAE Details: ['128.0456', '123.0826', '131.1283', '131.5318', '148.4778', '156.9845', '151.3592']
+2026-04-15 09:34:54,024 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 09:42:35,668 - INFO - [Epoch 73] Train Loss: 0.0251 | LR: 0.000086
+2026-04-15 09:42:35,669 - INFO -     >>> Val Avg RMSE (Real): 190.7186
+2026-04-15 09:42:35,669 - INFO -     >>> Val MAE Details: ['131.7789', '122.6259', '117.7016', '129.3446', '144.7115', '140.9612', '145.0448']
+2026-04-15 09:42:35,669 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 09:50:12,967 - INFO - [Epoch 74] Train Loss: 0.0251 | LR: 0.000086
+2026-04-15 09:50:12,968 - INFO -     >>> Val Avg RMSE (Real): 191.1339
+2026-04-15 09:50:12,968 - INFO -     >>> Val MAE Details: ['133.3440', '123.4593', '116.5695', '126.5977', '141.9391', '147.4602', '146.0025']
+2026-04-15 09:50:12,968 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-15 09:57:58,292 - INFO - [Epoch 75] Train Loss: 0.0247 | LR: 0.000085
+2026-04-15 09:57:58,292 - INFO -     >>> Val Avg RMSE (Real): 191.0800
+2026-04-15 09:57:58,292 - INFO -     >>> Val MAE Details: ['127.3367', '126.7957', '113.8396', '141.3714', '144.4785', '140.0576', '143.9097']
+2026-04-15 09:57:58,292 - INFO - ⏳ No improvement. Patience: 4/50
+2026-04-15 10:06:13,609 - INFO - [Epoch 76] Train Loss: 0.0247 | LR: 0.000085
+2026-04-15 10:06:13,610 - INFO -     >>> Val Avg RMSE (Real): 191.8712
+2026-04-15 10:06:13,610 - INFO -     >>> Val MAE Details: ['127.7862', '123.9618', '116.5593', '132.1158', '148.7250', '150.5918', '147.3473']
+2026-04-15 10:06:13,610 - INFO - ⏳ No improvement. Patience: 5/50
+2026-04-15 10:14:53,036 - INFO - [Epoch 77] Train Loss: 0.0245 | LR: 0.000085
+2026-04-15 10:14:53,036 - INFO -     >>> Val Avg RMSE (Real): 188.9717
+2026-04-15 10:14:53,036 - INFO -     >>> Val MAE Details: ['129.4045', '122.1718', '115.9788', '125.9722', '147.8798', '143.4510', '142.2977']
+2026-04-15 10:14:53,585 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-15 10:24:10,949 - INFO - [Epoch 78] Train Loss: 0.0244 | LR: 0.000084
+2026-04-15 10:24:10,949 - INFO -     >>> Val Avg RMSE (Real): 191.5005
+2026-04-15 10:24:10,949 - INFO -     >>> Val MAE Details: ['126.9283', '123.7399', '115.6288', '131.6897', '142.5637', '143.7738', '148.6581']
+2026-04-15 10:24:10,949 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 10:35:08,331 - INFO - [Epoch 79] Train Loss: 0.0243 | LR: 0.000084
+2026-04-15 10:35:08,331 - INFO -     >>> Val Avg RMSE (Real): 190.7470
+2026-04-15 10:35:08,331 - INFO -     >>> Val MAE Details: ['129.5302', '122.9780', '115.3907', '127.6002', '145.6863', '143.7699', '144.7903']
+2026-04-15 10:35:08,331 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 10:46:06,191 - INFO - [Epoch 80] Train Loss: 0.0244 | LR: 0.000083
+2026-04-15 10:46:06,191 - INFO -     >>> Val Avg RMSE (Real): 189.6071
+2026-04-15 10:46:06,191 - INFO -     >>> Val MAE Details: ['126.4000', '122.7940', '113.7221', '124.1893', '146.5675', '144.7611', '144.1268']
+2026-04-15 10:46:06,192 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-15 10:57:07,025 - INFO - [Epoch 81] Train Loss: 0.0242 | LR: 0.000083
+2026-04-15 10:57:07,025 - INFO -     >>> Val Avg RMSE (Real): 189.7343
+2026-04-15 10:57:07,026 - INFO -     >>> Val MAE Details: ['127.8748', '121.6664', '114.4091', '127.8176', '139.1806', '147.0023', '146.7298']
+2026-04-15 10:57:07,026 - INFO - ⏳ No improvement. Patience: 4/50
+2026-04-15 11:08:06,950 - INFO - [Epoch 82] Train Loss: 0.0244 | LR: 0.000083
+2026-04-15 11:08:06,950 - INFO -     >>> Val Avg RMSE (Real): 191.8657
+2026-04-15 11:08:06,950 - INFO -     >>> Val MAE Details: ['132.6271', '122.6732', '113.7009', '126.7268', '141.1196', '151.2123', '147.1826']
+2026-04-15 11:08:06,950 - INFO - ⏳ No improvement. Patience: 5/50
+2026-04-15 11:19:05,270 - INFO - [Epoch 83] Train Loss: 0.0242 | LR: 0.000082
+2026-04-15 11:19:05,270 - INFO -     >>> Val Avg RMSE (Real): 188.0716
+2026-04-15 11:19:05,271 - INFO -     >>> Val MAE Details: ['127.1221', '127.0917', '114.7133', '128.0138', '139.2364', '139.3234', '142.9430']
+2026-04-15 11:19:05,815 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-15 11:29:51,283 - INFO - [Epoch 84] Train Loss: 0.0240 | LR: 0.000082
+2026-04-15 11:29:51,283 - INFO -     >>> Val Avg RMSE (Real): 188.9952
+2026-04-15 11:29:51,283 - INFO -     >>> Val MAE Details: ['131.3962', '122.9409', '114.8878', '128.2954', '141.4441', '139.4182', '145.0847']
+2026-04-15 11:29:51,283 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 11:40:49,770 - INFO - [Epoch 85] Train Loss: 0.0241 | LR: 0.000081
+2026-04-15 11:40:49,770 - INFO -     >>> Val Avg RMSE (Real): 189.3958
+2026-04-15 11:40:49,771 - INFO -     >>> Val MAE Details: ['127.6428', '123.0042', '113.2622', '126.3798', '141.5039', '142.3490', '148.2447']
+2026-04-15 11:40:49,771 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 11:51:48,858 - INFO - [Epoch 86] Train Loss: 0.0237 | LR: 0.000081
+2026-04-15 11:51:48,858 - INFO -     >>> Val Avg RMSE (Real): 190.7515
+2026-04-15 11:51:48,859 - INFO -     >>> Val MAE Details: ['126.7355', '127.5263', '119.2067', '129.8092', '146.7136', '141.6324', '142.2704']
+2026-04-15 11:51:48,859 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-15 12:02:28,446 - INFO - [Epoch 87] Train Loss: 0.0236 | LR: 0.000081
+2026-04-15 12:02:28,446 - INFO -     >>> Val Avg RMSE (Real): 188.8861
+2026-04-15 12:02:28,446 - INFO -     >>> Val MAE Details: ['124.9795', '117.9571', '114.7009', '124.8317', '140.6046', '144.0960', '148.9141']
+2026-04-15 12:02:28,446 - INFO - ⏳ No improvement. Patience: 4/50
+2026-04-15 12:13:24,371 - INFO - [Epoch 88] Train Loss: 0.0234 | LR: 0.000080
+2026-04-15 12:13:24,372 - INFO -     >>> Val Avg RMSE (Real): 189.1898
+2026-04-15 12:13:24,372 - INFO -     >>> Val MAE Details: ['129.2826', '122.2530', '113.6414', '130.6810', '139.9305', '143.2753', '142.2545']
+2026-04-15 12:13:24,372 - INFO - ⏳ No improvement. Patience: 5/50
+2026-04-15 12:24:26,970 - INFO - [Epoch 89] Train Loss: 0.0235 | LR: 0.000080
+2026-04-15 12:24:26,971 - INFO -     >>> Val Avg RMSE (Real): 186.7369
+2026-04-15 12:24:26,971 - INFO -     >>> Val MAE Details: ['127.3137', '121.9919', '114.6831', '119.5279', '140.8617', '141.4163', '139.5873']
+2026-04-15 12:24:27,637 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-15 12:35:30,032 - INFO - [Epoch 90] Train Loss: 0.0233 | LR: 0.000079
+2026-04-15 12:35:30,033 - INFO -     >>> Val Avg RMSE (Real): 195.4912
+2026-04-15 12:35:30,033 - INFO -     >>> Val MAE Details: ['128.5135', '122.3874', '120.9616', '154.6199', '155.6478', '140.2421', '143.0545']
+2026-04-15 12:35:30,033 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 12:46:31,378 - INFO - [Epoch 91] Train Loss: 0.0231 | LR: 0.000079
+2026-04-15 12:46:31,378 - INFO -     >>> Val Avg RMSE (Real): 188.8933
+2026-04-15 12:46:31,378 - INFO -     >>> Val MAE Details: ['125.7234', '122.8704', '115.6149', '135.7789', '141.5678', '143.1176', '140.3474']
+2026-04-15 12:46:31,379 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 12:57:33,621 - INFO - [Epoch 92] Train Loss: 0.0232 | LR: 0.000079
+2026-04-15 12:57:33,622 - INFO -     >>> Val Avg RMSE (Real): 186.9245
+2026-04-15 12:57:33,622 - INFO -     >>> Val MAE Details: ['130.6900', '121.7173', '113.7111', '128.3387', '141.3736', '140.2929', '142.2387']
+2026-04-15 12:57:33,622 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-15 13:08:34,414 - INFO - [Epoch 93] Train Loss: 0.0231 | LR: 0.000078
+2026-04-15 13:08:34,414 - INFO -     >>> Val Avg RMSE (Real): 190.3490
+2026-04-15 13:08:34,415 - INFO -     >>> Val MAE Details: ['126.2056', '124.7716', '118.5632', '130.8947', '139.3765', '144.3491', '145.7885']
+2026-04-15 13:08:34,415 - INFO - ⏳ No improvement. Patience: 4/50
+2026-04-15 13:19:38,394 - INFO - [Epoch 94] Train Loss: 0.0229 | LR: 0.000078
+2026-04-15 13:19:38,395 - INFO -     >>> Val Avg RMSE (Real): 187.8209
+2026-04-15 13:19:38,395 - INFO -     >>> Val MAE Details: ['125.1505', '122.3627', '125.0993', '124.4359', '136.4020', '136.2846', '138.8387']
+2026-04-15 13:19:38,395 - INFO - ⏳ No improvement. Patience: 5/50
+2026-04-15 13:30:31,761 - INFO - [Epoch 95] Train Loss: 0.0230 | LR: 0.000077
+2026-04-15 13:30:31,762 - INFO -     >>> Val Avg RMSE (Real): 187.8466
+2026-04-15 13:30:31,762 - INFO -     >>> Val MAE Details: ['125.9517', '124.3338', '114.5790', '124.4475', '140.8590', '138.3501', '140.4930']
+2026-04-15 13:30:31,762 - INFO - ⏳ No improvement. Patience: 6/50
+2026-04-15 13:41:32,065 - INFO - [Epoch 96] Train Loss: 0.0227 | LR: 0.000077
+2026-04-15 13:41:32,066 - INFO -     >>> Val Avg RMSE (Real): 186.1539
+2026-04-15 13:41:32,066 - INFO -     >>> Val MAE Details: ['123.2686', '122.8905', '114.7929', '125.7680', '140.1440', '138.9483', '142.1101']
+2026-04-15 13:41:32,818 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-15 13:52:35,771 - INFO - [Epoch 97] Train Loss: 0.0227 | LR: 0.000076
+2026-04-15 13:52:35,771 - INFO -     >>> Val Avg RMSE (Real): 187.7664
+2026-04-15 13:52:35,771 - INFO -     >>> Val MAE Details: ['128.2574', '119.9952', '114.0708', '125.3682', '141.0576', '146.1901', '142.4096']
+2026-04-15 13:52:35,771 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 14:03:26,978 - INFO - [Epoch 98] Train Loss: 0.0226 | LR: 0.000076
+2026-04-15 14:03:26,978 - INFO -     >>> Val Avg RMSE (Real): 188.0054
+2026-04-15 14:03:26,978 - INFO -     >>> Val MAE Details: ['130.2600', '123.4230', '113.2039', '127.9958', '140.4258', '140.6724', '138.4040']
+2026-04-15 14:03:26,978 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 14:12:55,803 - INFO - [Epoch 99] Train Loss: 0.0225 | LR: 0.000075
+2026-04-15 14:12:55,803 - INFO -     >>> Val Avg RMSE (Real): 187.9222
+2026-04-15 14:12:55,804 - INFO -     >>> Val MAE Details: ['131.1507', '127.4995', '113.6270', '123.5593', '137.1105', '139.8204', '140.5342']
+2026-04-15 14:12:55,804 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-15 14:22:29,339 - INFO - [Epoch 100] Train Loss: 0.0224 | LR: 0.000075
+2026-04-15 14:22:29,339 - INFO -     >>> Val Avg RMSE (Real): 188.3879
+2026-04-15 14:22:29,340 - INFO -     >>> Val MAE Details: ['126.4517', '121.3990', '111.9374', '131.7642', '138.7872', '138.4041', '140.0169']
+2026-04-15 14:22:29,340 - INFO - ⏳ No improvement. Patience: 4/50
+2026-04-15 14:31:43,018 - INFO - [Epoch 101] Train Loss: 0.0224 | LR: 0.000075
+2026-04-15 14:31:43,018 - INFO -     >>> Val Avg RMSE (Real): 187.4208
+2026-04-15 14:31:43,018 - INFO -     >>> Val MAE Details: ['128.5226', '121.4247', '112.9978', '126.2783', '138.3770', '137.6193', '148.6782']
+2026-04-15 14:31:43,018 - INFO - ⏳ No improvement. Patience: 5/50
+2026-04-15 14:41:06,480 - INFO - [Epoch 102] Train Loss: 0.0224 | LR: 0.000074
+2026-04-15 14:41:06,480 - INFO -     >>> Val Avg RMSE (Real): 184.6480
+2026-04-15 14:41:06,481 - INFO -     >>> Val MAE Details: ['124.5682', '117.9436', '111.8757', '124.0199', '139.7432', '134.5871', '139.6908']
+2026-04-15 14:41:07,311 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-15 14:50:32,640 - INFO - [Epoch 103] Train Loss: 0.0222 | LR: 0.000074
+2026-04-15 14:50:32,640 - INFO -     >>> Val Avg RMSE (Real): 186.4350
+2026-04-15 14:50:32,641 - INFO -     >>> Val MAE Details: ['124.2026', '122.1459', '112.8681', '128.9191', '143.4781', '136.9037', '139.9577']
+2026-04-15 14:50:32,641 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 14:59:54,372 - INFO - [Epoch 104] Train Loss: 0.0224 | LR: 0.000073
+2026-04-15 14:59:54,372 - INFO -     >>> Val Avg RMSE (Real): 192.2845
+2026-04-15 14:59:54,373 - INFO -     >>> Val MAE Details: ['126.1544', '120.8042', '112.7078', '137.6500', '146.4588', '142.3059', '149.9217']
+2026-04-15 14:59:54,373 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 15:09:23,230 - INFO - [Epoch 105] Train Loss: 0.0222 | LR: 0.000073
+2026-04-15 15:09:23,230 - INFO -     >>> Val Avg RMSE (Real): 188.7119
+2026-04-15 15:09:23,230 - INFO -     >>> Val MAE Details: ['124.9989', '120.1087', '111.5300', '123.7955', '141.9746', '142.7892', '152.6455']
+2026-04-15 15:09:23,231 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-15 15:18:58,571 - INFO - [Epoch 106] Train Loss: 0.0219 | LR: 0.000072
+2026-04-15 15:18:58,572 - INFO -     >>> Val Avg RMSE (Real): 186.5648
+2026-04-15 15:18:58,572 - INFO -     >>> Val MAE Details: ['126.7772', '121.1864', '117.3165', '121.1443', '145.4763', '139.6938', '140.9979']
+2026-04-15 15:18:58,572 - INFO - ⏳ No improvement. Patience: 4/50
+2026-04-15 15:28:34,072 - INFO - [Epoch 107] Train Loss: 0.0218 | LR: 0.000072
+2026-04-15 15:28:34,073 - INFO -     >>> Val Avg RMSE (Real): 185.7083
+2026-04-15 15:28:34,073 - INFO -     >>> Val MAE Details: ['125.4625', '121.7044', '112.4901', '120.0259', '137.6644', '135.8918', '139.6921']
+2026-04-15 15:28:34,073 - INFO - ⏳ No improvement. Patience: 5/50
+2026-04-15 15:38:07,644 - INFO - [Epoch 108] Train Loss: 0.0219 | LR: 0.000071
+2026-04-15 15:38:07,644 - INFO -     >>> Val Avg RMSE (Real): 185.5851
+2026-04-15 15:38:07,644 - INFO -     >>> Val MAE Details: ['123.3369', '129.4069', '110.1651', '119.2677', '140.7262', '137.1985', '138.2898']
+2026-04-15 15:38:07,644 - INFO - ⏳ No improvement. Patience: 6/50
+2026-04-15 15:47:40,600 - INFO - [Epoch 109] Train Loss: 0.0218 | LR: 0.000071
+2026-04-15 15:47:40,601 - INFO -     >>> Val Avg RMSE (Real): 185.7285
+2026-04-15 15:47:40,601 - INFO -     >>> Val MAE Details: ['125.9281', '122.2962', '113.6244', '122.7414', '144.4272', '134.6428', '137.8414']
+2026-04-15 15:47:40,601 - INFO - ⏳ No improvement. Patience: 7/50
+2026-04-15 15:57:10,271 - INFO - [Epoch 110] Train Loss: 0.0218 | LR: 0.000070
+2026-04-15 15:57:10,271 - INFO -     >>> Val Avg RMSE (Real): 187.2151
+2026-04-15 15:57:10,271 - INFO -     >>> Val MAE Details: ['128.2878', '120.3648', '109.2370', '132.2864', '139.0594', '136.0441', '137.7059']
+2026-04-15 15:57:10,271 - INFO - ⏳ No improvement. Patience: 8/50
+2026-04-15 16:06:41,502 - INFO - [Epoch 111] Train Loss: 0.0217 | LR: 0.000070
+2026-04-15 16:06:41,502 - INFO -     >>> Val Avg RMSE (Real): 185.7152
+2026-04-15 16:06:41,502 - INFO -     >>> Val MAE Details: ['123.3615', '120.3304', '111.8639', '124.8635', '139.8823', '137.7866', '143.9437']
+2026-04-15 16:06:41,502 - INFO - ⏳ No improvement. Patience: 9/50
+2026-04-15 16:16:09,984 - INFO - [Epoch 112] Train Loss: 0.0214 | LR: 0.000069
+2026-04-15 16:16:09,985 - INFO -     >>> Val Avg RMSE (Real): 186.0212
+2026-04-15 16:16:09,985 - INFO -     >>> Val MAE Details: ['124.4548', '117.0873', '112.9497', '138.3332', '138.1922', '137.4420', '139.6077']
+2026-04-15 16:16:09,985 - INFO - ⏳ No improvement. Patience: 10/50
+2026-04-15 16:25:39,430 - INFO - [Epoch 113] Train Loss: 0.0216 | LR: 0.000069
+2026-04-15 16:25:39,431 - INFO -     >>> Val Avg RMSE (Real): 183.8895
+2026-04-15 16:25:39,431 - INFO -     >>> Val MAE Details: ['123.6455', '118.8444', '110.9311', '119.8504', '139.5811', '134.6126', '142.8357']
+2026-04-15 16:25:40,286 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-15 16:35:13,457 - INFO - [Epoch 114] Train Loss: 0.0214 | LR: 0.000068
+2026-04-15 16:35:13,457 - INFO -     >>> Val Avg RMSE (Real): 183.8950
+2026-04-15 16:35:13,458 - INFO -     >>> Val MAE Details: ['123.6512', '117.9960', '110.3181', '128.9356', '139.6086', '135.1439', '140.1424']
+2026-04-15 16:35:13,458 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 16:44:50,207 - INFO - [Epoch 115] Train Loss: 0.0213 | LR: 0.000068
+2026-04-15 16:44:50,208 - INFO -     >>> Val Avg RMSE (Real): 187.7785
+2026-04-15 16:44:50,208 - INFO -     >>> Val MAE Details: ['143.3505', '125.4592', '111.1851', '120.6275', '143.2574', '137.9010', '138.0241']
+2026-04-15 16:44:50,208 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 16:54:23,124 - INFO - [Epoch 116] Train Loss: 0.0215 | LR: 0.000067
+2026-04-15 16:54:23,125 - INFO -     >>> Val Avg RMSE (Real): 184.6357
+2026-04-15 16:54:23,125 - INFO -     >>> Val MAE Details: ['122.8729', '121.8937', '110.4261', '119.5050', '137.7201', '142.6458', '140.3658']
+2026-04-15 16:54:23,125 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-15 17:03:55,713 - INFO - [Epoch 117] Train Loss: 0.0213 | LR: 0.000067
+2026-04-15 17:03:55,714 - INFO -     >>> Val Avg RMSE (Real): 183.0847
+2026-04-15 17:03:55,714 - INFO -     >>> Val MAE Details: ['121.7239', '116.7798', '113.3061', '120.0258', '136.7113', '133.6083', '139.8755']
+2026-04-15 17:03:56,409 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-15 17:13:38,656 - INFO - [Epoch 118] Train Loss: 0.0211 | LR: 0.000066
+2026-04-15 17:13:38,657 - INFO -     >>> Val Avg RMSE (Real): 186.6019
+2026-04-15 17:13:38,657 - INFO -     >>> Val MAE Details: ['123.1925', '122.2812', '114.4914', '121.8160', '140.1712', '135.5732', '145.8712']
+2026-04-15 17:13:38,657 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 17:23:11,055 - INFO - [Epoch 119] Train Loss: 0.0210 | LR: 0.000066
+2026-04-15 17:23:11,056 - INFO -     >>> Val Avg RMSE (Real): 182.7228
+2026-04-15 17:23:11,056 - INFO -     >>> Val MAE Details: ['125.7039', '119.5114', '108.7499', '118.7263', '138.0704', '135.4939', '136.5262']
+2026-04-15 17:23:11,809 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-15 17:32:42,439 - INFO - [Epoch 120] Train Loss: 0.0209 | LR: 0.000065
+2026-04-15 17:32:42,440 - INFO -     >>> Val Avg RMSE (Real): 188.6004
+2026-04-15 17:32:42,440 - INFO -     >>> Val MAE Details: ['121.2261', '116.9117', '109.0087', '130.2327', '146.3124', '145.3364', '148.6137']
+2026-04-15 17:32:42,440 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 17:42:18,097 - INFO - [Epoch 121] Train Loss: 0.0210 | LR: 0.000065
+2026-04-15 17:42:18,098 - INFO -     >>> Val Avg RMSE (Real): 184.2332
+2026-04-15 17:42:18,098 - INFO -     >>> Val MAE Details: ['122.1880', '121.8708', '113.9771', '123.0101', '137.5263', '138.9849', '137.4376']
+2026-04-15 17:42:18,098 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 17:51:47,011 - INFO - [Epoch 122] Train Loss: 0.0209 | LR: 0.000064
+2026-04-15 17:51:47,012 - INFO -     >>> Val Avg RMSE (Real): 183.3814
+2026-04-15 17:51:47,012 - INFO -     >>> Val MAE Details: ['121.6634', '116.1465', '110.1710', '120.7852', '144.6001', '133.2546', '138.5410']
+2026-04-15 17:51:47,012 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-15 18:00:59,721 - INFO - [Epoch 123] Train Loss: 0.0207 | LR: 0.000064
+2026-04-15 18:00:59,721 - INFO -     >>> Val Avg RMSE (Real): 183.6403
+2026-04-15 18:00:59,721 - INFO -     >>> Val MAE Details: ['125.2140', '117.8851', '112.5640', '119.9250', '136.1471', '133.6262', '141.6959']
+2026-04-15 18:00:59,722 - INFO - ⏳ No improvement. Patience: 4/50
+2026-04-15 18:10:30,614 - INFO - [Epoch 124] Train Loss: 0.0207 | LR: 0.000063
+2026-04-15 18:10:30,614 - INFO -     >>> Val Avg RMSE (Real): 181.4148
+2026-04-15 18:10:30,614 - INFO -     >>> Val MAE Details: ['121.7846', '116.5207', '106.9517', '120.5160', '137.5558', '136.6436', '139.3944']
+2026-04-15 18:10:31,180 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-15 18:20:00,678 - INFO - [Epoch 125] Train Loss: 0.0207 | LR: 0.000063
+2026-04-15 18:20:00,678 - INFO -     >>> Val Avg RMSE (Real): 182.3633
+2026-04-15 18:20:00,679 - INFO -     >>> Val MAE Details: ['120.7457', '116.8317', '119.7675', '121.0609', '133.9575', '132.5825', '140.3969']
+2026-04-15 18:20:00,679 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 18:29:07,760 - INFO - [Epoch 126] Train Loss: 0.0207 | LR: 0.000062
+2026-04-15 18:29:07,760 - INFO -     >>> Val Avg RMSE (Real): 183.9689
+2026-04-15 18:29:07,761 - INFO -     >>> Val MAE Details: ['121.9497', '116.7683', '110.4679', '125.4064', '140.9709', '137.3979', '139.1051']
+2026-04-15 18:29:07,761 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 18:38:34,139 - INFO - [Epoch 127] Train Loss: 0.0205 | LR: 0.000062
+2026-04-15 18:38:34,139 - INFO -     >>> Val Avg RMSE (Real): 181.8581
+2026-04-15 18:38:34,139 - INFO -     >>> Val MAE Details: ['124.1804', '114.9251', '121.8279', '117.8501', '133.2014', '133.0063', '135.6234']
+2026-04-15 18:38:34,139 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-15 18:48:04,341 - INFO - [Epoch 128] Train Loss: 0.0204 | LR: 0.000061
+2026-04-15 18:48:04,341 - INFO -     >>> Val Avg RMSE (Real): 181.8605
+2026-04-15 18:48:04,341 - INFO -     >>> Val MAE Details: ['121.9833', '117.5023', '112.0829', '124.3124', '135.5001', '132.4827', '137.6956']
+2026-04-15 18:48:04,342 - INFO - ⏳ No improvement. Patience: 4/50
+2026-04-15 18:57:23,901 - INFO - [Epoch 129] Train Loss: 0.0204 | LR: 0.000061
+2026-04-15 18:57:23,902 - INFO -     >>> Val Avg RMSE (Real): 180.9510
+2026-04-15 18:57:23,902 - INFO -     >>> Val MAE Details: ['120.7609', '118.9856', '107.3271', '119.6857', '135.2261', '133.0827', '136.2675']
+2026-04-15 18:57:24,647 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-15 19:06:54,598 - INFO - [Epoch 130] Train Loss: 0.0203 | LR: 0.000060
+2026-04-15 19:06:54,598 - INFO -     >>> Val Avg RMSE (Real): 184.0072
+2026-04-15 19:06:54,598 - INFO -     >>> Val MAE Details: ['132.9199', '116.5949', '112.5586', '120.5389', '135.6273', '136.5126', '138.8619']
+2026-04-15 19:06:54,599 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 19:16:03,854 - INFO - [Epoch 131] Train Loss: 0.0204 | LR: 0.000060
+2026-04-15 19:16:03,854 - INFO -     >>> Val Avg RMSE (Real): 186.2963
+2026-04-15 19:16:03,854 - INFO -     >>> Val MAE Details: ['125.3539', '120.2141', '121.0018', '123.0149', '137.5349', '140.1923', '139.8787']
+2026-04-15 19:16:03,855 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 19:25:15,501 - INFO - [Epoch 132] Train Loss: 0.0202 | LR: 0.000059
+2026-04-15 19:25:15,502 - INFO -     >>> Val Avg RMSE (Real): 181.2737
+2026-04-15 19:25:15,502 - INFO -     >>> Val MAE Details: ['120.8004', '114.6515', '108.5306', '122.7901', '141.2808', '134.0525', '138.7650']
+2026-04-15 19:25:15,502 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-15 19:33:16,450 - INFO - [Epoch 133] Train Loss: 0.0201 | LR: 0.000059
+2026-04-15 19:33:16,451 - INFO -     >>> Val Avg RMSE (Real): 182.0943
+2026-04-15 19:33:16,451 - INFO -     >>> Val MAE Details: ['123.4269', '115.6759', '114.6416', '128.3833', '135.0415', '132.3750', '134.5583']
+2026-04-15 19:33:16,451 - INFO - ⏳ No improvement. Patience: 4/50
+2026-04-15 19:41:13,213 - INFO - [Epoch 134] Train Loss: 0.0201 | LR: 0.000058
+2026-04-15 19:41:13,214 - INFO -     >>> Val Avg RMSE (Real): 186.4410
+2026-04-15 19:41:13,214 - INFO -     >>> Val MAE Details: ['123.2190', '116.0581', '115.6767', '128.4614', '139.9340', '138.2363', '142.4069']
+2026-04-15 19:41:13,214 - INFO - ⏳ No improvement. Patience: 5/50
+2026-04-15 19:49:09,208 - INFO - [Epoch 135] Train Loss: 0.0201 | LR: 0.000058
+2026-04-15 19:49:09,208 - INFO -     >>> Val Avg RMSE (Real): 180.7324
+2026-04-15 19:49:09,208 - INFO -     >>> Val MAE Details: ['119.7122', '116.9643', '111.0406', '118.2621', '138.8816', '130.2834', '136.5138']
+2026-04-15 19:49:09,817 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-15 19:57:01,441 - INFO - [Epoch 136] Train Loss: 0.0200 | LR: 0.000057
+2026-04-15 19:57:01,451 - INFO -     >>> Val Avg RMSE (Real): 179.8940
+2026-04-15 19:57:01,451 - INFO -     >>> Val MAE Details: ['118.5552', '118.3148', '107.7215', '120.9732', '134.0367', '134.9179', '137.7618']
+2026-04-15 19:57:01,998 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-15 20:04:53,394 - INFO - [Epoch 137] Train Loss: 0.0199 | LR: 0.000057
+2026-04-15 20:04:53,403 - INFO -     >>> Val Avg RMSE (Real): 180.9833
+2026-04-15 20:04:53,403 - INFO -     >>> Val MAE Details: ['122.7264', '119.4172', '112.1655', '117.3473', '135.2692', '131.9669', '137.1168']
+2026-04-15 20:04:53,404 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 20:12:44,653 - INFO - [Epoch 138] Train Loss: 0.0198 | LR: 0.000056
+2026-04-15 20:12:44,654 - INFO -     >>> Val Avg RMSE (Real): 179.9856
+2026-04-15 20:12:44,654 - INFO -     >>> Val MAE Details: ['121.3709', '116.8798', '109.8275', '122.1032', '134.7020', '132.7438', '136.5279']
+2026-04-15 20:12:44,654 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 20:20:41,312 - INFO - [Epoch 139] Train Loss: 0.0198 | LR: 0.000056
+2026-04-15 20:20:41,312 - INFO -     >>> Val Avg RMSE (Real): 181.6612
+2026-04-15 20:20:41,312 - INFO -     >>> Val MAE Details: ['129.0437', '116.6463', '108.0730', '117.8244', '133.3144', '130.7422', '133.8526']
+2026-04-15 20:20:41,313 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-15 20:28:37,053 - INFO - [Epoch 140] Train Loss: 0.0198 | LR: 0.000055
+2026-04-15 20:28:37,054 - INFO -     >>> Val Avg RMSE (Real): 181.2163
+2026-04-15 20:28:37,054 - INFO -     >>> Val MAE Details: ['120.8268', '117.8429', '109.5349', '119.1959', '133.2440', '133.3863', '137.8764']
+2026-04-15 20:28:37,054 - INFO - ⏳ No improvement. Patience: 4/50
+2026-04-15 20:36:26,502 - INFO - [Epoch 141] Train Loss: 0.0198 | LR: 0.000055
+2026-04-15 20:36:26,502 - INFO -     >>> Val Avg RMSE (Real): 180.6561
+2026-04-15 20:36:26,502 - INFO -     >>> Val MAE Details: ['122.3556', '116.2553', '110.0185', '118.3510', '133.5438', '131.2926', '135.5157']
+2026-04-15 20:36:26,503 - INFO - ⏳ No improvement. Patience: 5/50
+2026-04-15 20:44:22,871 - INFO - [Epoch 142] Train Loss: 0.0197 | LR: 0.000054
+2026-04-15 20:44:22,872 - INFO -     >>> Val Avg RMSE (Real): 180.2086
+2026-04-15 20:44:22,872 - INFO -     >>> Val MAE Details: ['122.2701', '114.6808', '107.5848', '116.0728', '132.4983', '130.6543', '140.0078']
+2026-04-15 20:44:22,872 - INFO - ⏳ No improvement. Patience: 6/50
+2026-04-15 20:52:17,986 - INFO - [Epoch 143] Train Loss: 0.0197 | LR: 0.000054
+2026-04-15 20:52:17,986 - INFO -     >>> Val Avg RMSE (Real): 180.0534
+2026-04-15 20:52:17,987 - INFO -     >>> Val MAE Details: ['120.5785', '113.5804', '107.6701', '119.9601', '136.0060', '133.7842', '138.4844']
+2026-04-15 20:52:17,987 - INFO - ⏳ No improvement. Patience: 7/50
+2026-04-15 21:00:14,307 - INFO - [Epoch 144] Train Loss: 0.0195 | LR: 0.000053
+2026-04-15 21:00:14,307 - INFO -     >>> Val Avg RMSE (Real): 179.1395
+2026-04-15 21:00:14,307 - INFO -     >>> Val MAE Details: ['119.0389', '117.8208', '108.9387', '118.2255', '135.9885', '130.7401', '134.6958']
+2026-04-15 21:00:14,907 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-15 21:08:11,107 - INFO - [Epoch 145] Train Loss: 0.0195 | LR: 0.000053
+2026-04-15 21:08:11,108 - INFO -     >>> Val Avg RMSE (Real): 181.8537
+2026-04-15 21:08:11,108 - INFO -     >>> Val MAE Details: ['121.6991', '116.2209', '109.5703', '121.0947', '137.4236', '131.6278', '138.9356']
+2026-04-15 21:08:11,108 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 21:16:07,056 - INFO - [Epoch 146] Train Loss: 0.0195 | LR: 0.000052
+2026-04-15 21:16:07,057 - INFO -     >>> Val Avg RMSE (Real): 187.0058
+2026-04-15 21:16:07,057 - INFO -     >>> Val MAE Details: ['120.0297', '120.2983', '114.6934', '131.0303', '143.3307', '139.7314', '144.0833']
+2026-04-15 21:16:07,057 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 21:24:02,893 - INFO - [Epoch 147] Train Loss: 0.0193 | LR: 0.000052
+2026-04-15 21:24:02,894 - INFO -     >>> Val Avg RMSE (Real): 187.7386
+2026-04-15 21:24:02,894 - INFO -     >>> Val MAE Details: ['121.0443', '115.3554', '108.5430', '136.5687', '137.0193', '147.2218', '149.4852']
+2026-04-15 21:24:02,894 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-15 21:31:41,076 - INFO - [Epoch 148] Train Loss: 0.0194 | LR: 0.000051
+2026-04-15 21:31:41,077 - INFO -     >>> Val Avg RMSE (Real): 181.4834
+2026-04-15 21:31:41,077 - INFO -     >>> Val MAE Details: ['121.9029', '117.5763', '108.1032', '122.9686', '133.4205', '129.5617', '136.9919']
+2026-04-15 21:31:41,077 - INFO - ⏳ No improvement. Patience: 4/50
+2026-04-15 21:39:27,018 - INFO - [Epoch 149] Train Loss: 0.0194 | LR: 0.000051
+2026-04-15 21:39:27,018 - INFO -     >>> Val Avg RMSE (Real): 179.8110
+2026-04-15 21:39:27,018 - INFO -     >>> Val MAE Details: ['121.2068', '115.6308', '107.1023', '118.1379', '132.9825', '131.9753', '137.3710']
+2026-04-15 21:39:27,018 - INFO - ⏳ No improvement. Patience: 5/50
+2026-04-15 21:47:18,686 - INFO - [Epoch 150] Train Loss: 0.0192 | LR: 0.000050
+2026-04-15 21:47:18,687 - INFO -     >>> Val Avg RMSE (Real): 180.1241
+2026-04-15 21:47:18,687 - INFO -     >>> Val MAE Details: ['122.4884', '113.5146', '106.4432', '121.0281', '135.0798', '131.9971', '140.2649']
+2026-04-15 21:47:18,687 - INFO - ⏳ No improvement. Patience: 6/50
+2026-04-15 21:55:12,665 - INFO - [Epoch 151] Train Loss: 0.0192 | LR: 0.000049
+2026-04-15 21:55:12,665 - INFO -     >>> Val Avg RMSE (Real): 178.5194
+2026-04-15 21:55:12,665 - INFO -     >>> Val MAE Details: ['120.7252', '117.0852', '108.7101', '115.1695', '135.0297', '128.8243', '134.4901']
+2026-04-15 21:55:13,280 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-15 22:03:02,593 - INFO - [Epoch 152] Train Loss: 0.0192 | LR: 0.000049
+2026-04-15 22:03:02,593 - INFO -     >>> Val Avg RMSE (Real): 181.2820
+2026-04-15 22:03:02,593 - INFO -     >>> Val MAE Details: ['120.4573', '114.4416', '110.6767', '119.6050', '140.6376', '129.4460', '140.1076']
+2026-04-15 22:03:02,593 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 22:10:52,502 - INFO - [Epoch 153] Train Loss: 0.0191 | LR: 0.000048
+2026-04-15 22:10:52,502 - INFO -     >>> Val Avg RMSE (Real): 181.2391
+2026-04-15 22:10:52,502 - INFO -     >>> Val MAE Details: ['119.0527', '116.2045', '107.2139', '119.4949', '134.2584', '132.3322', '138.4227']
+2026-04-15 22:10:52,502 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 22:18:43,415 - INFO - [Epoch 154] Train Loss: 0.0190 | LR: 0.000048
+2026-04-15 22:18:43,415 - INFO -     >>> Val Avg RMSE (Real): 179.6329
+2026-04-15 22:18:43,415 - INFO -     >>> Val MAE Details: ['120.2399', '113.8295', '110.8809', '118.8851', '137.0234', '131.8692', '136.5421']
+2026-04-15 22:18:43,416 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-15 22:26:34,006 - INFO - [Epoch 155] Train Loss: 0.0192 | LR: 0.000047
+2026-04-15 22:26:34,006 - INFO -     >>> Val Avg RMSE (Real): 180.4738
+2026-04-15 22:26:34,006 - INFO -     >>> Val MAE Details: ['120.6738', '114.9770', '109.1149', '120.4697', '139.1743', '131.1926', '139.0328']
+2026-04-15 22:26:34,006 - INFO - ⏳ No improvement. Patience: 4/50
+2026-04-15 22:34:15,731 - INFO - [Epoch 156] Train Loss: 0.0188 | LR: 0.000047
+2026-04-15 22:34:15,731 - INFO -     >>> Val Avg RMSE (Real): 180.6428
+2026-04-15 22:34:15,731 - INFO -     >>> Val MAE Details: ['123.2232', '115.3684', '107.7596', '120.0338', '134.5162', '132.9553', '135.5979']
+2026-04-15 22:34:15,732 - INFO - ⏳ No improvement. Patience: 5/50
+2026-04-15 22:42:09,164 - INFO - [Epoch 157] Train Loss: 0.0188 | LR: 0.000046
+2026-04-15 22:42:09,164 - INFO -     >>> Val Avg RMSE (Real): 180.2268
+2026-04-15 22:42:09,164 - INFO -     >>> Val MAE Details: ['119.4375', '114.3244', '112.3480', '117.2077', '137.0969', '132.7349', '136.5296']
+2026-04-15 22:42:09,164 - INFO - ⏳ No improvement. Patience: 6/50
+2026-04-15 22:49:58,461 - INFO - [Epoch 158] Train Loss: 0.0189 | LR: 0.000046
+2026-04-15 22:49:58,461 - INFO -     >>> Val Avg RMSE (Real): 177.9400
+2026-04-15 22:49:58,461 - INFO -     >>> Val MAE Details: ['122.4639', '116.3498', '107.0660', '115.9342', '130.8556', '129.6459', '133.2102']
+2026-04-15 22:49:59,048 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-15 22:57:51,478 - INFO - [Epoch 159] Train Loss: 0.0187 | LR: 0.000045
+2026-04-15 22:57:51,478 - INFO -     >>> Val Avg RMSE (Real): 179.3923
+2026-04-15 22:57:51,478 - INFO -     >>> Val MAE Details: ['120.2020', '114.3701', '109.1669', '120.3370', '134.2205', '130.9604', '136.1677']
+2026-04-15 22:57:51,479 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-15 23:05:45,122 - INFO - [Epoch 160] Train Loss: 0.0187 | LR: 0.000045
+2026-04-15 23:05:45,122 - INFO -     >>> Val Avg RMSE (Real): 178.5497
+2026-04-15 23:05:45,122 - INFO -     >>> Val MAE Details: ['120.0278', '117.2225', '107.6475', '116.0424', '132.7521', '129.6175', '134.1977']
+2026-04-15 23:05:45,123 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-15 23:13:34,459 - INFO - [Epoch 161] Train Loss: 0.0186 | LR: 0.000044
+2026-04-15 23:13:34,460 - INFO -     >>> Val Avg RMSE (Real): 180.7198
+2026-04-15 23:13:34,460 - INFO -     >>> Val MAE Details: ['118.4965', '116.5177', '107.3707', '118.1068', '134.3183', '140.1396', '139.3412']
+2026-04-15 23:13:34,460 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-15 23:21:26,866 - INFO - [Epoch 162] Train Loss: 0.0187 | LR: 0.000044
+2026-04-15 23:21:26,867 - INFO -     >>> Val Avg RMSE (Real): 178.2700
+2026-04-15 23:21:26,867 - INFO -     >>> Val MAE Details: ['122.7785', '116.1558', '105.8778', '117.5886', '130.9261', '131.3045', '134.6644']
+2026-04-15 23:21:26,867 - INFO - ⏳ No improvement. Patience: 4/50
+2026-04-15 23:28:57,870 - INFO - [Epoch 163] Train Loss: 0.0186 | LR: 0.000043
+2026-04-15 23:28:57,870 - INFO -     >>> Val Avg RMSE (Real): 178.2671
+2026-04-15 23:28:57,870 - INFO -     >>> Val MAE Details: ['122.0277', '114.5184', '104.0058', '118.2816', '135.5760', '130.6621', '136.7787']
+2026-04-15 23:28:57,870 - INFO - ⏳ No improvement. Patience: 5/50
+2026-04-15 23:36:46,412 - INFO - [Epoch 164] Train Loss: 0.0186 | LR: 0.000043
+2026-04-15 23:36:46,412 - INFO -     >>> Val Avg RMSE (Real): 178.0686
+2026-04-15 23:36:46,412 - INFO -     >>> Val MAE Details: ['119.2998', '112.7146', '103.8783', '120.0092', '132.3129', '128.7770', '134.6860']
+2026-04-15 23:36:46,412 - INFO - ⏳ No improvement. Patience: 6/50
+2026-04-15 23:44:38,164 - INFO - [Epoch 165] Train Loss: 0.0186 | LR: 0.000042
+2026-04-15 23:44:38,165 - INFO -     >>> Val Avg RMSE (Real): 175.6624
+2026-04-15 23:44:38,165 - INFO -     >>> Val MAE Details: ['118.4520', '113.1128', '104.7204', '116.9875', '130.6601', '128.1968', '133.7942']
+2026-04-15 23:44:38,709 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-15 23:52:32,858 - INFO - [Epoch 166] Train Loss: 0.0185 | LR: 0.000042
+2026-04-15 23:52:32,858 - INFO -     >>> Val Avg RMSE (Real): 180.6399
+2026-04-15 23:52:32,859 - INFO -     >>> Val MAE Details: ['128.2478', '116.3408', '107.1601', '120.3441', '131.6587', '130.3431', '135.9030']
+2026-04-15 23:52:32,859 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-16 00:00:25,249 - INFO - [Epoch 167] Train Loss: 0.0184 | LR: 0.000041
+2026-04-16 00:00:25,249 - INFO -     >>> Val Avg RMSE (Real): 179.3058
+2026-04-16 00:00:25,249 - INFO -     >>> Val MAE Details: ['119.0741', '114.7735', '106.6464', '119.3148', '130.5797', '129.4027', '139.2133']
+2026-04-16 00:00:25,249 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-16 00:08:16,126 - INFO - [Epoch 168] Train Loss: 0.0184 | LR: 0.000041
+2026-04-16 00:08:16,126 - INFO -     >>> Val Avg RMSE (Real): 178.2891
+2026-04-16 00:08:16,127 - INFO -     >>> Val MAE Details: ['117.4336', '115.4028', '108.3920', '116.1750', '131.9325', '130.9893', '136.8785']
+2026-04-16 00:08:16,127 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-16 00:15:57,368 - INFO - [Epoch 169] Train Loss: 0.0184 | LR: 0.000040
+2026-04-16 00:15:57,369 - INFO -     >>> Val Avg RMSE (Real): 179.6677
+2026-04-16 00:15:57,369 - INFO -     >>> Val MAE Details: ['119.3000', '115.9210', '107.7205', '120.8166', '133.2709', '129.7810', '135.4119']
+2026-04-16 00:15:57,369 - INFO - ⏳ No improvement. Patience: 4/50
+2026-04-16 00:23:47,147 - INFO - [Epoch 170] Train Loss: 0.0183 | LR: 0.000040
+2026-04-16 00:23:47,147 - INFO -     >>> Val Avg RMSE (Real): 180.5834
+2026-04-16 00:23:47,147 - INFO -     >>> Val MAE Details: ['118.5061', '113.9553', '104.9326', '122.2365', '134.7663', '137.2969', '143.4763']
+2026-04-16 00:23:47,147 - INFO - ⏳ No improvement. Patience: 5/50
+2026-04-16 00:31:39,228 - INFO - [Epoch 171] Train Loss: 0.0183 | LR: 0.000039
+2026-04-16 00:31:39,228 - INFO -     >>> Val Avg RMSE (Real): 177.0664
+2026-04-16 00:31:39,228 - INFO -     >>> Val MAE Details: ['118.4771', '113.6777', '104.9620', '118.1155', '130.7983', '126.9524', '134.3932']
+2026-04-16 00:31:39,228 - INFO - ⏳ No improvement. Patience: 6/50
+2026-04-16 00:39:33,008 - INFO - [Epoch 172] Train Loss: 0.0183 | LR: 0.000039
+2026-04-16 00:39:33,009 - INFO -     >>> Val Avg RMSE (Real): 180.1915
+2026-04-16 00:39:33,009 - INFO -     >>> Val MAE Details: ['122.6371', '113.5782', '110.1366', '118.3876', '134.5843', '132.6278', '136.3485']
+2026-04-16 00:39:33,009 - INFO - ⏳ No improvement. Patience: 7/50
+2026-04-16 00:47:22,569 - INFO - [Epoch 173] Train Loss: 0.0182 | LR: 0.000038
+2026-04-16 00:47:22,569 - INFO -     >>> Val Avg RMSE (Real): 176.4261
+2026-04-16 00:47:22,569 - INFO -     >>> Val MAE Details: ['118.0133', '113.4378', '107.5432', '117.0031', '130.3253', '127.7598', '135.1709']
+2026-04-16 00:47:22,569 - INFO - ⏳ No improvement. Patience: 8/50
+2026-04-16 00:55:01,741 - INFO - [Epoch 174] Train Loss: 0.0182 | LR: 0.000038
+2026-04-16 00:55:01,741 - INFO -     >>> Val Avg RMSE (Real): 178.3705
+2026-04-16 00:55:01,741 - INFO -     >>> Val MAE Details: ['118.3330', '118.4222', '106.7682', '115.9792', '131.4685', '129.2923', '133.1263']
+2026-04-16 00:55:01,741 - INFO - ⏳ No improvement. Patience: 9/50
+2026-04-16 01:02:55,045 - INFO - [Epoch 175] Train Loss: 0.0181 | LR: 0.000037
+2026-04-16 01:02:55,045 - INFO -     >>> Val Avg RMSE (Real): 177.7532
+2026-04-16 01:02:55,045 - INFO -     >>> Val MAE Details: ['118.7220', '114.0306', '104.4425', '116.0967', '131.0114', '131.3306', '134.3373']
+2026-04-16 01:02:55,045 - INFO - ⏳ No improvement. Patience: 10/50
+2026-04-16 01:10:47,343 - INFO - [Epoch 176] Train Loss: 0.0180 | LR: 0.000037
+2026-04-16 01:10:47,344 - INFO -     >>> Val Avg RMSE (Real): 176.6708
+2026-04-16 01:10:47,344 - INFO -     >>> Val MAE Details: ['117.7953', '112.7803', '110.2015', '119.1952', '129.9376', '131.9547', '132.4866']
+2026-04-16 01:10:47,344 - INFO - ⏳ No improvement. Patience: 11/50
+2026-04-16 01:18:41,711 - INFO - [Epoch 177] Train Loss: 0.0180 | LR: 0.000036
+2026-04-16 01:18:41,712 - INFO -     >>> Val Avg RMSE (Real): 176.2613
+2026-04-16 01:18:41,712 - INFO -     >>> Val MAE Details: ['117.3860', '113.4276', '105.7010', '117.3270', '129.5602', '129.1155', '134.6446']
+2026-04-16 01:18:41,712 - INFO - ⏳ No improvement. Patience: 12/50
+2026-04-16 01:26:09,899 - INFO - [Epoch 178] Train Loss: 0.0180 | LR: 0.000036
+2026-04-16 01:26:09,899 - INFO -     >>> Val Avg RMSE (Real): 176.2133
+2026-04-16 01:26:09,899 - INFO -     >>> Val MAE Details: ['117.7118', '112.0693', '102.7836', '119.1547', '129.8950', '128.2127', '133.2466']
+2026-04-16 01:26:09,899 - INFO - ⏳ No improvement. Patience: 13/50
+2026-04-16 01:33:57,599 - INFO - [Epoch 179] Train Loss: 0.0180 | LR: 0.000035
+2026-04-16 01:33:57,600 - INFO -     >>> Val Avg RMSE (Real): 177.4017
+2026-04-16 01:33:57,600 - INFO -     >>> Val MAE Details: ['117.8006', '113.1260', '105.5366', '116.0262', '135.6241', '130.1566', '136.4398']
+2026-04-16 01:33:57,600 - INFO - ⏳ No improvement. Patience: 14/50
+2026-04-16 01:41:48,010 - INFO - [Epoch 180] Train Loss: 0.0178 | LR: 0.000035
+2026-04-16 01:41:48,010 - INFO -     >>> Val Avg RMSE (Real): 176.8955
+2026-04-16 01:41:48,011 - INFO -     >>> Val MAE Details: ['117.1788', '110.6615', '106.1029', '115.2188', '131.1349', '129.2846', '136.0004']
+2026-04-16 01:41:48,011 - INFO - ⏳ No improvement. Patience: 15/50
+2026-04-16 01:49:40,931 - INFO - [Epoch 181] Train Loss: 0.0178 | LR: 0.000034
+2026-04-16 01:49:40,931 - INFO -     >>> Val Avg RMSE (Real): 176.3153
+2026-04-16 01:49:40,931 - INFO -     >>> Val MAE Details: ['116.5634', '111.8419', '104.3194', '116.3167', '128.9298', '128.6422', '133.8013']
+2026-04-16 01:49:40,931 - INFO - ⏳ No improvement. Patience: 16/50
+2026-04-16 01:57:34,086 - INFO - [Epoch 182] Train Loss: 0.0178 | LR: 0.000034
+2026-04-16 01:57:34,086 - INFO -     >>> Val Avg RMSE (Real): 177.1660
+2026-04-16 01:57:34,086 - INFO -     >>> Val MAE Details: ['117.0540', '112.2596', '104.3025', '116.3275', '132.9857', '127.8116', '137.9794']
+2026-04-16 01:57:34,086 - INFO - ⏳ No improvement. Patience: 17/50
+2026-04-16 02:05:27,852 - INFO - [Epoch 183] Train Loss: 0.0177 | LR: 0.000033
+2026-04-16 02:05:27,852 - INFO -     >>> Val Avg RMSE (Real): 179.5337
+2026-04-16 02:05:27,853 - INFO -     >>> Val MAE Details: ['123.3122', '113.5903', '105.1818', '114.7861', '132.7177', '137.5913', '136.9327']
+2026-04-16 02:05:27,853 - INFO - ⏳ No improvement. Patience: 18/50
+2026-04-16 02:13:20,604 - INFO - [Epoch 184] Train Loss: 0.0177 | LR: 0.000033
+2026-04-16 02:13:20,605 - INFO -     >>> Val Avg RMSE (Real): 175.8966
+2026-04-16 02:13:20,605 - INFO -     >>> Val MAE Details: ['119.2282', '112.6897', '103.7507', '115.6558', '129.6246', '127.6253', '134.2535']
+2026-04-16 02:13:20,605 - INFO - ⏳ No improvement. Patience: 19/50
+2026-04-16 02:21:11,887 - INFO - [Epoch 185] Train Loss: 0.0177 | LR: 0.000032
+2026-04-16 02:21:11,887 - INFO -     >>> Val Avg RMSE (Real): 176.1889
+2026-04-16 02:21:11,888 - INFO -     >>> Val MAE Details: ['117.3034', '114.5381', '108.9471', '115.0327', '129.5641', '128.7445', '136.1220']
+2026-04-16 02:21:11,888 - INFO - ⏳ No improvement. Patience: 20/50
+2026-04-16 02:29:03,647 - INFO - [Epoch 186] Train Loss: 0.0176 | LR: 0.000032
+2026-04-16 02:29:03,647 - INFO -     >>> Val Avg RMSE (Real): 175.6616
+2026-04-16 02:29:03,647 - INFO -     >>> Val MAE Details: ['117.8884', '111.3460', '104.0137', '116.7277', '130.3008', '128.7347', '133.6504']
+2026-04-16 02:29:04,194 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-16 02:36:57,204 - INFO - [Epoch 187] Train Loss: 0.0176 | LR: 0.000031
+2026-04-16 02:36:57,205 - INFO -     >>> Val Avg RMSE (Real): 176.0927
+2026-04-16 02:36:57,205 - INFO -     >>> Val MAE Details: ['119.0606', '112.9587', '104.5779', '113.0994', '131.4234', '129.8872', '132.8025']
+2026-04-16 02:36:57,205 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-16 02:44:47,730 - INFO - [Epoch 188] Train Loss: 0.0176 | LR: 0.000031
+2026-04-16 02:44:47,730 - INFO -     >>> Val Avg RMSE (Real): 177.9229
+2026-04-16 02:44:47,730 - INFO -     >>> Val MAE Details: ['119.6184', '112.2090', '107.7772', '120.0021', '136.1744', '128.8834', '134.7778']
+2026-04-16 02:44:47,730 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-16 02:52:42,229 - INFO - [Epoch 189] Train Loss: 0.0174 | LR: 0.000030
+2026-04-16 02:52:42,229 - INFO -     >>> Val Avg RMSE (Real): 176.3167
+2026-04-16 02:52:42,230 - INFO -     >>> Val MAE Details: ['117.1412', '113.6410', '104.3222', '116.5486', '130.1080', '127.6231', '134.0679']
+2026-04-16 02:52:42,230 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-16 03:00:34,107 - INFO - [Epoch 190] Train Loss: 0.0175 | LR: 0.000030
+2026-04-16 03:00:34,108 - INFO -     >>> Val Avg RMSE (Real): 175.6530
+2026-04-16 03:00:34,108 - INFO -     >>> Val MAE Details: ['117.5951', '112.5255', '103.5659', '113.0580', '129.0408', '126.3304', '135.6319']
+2026-04-16 03:00:34,648 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-16 03:08:27,711 - INFO - [Epoch 191] Train Loss: 0.0174 | LR: 0.000029
+2026-04-16 03:08:27,712 - INFO -     >>> Val Avg RMSE (Real): 176.5615
+2026-04-16 03:08:27,712 - INFO -     >>> Val MAE Details: ['120.4880', '112.6916', '106.6239', '117.1646', '129.6765', '127.9485', '134.7177']
+2026-04-16 03:08:27,712 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-16 03:16:17,790 - INFO - [Epoch 192] Train Loss: 0.0174 | LR: 0.000029
+2026-04-16 03:16:17,791 - INFO -     >>> Val Avg RMSE (Real): 176.1076
+2026-04-16 03:16:17,791 - INFO -     >>> Val MAE Details: ['117.0343', '109.1795', '108.9731', '119.1758', '129.4055', '129.4192', '133.2717']
+2026-04-16 03:16:17,791 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-16 03:24:04,199 - INFO - [Epoch 193] Train Loss: 0.0173 | LR: 0.000028
+2026-04-16 03:24:04,200 - INFO -     >>> Val Avg RMSE (Real): 176.7908
+2026-04-16 03:24:04,200 - INFO -     >>> Val MAE Details: ['118.2370', '118.2541', '107.3369', '114.9488', '129.0899', '129.1219', '133.6760']
+2026-04-16 03:24:04,200 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-16 03:31:57,052 - INFO - [Epoch 194] Train Loss: 0.0173 | LR: 0.000028
+2026-04-16 03:31:57,053 - INFO -     >>> Val Avg RMSE (Real): 178.2632
+2026-04-16 03:31:57,053 - INFO -     >>> Val MAE Details: ['122.8702', '114.9023', '105.2775', '115.4107', '130.9209', '128.4403', '134.2384']
+2026-04-16 03:31:57,053 - INFO - ⏳ No improvement. Patience: 4/50
+2026-04-16 03:39:45,460 - INFO - [Epoch 195] Train Loss: 0.0173 | LR: 0.000027
+2026-04-16 03:39:45,460 - INFO -     >>> Val Avg RMSE (Real): 176.2689
+2026-04-16 03:39:45,461 - INFO -     >>> Val MAE Details: ['115.7038', '112.2354', '106.3789', '119.6610', '130.5515', '130.2509', '133.6258']
+2026-04-16 03:39:45,461 - INFO - ⏳ No improvement. Patience: 5/50
+2026-04-16 03:47:40,040 - INFO - [Epoch 196] Train Loss: 0.0172 | LR: 0.000027
+2026-04-16 03:47:40,041 - INFO -     >>> Val Avg RMSE (Real): 174.8489
+2026-04-16 03:47:40,041 - INFO -     >>> Val MAE Details: ['117.4483', '111.4998', '103.1334', '113.0995', '128.4792', '127.6249', '133.1285']
+2026-04-16 03:47:40,592 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-16 03:54:55,247 - INFO - [Epoch 197] Train Loss: 0.0172 | LR: 0.000026
+2026-04-16 03:54:55,247 - INFO -     >>> Val Avg RMSE (Real): 177.9363
+2026-04-16 03:54:55,247 - INFO -     >>> Val MAE Details: ['118.3359', '114.0159', '106.8314', '121.6841', '131.2519', '129.2665', '135.2224']
+2026-04-16 03:54:55,248 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-16 04:02:47,911 - INFO - [Epoch 198] Train Loss: 0.0172 | LR: 0.000026
+2026-04-16 04:02:47,912 - INFO -     >>> Val Avg RMSE (Real): 174.6499
+2026-04-16 04:02:47,912 - INFO -     >>> Val MAE Details: ['116.8679', '110.8723', '103.6782', '114.7807', '128.4095', '127.6102', '132.3416']
+2026-04-16 04:02:48,455 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-16 04:10:35,979 - INFO - [Epoch 199] Train Loss: 0.0170 | LR: 0.000025
+2026-04-16 04:10:35,980 - INFO -     >>> Val Avg RMSE (Real): 174.9205
+2026-04-16 04:10:35,980 - INFO -     >>> Val MAE Details: ['115.2227', '110.8551', '105.1777', '115.1349', '129.5530', '126.6651', '131.4990']
+2026-04-16 04:10:35,980 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-16 04:18:22,293 - INFO - [Epoch 200] Train Loss: 0.0171 | LR: 0.000025
+2026-04-16 04:18:22,294 - INFO -     >>> Val Avg RMSE (Real): 176.0772
+2026-04-16 04:18:22,294 - INFO -     >>> Val MAE Details: ['116.1905', '111.4125', '108.4066', '114.4533', '128.2461', '127.4026', '135.2709']
+2026-04-16 04:18:22,294 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-16 04:26:07,916 - INFO - [Epoch 201] Train Loss: 0.0170 | LR: 0.000025
+2026-04-16 04:26:07,916 - INFO -     >>> Val Avg RMSE (Real): 174.5028
+2026-04-16 04:26:07,916 - INFO -     >>> Val MAE Details: ['115.8776', '110.7141', '103.2450', '116.0515', '128.4854', '126.4899', '133.9589']
+2026-04-16 04:26:08,544 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-16 04:33:53,348 - INFO - [Epoch 202] Train Loss: 0.0170 | LR: 0.000024
+2026-04-16 04:33:53,348 - INFO -     >>> Val Avg RMSE (Real): 175.0811
+2026-04-16 04:33:53,348 - INFO -     >>> Val MAE Details: ['119.0103', '112.4890', '102.8352', '113.9196', '128.6418', '127.8646', '132.8534']
+2026-04-16 04:33:53,349 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-16 04:41:39,472 - INFO - [Epoch 203] Train Loss: 0.0169 | LR: 0.000024
+2026-04-16 04:41:39,472 - INFO -     >>> Val Avg RMSE (Real): 174.9554
+2026-04-16 04:41:39,472 - INFO -     >>> Val MAE Details: ['116.4847', '115.5368', '105.9464', '113.3828', '128.6274', '125.5367', '134.6299']
+2026-04-16 04:41:39,472 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-16 04:49:25,211 - INFO - [Epoch 204] Train Loss: 0.0169 | LR: 0.000023
+2026-04-16 04:49:25,212 - INFO -     >>> Val Avg RMSE (Real): 175.4201
+2026-04-16 04:49:25,212 - INFO -     >>> Val MAE Details: ['118.6825', '110.8279', '105.1142', '117.0054', '128.0618', '126.4010', '132.6447']
+2026-04-16 04:49:25,212 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-16 04:57:10,870 - INFO - [Epoch 205] Train Loss: 0.0171 | LR: 0.000023
+2026-04-16 04:57:10,871 - INFO -     >>> Val Avg RMSE (Real): 174.1470
+2026-04-16 04:57:10,871 - INFO -     >>> Val MAE Details: ['116.0581', '112.1203', '104.0814', '113.7553', '127.6103', '127.8584', '132.1159']
+2026-04-16 04:57:11,575 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-16 05:04:56,849 - INFO - [Epoch 206] Train Loss: 0.0168 | LR: 0.000022
+2026-04-16 05:04:56,850 - INFO -     >>> Val Avg RMSE (Real): 174.1519
+2026-04-16 05:04:56,850 - INFO -     >>> Val MAE Details: ['115.1364', '111.2963', '102.1630', '111.8922', '128.3962', '127.3381', '134.9616']
+2026-04-16 05:04:56,850 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-16 05:12:44,609 - INFO - [Epoch 207] Train Loss: 0.0169 | LR: 0.000022
+2026-04-16 05:12:44,609 - INFO -     >>> Val Avg RMSE (Real): 174.0728
+2026-04-16 05:12:44,609 - INFO -     >>> Val MAE Details: ['117.7872', '110.5346', '102.8211', '113.6185', '128.0387', '126.5030', '132.2772']
+2026-04-16 05:12:45,151 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-16 05:20:36,941 - INFO - [Epoch 208] Train Loss: 0.0168 | LR: 0.000021
+2026-04-16 05:20:36,942 - INFO -     >>> Val Avg RMSE (Real): 175.9825
+2026-04-16 05:20:36,942 - INFO -     >>> Val MAE Details: ['116.7145', '112.5429', '105.4996', '115.7615', '130.5533', '125.9645', '134.0791']
+2026-04-16 05:20:36,942 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-16 05:28:23,623 - INFO - [Epoch 209] Train Loss: 0.0167 | LR: 0.000021
+2026-04-16 05:28:23,623 - INFO -     >>> Val Avg RMSE (Real): 175.1778
+2026-04-16 05:28:23,623 - INFO -     >>> Val MAE Details: ['115.5108', '111.3520', '103.9750', '115.1038', '129.1143', '127.5521', '133.7574']
+2026-04-16 05:28:23,623 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-16 05:36:10,335 - INFO - [Epoch 210] Train Loss: 0.0166 | LR: 0.000021
+2026-04-16 05:36:10,336 - INFO -     >>> Val Avg RMSE (Real): 176.4996
+2026-04-16 05:36:10,336 - INFO -     >>> Val MAE Details: ['117.7306', '111.7111', '103.2563', '113.6441', '136.4161', '126.4322', '132.5442']
+2026-04-16 05:36:10,336 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-16 05:43:56,753 - INFO - [Epoch 211] Train Loss: 0.0167 | LR: 0.000020
+2026-04-16 05:43:56,753 - INFO -     >>> Val Avg RMSE (Real): 173.8401
+2026-04-16 05:43:56,754 - INFO -     >>> Val MAE Details: ['117.5518', '109.8283', '104.6278', '113.2526', '127.8726', '125.7968', '132.7182']
+2026-04-16 05:43:57,300 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-16 05:51:43,752 - INFO - [Epoch 212] Train Loss: 0.0167 | LR: 0.000020
+2026-04-16 05:51:43,753 - INFO -     >>> Val Avg RMSE (Real): 175.8837
+2026-04-16 05:51:43,753 - INFO -     >>> Val MAE Details: ['120.2120', '112.3251', '102.8192', '114.3265', '128.7138', '126.5870', '132.5606']
+2026-04-16 05:51:43,753 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-16 05:59:30,784 - INFO - [Epoch 213] Train Loss: 0.0167 | LR: 0.000019
+2026-04-16 05:59:30,784 - INFO -     >>> Val Avg RMSE (Real): 175.0365
+2026-04-16 05:59:30,784 - INFO -     >>> Val MAE Details: ['117.4848', '110.3454', '105.5212', '113.7879', '132.8709', '126.0501', '132.7616']
+2026-04-16 05:59:30,784 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-16 06:07:17,859 - INFO - [Epoch 214] Train Loss: 0.0167 | LR: 0.000019
+2026-04-16 06:07:17,860 - INFO -     >>> Val Avg RMSE (Real): 177.1793
+2026-04-16 06:07:17,860 - INFO -     >>> Val MAE Details: ['115.9731', '111.7972', '109.0081', '115.1642', '129.2881', '131.2842', '139.2521']
+2026-04-16 06:07:17,860 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-16 06:15:04,830 - INFO - [Epoch 215] Train Loss: 0.0166 | LR: 0.000019
+2026-04-16 06:15:04,831 - INFO -     >>> Val Avg RMSE (Real): 174.1271
+2026-04-16 06:15:04,831 - INFO -     >>> Val MAE Details: ['115.1961', '110.8075', '103.6712', '115.1743', '128.3572', '126.2160', '132.0443']
+2026-04-16 06:15:04,831 - INFO - ⏳ No improvement. Patience: 4/50
+2026-04-16 06:22:52,150 - INFO - [Epoch 216] Train Loss: 0.0165 | LR: 0.000018
+2026-04-16 06:22:52,151 - INFO -     >>> Val Avg RMSE (Real): 174.8235
+2026-04-16 06:22:52,151 - INFO -     >>> Val MAE Details: ['118.1400', '110.6951', '103.8902', '117.6146', '128.3427', '127.0738', '132.4955']
+2026-04-16 06:22:52,151 - INFO - ⏳ No improvement. Patience: 5/50
+2026-04-16 06:30:37,833 - INFO - [Epoch 217] Train Loss: 0.0166 | LR: 0.000018
+2026-04-16 06:30:37,833 - INFO -     >>> Val Avg RMSE (Real): 173.7591
+2026-04-16 06:30:37,833 - INFO -     >>> Val MAE Details: ['116.0904', '111.8552', '103.3452', '113.2503', '126.9550', '126.1230', '132.6446']
+2026-04-16 06:30:38,369 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-16 06:38:26,552 - INFO - [Epoch 218] Train Loss: 0.0165 | LR: 0.000017
+2026-04-16 06:38:26,552 - INFO -     >>> Val Avg RMSE (Real): 175.2173
+2026-04-16 06:38:26,553 - INFO -     >>> Val MAE Details: ['116.7563', '111.1794', '104.3149', '116.7184', '128.6280', '126.8873', '133.8131']
+2026-04-16 06:38:26,553 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-16 06:46:11,943 - INFO - [Epoch 219] Train Loss: 0.0164 | LR: 0.000017
+2026-04-16 06:46:11,944 - INFO -     >>> Val Avg RMSE (Real): 174.0287
+2026-04-16 06:46:11,944 - INFO -     >>> Val MAE Details: ['117.1401', '113.3629', '102.5285', '113.6678', '125.9498', '126.5514', '131.9633']
+2026-04-16 06:46:11,944 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-16 06:53:55,342 - INFO - [Epoch 220] Train Loss: 0.0164 | LR: 0.000017
+2026-04-16 06:53:55,342 - INFO -     >>> Val Avg RMSE (Real): 173.7997
+2026-04-16 06:53:55,342 - INFO -     >>> Val MAE Details: ['114.4473', '109.8363', '103.6801', '114.4690', '128.6268', '127.1440', '132.9373']
+2026-04-16 06:53:55,342 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-16 07:01:41,617 - INFO - [Epoch 221] Train Loss: 0.0164 | LR: 0.000016
+2026-04-16 07:01:41,617 - INFO -     >>> Val Avg RMSE (Real): 173.1492
+2026-04-16 07:01:41,617 - INFO -     >>> Val MAE Details: ['115.2066', '109.9746', '101.6642', '113.1708', '129.1491', '124.9682', '132.9995']
+2026-04-16 07:01:42,150 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-16 07:09:26,979 - INFO - [Epoch 222] Train Loss: 0.0163 | LR: 0.000016
+2026-04-16 07:09:26,980 - INFO -     >>> Val Avg RMSE (Real): 173.9260
+2026-04-16 07:09:26,980 - INFO -     >>> Val MAE Details: ['116.6482', '110.9335', '102.1273', '115.1332', '129.4254', '125.9079', '131.7105']
+2026-04-16 07:09:26,980 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-16 07:17:10,201 - INFO - [Epoch 223] Train Loss: 0.0163 | LR: 0.000015
+2026-04-16 07:17:10,202 - INFO -     >>> Val Avg RMSE (Real): 176.4326
+2026-04-16 07:17:10,202 - INFO -     >>> Val MAE Details: ['115.2365', '111.1696', '103.8063', '114.2489', '132.7519', '129.1403', '135.6447']
+2026-04-16 07:17:10,202 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-16 07:24:55,396 - INFO - [Epoch 224] Train Loss: 0.0164 | LR: 0.000015
+2026-04-16 07:24:55,397 - INFO -     >>> Val Avg RMSE (Real): 174.0829
+2026-04-16 07:24:55,397 - INFO -     >>> Val MAE Details: ['114.9726', '110.3635', '105.4147', '114.3438', '128.4038', '125.3648', '132.9744']
+2026-04-16 07:24:55,397 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-16 07:32:41,562 - INFO - [Epoch 225] Train Loss: 0.0163 | LR: 0.000015
+2026-04-16 07:32:41,562 - INFO -     >>> Val Avg RMSE (Real): 174.1440
+2026-04-16 07:32:41,562 - INFO -     >>> Val MAE Details: ['115.4883', '109.7850', '102.1675', '114.7013', '128.3799', '127.5471', '132.1436']
+2026-04-16 07:32:41,563 - INFO - ⏳ No improvement. Patience: 4/50
+2026-04-16 07:40:28,240 - INFO - [Epoch 226] Train Loss: 0.0161 | LR: 0.000014
+2026-04-16 07:40:28,240 - INFO -     >>> Val Avg RMSE (Real): 174.3122
+2026-04-16 07:40:28,241 - INFO -     >>> Val MAE Details: ['117.4148', '111.4010', '101.4194', '115.5849', '130.5824', '125.6858', '131.0863']
+2026-04-16 07:40:28,241 - INFO - ⏳ No improvement. Patience: 5/50
+2026-04-16 07:48:15,734 - INFO - [Epoch 227] Train Loss: 0.0161 | LR: 0.000014
+2026-04-16 07:48:15,735 - INFO -     >>> Val Avg RMSE (Real): 174.2922
+2026-04-16 07:48:15,735 - INFO -     >>> Val MAE Details: ['115.2792', '110.1207', '101.3733', '113.8069', '129.7585', '127.9018', '133.5532']
+2026-04-16 07:48:15,735 - INFO - ⏳ No improvement. Patience: 6/50
+2026-04-16 07:56:01,237 - INFO - [Epoch 228] Train Loss: 0.0161 | LR: 0.000014
+2026-04-16 07:56:01,238 - INFO -     >>> Val Avg RMSE (Real): 173.5906
+2026-04-16 07:56:01,238 - INFO -     >>> Val MAE Details: ['115.4758', '110.2186', '102.9858', '113.2236', '128.1726', '126.3966', '131.9325']
+2026-04-16 07:56:01,238 - INFO - ⏳ No improvement. Patience: 7/50
+2026-04-16 08:03:49,365 - INFO - [Epoch 229] Train Loss: 0.0161 | LR: 0.000013
+2026-04-16 08:03:49,365 - INFO -     >>> Val Avg RMSE (Real): 172.3577
+2026-04-16 08:03:49,366 - INFO -     >>> Val MAE Details: ['114.7644', '110.0941', '101.4482', '115.3683', '127.0355', '124.9470', '130.8468']
+2026-04-16 08:03:49,907 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-16 08:11:35,508 - INFO - [Epoch 230] Train Loss: 0.0161 | LR: 0.000013
+2026-04-16 08:11:35,508 - INFO -     >>> Val Avg RMSE (Real): 175.2484
+2026-04-16 08:11:35,508 - INFO -     >>> Val MAE Details: ['116.3682', '110.2227', '103.3323', '115.1949', '126.7285', '126.5562', '136.4444']
+2026-04-16 08:11:35,509 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-16 08:19:24,785 - INFO - [Epoch 231] Train Loss: 0.0160 | LR: 0.000012
+2026-04-16 08:19:24,786 - INFO -     >>> Val Avg RMSE (Real): 173.6503
+2026-04-16 08:19:24,786 - INFO -     >>> Val MAE Details: ['113.8168', '109.3261', '102.6722', '114.8745', '127.3065', '126.9585', '132.6738']
+2026-04-16 08:19:24,786 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-16 08:26:43,208 - INFO - [Epoch 232] Train Loss: 0.0160 | LR: 0.000012
+2026-04-16 08:26:43,208 - INFO -     >>> Val Avg RMSE (Real): 173.0269
+2026-04-16 08:26:43,208 - INFO -     >>> Val MAE Details: ['114.3765', '108.1095', '99.8041', '113.0653', '129.5776', '125.9671', '131.2387']
+2026-04-16 08:26:43,208 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-16 08:34:19,600 - INFO - [Epoch 233] Train Loss: 0.0161 | LR: 0.000012
+2026-04-16 08:34:19,600 - INFO -     >>> Val Avg RMSE (Real): 174.3578
+2026-04-16 08:34:19,600 - INFO -     >>> Val MAE Details: ['115.3697', '111.0958', '101.7820', '119.3323', '128.2199', '126.6251', '133.5752']
+2026-04-16 08:34:19,600 - INFO - ⏳ No improvement. Patience: 4/50
+2026-04-16 08:41:57,874 - INFO - [Epoch 234] Train Loss: 0.0160 | LR: 0.000011
+2026-04-16 08:41:57,875 - INFO -     >>> Val Avg RMSE (Real): 175.1912
+2026-04-16 08:41:57,875 - INFO -     >>> Val MAE Details: ['120.4211', '112.1665', '103.2535', '112.4314', '128.7419', '125.3647', '132.6472']
+2026-04-16 08:41:57,875 - INFO - ⏳ No improvement. Patience: 5/50
+2026-04-16 08:49:34,668 - INFO - [Epoch 235] Train Loss: 0.0160 | LR: 0.000011
+2026-04-16 08:49:34,668 - INFO -     >>> Val Avg RMSE (Real): 172.3168
+2026-04-16 08:49:34,669 - INFO -     >>> Val MAE Details: ['115.1265', '109.3207', '100.4839', '112.2928', '125.5417', '125.5770', '131.7350']
+2026-04-16 08:49:35,189 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-16 08:57:14,948 - INFO - [Epoch 236] Train Loss: 0.0159 | LR: 0.000011
+2026-04-16 08:57:14,948 - INFO -     >>> Val Avg RMSE (Real): 173.4175
+2026-04-16 08:57:14,949 - INFO -     >>> Val MAE Details: ['114.4187', '109.3553', '101.5521', '112.0180', '127.1088', '127.4273', '133.4892']
+2026-04-16 08:57:14,949 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-16 09:04:55,090 - INFO - [Epoch 237] Train Loss: 0.0158 | LR: 0.000010
+2026-04-16 09:04:55,091 - INFO -     >>> Val Avg RMSE (Real): 173.4721
+2026-04-16 09:04:55,091 - INFO -     >>> Val MAE Details: ['115.8063', '109.9862', '101.3601', '112.3891', '127.8247', '125.0594', '133.1380']
+2026-04-16 09:04:55,091 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-16 09:12:35,472 - INFO - [Epoch 238] Train Loss: 0.0158 | LR: 0.000010
+2026-04-16 09:12:35,473 - INFO -     >>> Val Avg RMSE (Real): 173.1665
+2026-04-16 09:12:35,473 - INFO -     >>> Val MAE Details: ['114.0426', '108.6355', '101.0633', '113.9392', '126.8782', '126.3974', '133.6523']
+2026-04-16 09:12:35,473 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-16 09:20:14,224 - INFO - [Epoch 239] Train Loss: 0.0158 | LR: 0.000010
+2026-04-16 09:20:14,224 - INFO -     >>> Val Avg RMSE (Real): 173.2726
+2026-04-16 09:20:14,224 - INFO -     >>> Val MAE Details: ['115.2547', '110.0219', '101.5673', '111.6285', '126.3249', '127.2449', '133.1543']
+2026-04-16 09:20:14,224 - INFO - ⏳ No improvement. Patience: 4/50
+2026-04-16 09:27:55,721 - INFO - [Epoch 240] Train Loss: 0.0158 | LR: 0.000010
+2026-04-16 09:27:55,721 - INFO -     >>> Val Avg RMSE (Real): 171.7443
+2026-04-16 09:27:55,721 - INFO -     >>> Val MAE Details: ['115.6196', '108.5207', '101.5220', '111.2121', '126.5881', '124.8492', '130.8834']
+2026-04-16 09:27:56,242 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-16 09:35:34,962 - INFO - [Epoch 241] Train Loss: 0.0158 | LR: 0.000009
+2026-04-16 09:35:34,962 - INFO -     >>> Val Avg RMSE (Real): 172.7951
+2026-04-16 09:35:34,963 - INFO -     >>> Val MAE Details: ['114.3452', '109.1769', '101.9821', '112.2494', '127.1764', '126.7628', '131.0311']
+2026-04-16 09:35:34,963 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-16 09:43:13,637 - INFO - [Epoch 242] Train Loss: 0.0157 | LR: 0.000009
+2026-04-16 09:43:13,637 - INFO -     >>> Val Avg RMSE (Real): 173.2354
+2026-04-16 09:43:13,638 - INFO -     >>> Val MAE Details: ['116.1672', '109.1392', '102.5983', '114.2496', '126.8506', '126.1706', '131.6532']
+2026-04-16 09:43:13,638 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-16 09:50:52,593 - INFO - [Epoch 243] Train Loss: 0.0157 | LR: 0.000009
+2026-04-16 09:50:52,593 - INFO -     >>> Val Avg RMSE (Real): 172.9340
+2026-04-16 09:50:52,594 - INFO -     >>> Val MAE Details: ['116.3841', '110.4821', '101.3245', '111.9659', '127.4540', '126.7070', '131.8572']
+2026-04-16 09:50:52,594 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-16 09:58:34,192 - INFO - [Epoch 244] Train Loss: 0.0157 | LR: 0.000008
+2026-04-16 09:58:34,193 - INFO -     >>> Val Avg RMSE (Real): 172.0882
+2026-04-16 09:58:34,193 - INFO -     >>> Val MAE Details: ['114.4984', '109.3594', '102.2170', '111.2282', '125.8904', '124.5449', '131.4929']
+2026-04-16 09:58:34,193 - INFO - ⏳ No improvement. Patience: 4/50
+2026-04-16 10:06:03,107 - INFO - [Epoch 245] Train Loss: 0.0156 | LR: 0.000008
+2026-04-16 10:06:03,107 - INFO -     >>> Val Avg RMSE (Real): 173.1001
+2026-04-16 10:06:03,107 - INFO -     >>> Val MAE Details: ['114.0598', '109.8822', '101.5151', '112.3593', '127.0232', '125.3848', '132.8428']
+2026-04-16 10:06:03,107 - INFO - ⏳ No improvement. Patience: 5/50
+2026-04-16 10:13:45,740 - INFO - [Epoch 246] Train Loss: 0.0156 | LR: 0.000008
+2026-04-16 10:13:45,741 - INFO -     >>> Val Avg RMSE (Real): 173.3224
+2026-04-16 10:13:45,741 - INFO -     >>> Val MAE Details: ['114.6367', '108.9443', '101.9599', '111.9619', '128.0723', '126.7942', '131.6144']
+2026-04-16 10:13:45,741 - INFO - ⏳ No improvement. Patience: 6/50
+2026-04-16 10:21:28,401 - INFO - [Epoch 247] Train Loss: 0.0156 | LR: 0.000008
+2026-04-16 10:21:28,402 - INFO -     >>> Val Avg RMSE (Real): 172.2067
+2026-04-16 10:21:28,402 - INFO -     >>> Val MAE Details: ['114.7042', '108.9131', '100.6080', '111.3229', '125.5824', '124.6368', '130.6800']
+2026-04-16 10:21:28,402 - INFO - ⏳ No improvement. Patience: 7/50
+2026-04-16 10:29:13,988 - INFO - [Epoch 248] Train Loss: 0.0155 | LR: 0.000007
+2026-04-16 10:29:13,988 - INFO -     >>> Val Avg RMSE (Real): 173.1550
+2026-04-16 10:29:13,989 - INFO -     >>> Val MAE Details: ['115.0500', '109.3700', '102.3201', '114.6093', '127.5604', '124.6956', '132.3688']
+2026-04-16 10:29:13,989 - INFO - ⏳ No improvement. Patience: 8/50
+2026-04-16 10:37:13,768 - INFO - [Epoch 249] Train Loss: 0.0155 | LR: 0.000007
+2026-04-16 10:37:13,769 - INFO -     >>> Val Avg RMSE (Real): 173.5435
+2026-04-16 10:37:13,769 - INFO -     >>> Val MAE Details: ['114.2081', '108.6391', '102.4146', '114.8852', '127.6654', '125.1563', '132.4139']
+2026-04-16 10:37:13,769 - INFO - ⏳ No improvement. Patience: 9/50
+2026-04-16 10:45:13,896 - INFO - [Epoch 250] Train Loss: 0.0154 | LR: 0.000007
+2026-04-16 10:45:13,897 - INFO -     >>> Val Avg RMSE (Real): 172.2243
+2026-04-16 10:45:13,897 - INFO -     >>> Val MAE Details: ['114.9971', '108.6613', '101.4516', '111.6349', '125.9972', '126.1974', '131.8979']
+2026-04-16 10:45:13,897 - INFO - ⏳ No improvement. Patience: 10/50
+2026-04-16 10:53:12,644 - INFO - [Epoch 251] Train Loss: 0.0155 | LR: 0.000006
+2026-04-16 10:53:12,645 - INFO -     >>> Val Avg RMSE (Real): 173.2859
+2026-04-16 10:53:12,645 - INFO -     >>> Val MAE Details: ['116.0793', '109.2938', '101.3258', '112.0283', '126.9955', '126.2405', '131.4151']
+2026-04-16 10:53:12,645 - INFO - ⏳ No improvement. Patience: 11/50
+2026-04-16 11:01:12,770 - INFO - [Epoch 252] Train Loss: 0.0154 | LR: 0.000006
+2026-04-16 11:01:12,770 - INFO -     >>> Val Avg RMSE (Real): 172.3704
+2026-04-16 11:01:12,771 - INFO -     >>> Val MAE Details: ['113.6943', '108.7577', '103.6672', '112.0532', '126.2117', '125.0593', '131.1257']
+2026-04-16 11:01:12,771 - INFO - ⏳ No improvement. Patience: 12/50
+2026-04-16 11:09:13,369 - INFO - [Epoch 253] Train Loss: 0.0154 | LR: 0.000006
+2026-04-16 11:09:13,369 - INFO -     >>> Val Avg RMSE (Real): 172.5555
+2026-04-16 11:09:13,370 - INFO -     >>> Val MAE Details: ['113.4630', '108.9223', '101.3708', '111.3659', '126.3942', '125.7009', '132.4001']
+2026-04-16 11:09:13,370 - INFO - ⏳ No improvement. Patience: 13/50
+2026-04-16 11:17:11,544 - INFO - [Epoch 254] Train Loss: 0.0154 | LR: 0.000006
+2026-04-16 11:17:11,545 - INFO -     >>> Val Avg RMSE (Real): 171.8614
+2026-04-16 11:17:11,545 - INFO -     >>> Val MAE Details: ['113.8518', '108.8831', '100.9073', '112.0470', '126.3331', '125.1411', '130.9290']
+2026-04-16 11:17:11,545 - INFO - ⏳ No improvement. Patience: 14/50
+2026-04-16 11:25:11,468 - INFO - [Epoch 255] Train Loss: 0.0153 | LR: 0.000005
+2026-04-16 11:25:11,469 - INFO -     >>> Val Avg RMSE (Real): 172.3219
+2026-04-16 11:25:11,469 - INFO -     >>> Val MAE Details: ['113.9943', '108.9325', '101.4809', '112.1981', '127.0086', '126.2631', '132.0646']
+2026-04-16 11:25:11,469 - INFO - ⏳ No improvement. Patience: 15/50
+2026-04-16 11:32:45,330 - INFO - [Epoch 256] Train Loss: 0.0153 | LR: 0.000005
+2026-04-16 11:32:45,331 - INFO -     >>> Val Avg RMSE (Real): 171.8718
+2026-04-16 11:32:45,331 - INFO -     >>> Val MAE Details: ['114.0389', '109.3102', '100.8305', '111.3690', '125.7782', '124.6775', '131.1435']
+2026-04-16 11:32:45,331 - INFO - ⏳ No improvement. Patience: 16/50
+2026-04-16 11:40:45,415 - INFO - [Epoch 257] Train Loss: 0.0152 | LR: 0.000005
+2026-04-16 11:40:45,415 - INFO -     >>> Val Avg RMSE (Real): 172.1259
+2026-04-16 11:40:45,416 - INFO -     >>> Val MAE Details: ['114.2339', '108.2290', '101.2902', '112.6323', '125.9772', '124.7834', '131.6150']
+2026-04-16 11:40:45,416 - INFO - ⏳ No improvement. Patience: 17/50
+2026-04-16 11:48:45,411 - INFO - [Epoch 258] Train Loss: 0.0153 | LR: 0.000005
+2026-04-16 11:48:45,411 - INFO -     >>> Val Avg RMSE (Real): 171.9479
+2026-04-16 11:48:45,411 - INFO -     >>> Val MAE Details: ['114.6251', '108.6528', '102.1517', '110.7982', '125.5698', '123.8783', '131.2139']
+2026-04-16 11:48:45,411 - INFO - ⏳ No improvement. Patience: 18/50
+2026-04-16 11:56:38,929 - INFO - [Epoch 259] Train Loss: 0.0152 | LR: 0.000005
+2026-04-16 11:56:38,929 - INFO -     >>> Val Avg RMSE (Real): 172.6616
+2026-04-16 11:56:38,930 - INFO -     >>> Val MAE Details: ['113.7614', '109.4110', '100.7673', '112.6089', '127.0074', '125.4158', '131.4237']
+2026-04-16 11:56:38,930 - INFO - ⏳ No improvement. Patience: 19/50
+2026-04-16 12:04:39,102 - INFO - [Epoch 260] Train Loss: 0.0152 | LR: 0.000004
+2026-04-16 12:04:39,103 - INFO -     >>> Val Avg RMSE (Real): 172.1242
+2026-04-16 12:04:39,103 - INFO -     >>> Val MAE Details: ['114.0508', '108.6914', '100.8790', '111.4619', '125.9361', '125.3762', '132.9843']
+2026-04-16 12:04:39,103 - INFO - ⏳ No improvement. Patience: 20/50
+2026-04-16 12:12:24,444 - INFO - [Epoch 261] Train Loss: 0.0151 | LR: 0.000004
+2026-04-16 12:12:24,445 - INFO -     >>> Val Avg RMSE (Real): 172.3580
+2026-04-16 12:12:24,445 - INFO -     >>> Val MAE Details: ['115.4769', '108.9971', '100.2131', '111.5807', '125.9301', '124.7507', '131.2355']
+2026-04-16 12:12:24,445 - INFO - ⏳ No improvement. Patience: 21/50
+2026-04-16 12:20:23,022 - INFO - [Epoch 262] Train Loss: 0.0152 | LR: 0.000004
+2026-04-16 12:20:23,022 - INFO -     >>> Val Avg RMSE (Real): 171.5346
+2026-04-16 12:20:23,023 - INFO -     >>> Val MAE Details: ['113.6333', '107.8869', '99.9691', '110.7682', '125.3717', '124.8607', '131.7513']
+2026-04-16 12:20:23,637 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-16 12:28:04,258 - INFO - [Epoch 263] Train Loss: 0.0151 | LR: 0.000004
+2026-04-16 12:28:04,258 - INFO -     >>> Val Avg RMSE (Real): 172.6054
+2026-04-16 12:28:04,258 - INFO -     >>> Val MAE Details: ['114.4062', '108.6249', '101.8637', '111.1858', '126.1825', '126.5309', '132.3588']
+2026-04-16 12:28:04,258 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-16 12:35:33,560 - INFO - [Epoch 264] Train Loss: 0.0151 | LR: 0.000004
+2026-04-16 12:35:33,561 - INFO -     >>> Val Avg RMSE (Real): 171.2827
+2026-04-16 12:35:33,561 - INFO -     >>> Val MAE Details: ['114.5995', '108.4308', '99.7536', '110.5587', '125.8884', '124.2973', '130.7073']
+2026-04-16 12:35:34,173 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-16 12:43:32,552 - INFO - [Epoch 265] Train Loss: 0.0151 | LR: 0.000003
+2026-04-16 12:43:32,552 - INFO -     >>> Val Avg RMSE (Real): 170.9851
+2026-04-16 12:43:32,552 - INFO -     >>> Val MAE Details: ['113.7991', '108.1893', '100.1679', '110.7004', '125.1888', '123.9376', '130.8604']
+2026-04-16 12:43:33,231 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-16 12:51:29,944 - INFO - [Epoch 266] Train Loss: 0.0151 | LR: 0.000003
+2026-04-16 12:51:29,945 - INFO -     >>> Val Avg RMSE (Real): 171.3003
+2026-04-16 12:51:29,945 - INFO -     >>> Val MAE Details: ['113.2269', '107.8919', '99.8917', '111.5038', '125.9736', '123.8549', '131.1039']
+2026-04-16 12:51:29,945 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-16 12:59:15,329 - INFO - [Epoch 267] Train Loss: 0.0150 | LR: 0.000003
+2026-04-16 12:59:15,329 - INFO -     >>> Val Avg RMSE (Real): 171.6993
+2026-04-16 12:59:15,329 - INFO -     >>> Val MAE Details: ['114.6078', '108.9015', '100.9689', '111.2787', '125.9075', '124.8855', '130.4702']
+2026-04-16 12:59:15,329 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-16 13:07:12,945 - INFO - [Epoch 268] Train Loss: 0.0150 | LR: 0.000003
+2026-04-16 13:07:12,945 - INFO -     >>> Val Avg RMSE (Real): 172.1476
+2026-04-16 13:07:12,945 - INFO -     >>> Val MAE Details: ['114.8713', '108.7744', '100.2375', '111.4016', '125.7184', '124.7816', '131.6814']
+2026-04-16 13:07:12,946 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-16 13:14:57,791 - INFO - [Epoch 269] Train Loss: 0.0150 | LR: 0.000003
+2026-04-16 13:14:57,792 - INFO -     >>> Val Avg RMSE (Real): 171.2239
+2026-04-16 13:14:57,792 - INFO -     >>> Val MAE Details: ['114.3681', '108.5971', '100.0154', '110.5665', '125.5511', '124.5111', '131.1265']
+2026-04-16 13:14:57,792 - INFO - ⏳ No improvement. Patience: 4/50
+2026-04-16 13:22:54,500 - INFO - [Epoch 270] Train Loss: 0.0149 | LR: 0.000002
+2026-04-16 13:22:54,500 - INFO -     >>> Val Avg RMSE (Real): 171.2881
+2026-04-16 13:22:54,500 - INFO -     >>> Val MAE Details: ['113.7665', '108.2271', '100.1887', '110.7326', '125.3587', '124.5099', '131.2942']
+2026-04-16 13:22:54,500 - INFO - ⏳ No improvement. Patience: 5/50
+2026-04-16 13:30:52,385 - INFO - [Epoch 271] Train Loss: 0.0149 | LR: 0.000002
+2026-04-16 13:30:52,385 - INFO -     >>> Val Avg RMSE (Real): 171.3119
+2026-04-16 13:30:52,385 - INFO -     >>> Val MAE Details: ['113.5265', '108.4895', '100.2249', '110.7418', '124.7802', '124.3493', '130.9451']
+2026-04-16 13:30:52,385 - INFO - ⏳ No improvement. Patience: 6/50
+2026-04-16 13:38:52,340 - INFO - [Epoch 272] Train Loss: 0.0149 | LR: 0.000002
+2026-04-16 13:38:52,341 - INFO -     >>> Val Avg RMSE (Real): 171.6633
+2026-04-16 13:38:52,341 - INFO -     >>> Val MAE Details: ['113.9339', '108.3235', '100.7601', '111.3439', '125.1555', '124.1206', '130.8232']
+2026-04-16 13:38:52,341 - INFO - ⏳ No improvement. Patience: 7/50
+2026-04-16 13:46:51,013 - INFO - [Epoch 273] Train Loss: 0.0149 | LR: 0.000002
+2026-04-16 13:46:51,013 - INFO -     >>> Val Avg RMSE (Real): 171.5753
+2026-04-16 13:46:51,013 - INFO -     >>> Val MAE Details: ['114.7291', '108.7424', '102.1364', '111.1293', '125.1528', '123.8428', '130.9000']
+2026-04-16 13:46:51,013 - INFO - ⏳ No improvement. Patience: 8/50
+2026-04-16 13:54:50,208 - INFO - [Epoch 274] Train Loss: 0.0148 | LR: 0.000002
+2026-04-16 13:54:50,209 - INFO -     >>> Val Avg RMSE (Real): 171.1444
+2026-04-16 13:54:50,209 - INFO -     >>> Val MAE Details: ['114.4768', '108.0453', '99.8345', '110.8182', '124.9877', '123.6677', '130.4100']
+2026-04-16 13:54:50,209 - INFO - ⏳ No improvement. Patience: 9/50
+2026-04-16 14:02:48,780 - INFO - [Epoch 275] Train Loss: 0.0149 | LR: 0.000002
+2026-04-16 14:02:48,781 - INFO -     >>> Val Avg RMSE (Real): 171.2830
+2026-04-16 14:02:48,781 - INFO -     >>> Val MAE Details: ['114.1170', '108.3502', '100.4353', '110.8720', '124.7350', '124.0251', '130.9254']
+2026-04-16 14:02:48,781 - INFO - ⏳ No improvement. Patience: 10/50
+2026-04-16 14:10:47,117 - INFO - [Epoch 276] Train Loss: 0.0149 | LR: 0.000002
+2026-04-16 14:10:47,118 - INFO -     >>> Val Avg RMSE (Real): 171.0502
+2026-04-16 14:10:47,118 - INFO -     >>> Val MAE Details: ['113.4212', '108.0902', '100.3475', '111.2114', '125.2301', '124.0517', '131.1074']
+2026-04-16 14:10:47,118 - INFO - ⏳ No improvement. Patience: 11/50
+2026-04-16 14:18:25,246 - INFO - [Epoch 277] Train Loss: 0.0149 | LR: 0.000001
+2026-04-16 14:18:25,247 - INFO -     >>> Val Avg RMSE (Real): 171.2488
+2026-04-16 14:18:25,247 - INFO -     >>> Val MAE Details: ['113.4374', '108.4187', '101.0178', '110.7234', '125.1426', '124.0142', '131.1295']
+2026-04-16 14:18:25,247 - INFO - ⏳ No improvement. Patience: 12/50
+2026-04-16 14:26:23,634 - INFO - [Epoch 278] Train Loss: 0.0149 | LR: 0.000001
+2026-04-16 14:26:23,634 - INFO -     >>> Val Avg RMSE (Real): 171.3619
+2026-04-16 14:26:23,634 - INFO -     >>> Val MAE Details: ['113.5029', '108.1362', '100.1613', '110.8584', '125.1723', '124.3710', '131.4473']
+2026-04-16 14:26:23,634 - INFO - ⏳ No improvement. Patience: 13/50
+2026-04-16 14:34:21,127 - INFO - [Epoch 279] Train Loss: 0.0148 | LR: 0.000001
+2026-04-16 14:34:21,127 - INFO -     >>> Val Avg RMSE (Real): 171.0811
+2026-04-16 14:34:21,127 - INFO -     >>> Val MAE Details: ['113.7363', '108.0102', '100.4097', '110.7595', '124.9032', '124.0003', '130.6349']
+2026-04-16 14:34:21,128 - INFO - ⏳ No improvement. Patience: 14/50
+2026-04-16 14:42:19,092 - INFO - [Epoch 280] Train Loss: 0.0147 | LR: 0.000001
+2026-04-16 14:42:19,093 - INFO -     >>> Val Avg RMSE (Real): 170.9021
+2026-04-16 14:42:19,093 - INFO -     >>> Val MAE Details: ['113.7570', '107.9647', '99.8245', '110.2531', '124.8343', '123.8626', '130.4438']
+2026-04-16 14:42:19,632 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-16 14:50:01,293 - INFO - [Epoch 281] Train Loss: 0.0147 | LR: 0.000001
+2026-04-16 14:50:01,294 - INFO -     >>> Val Avg RMSE (Real): 170.9422
+2026-04-16 14:50:01,294 - INFO -     >>> Val MAE Details: ['113.3195', '107.9378', '99.9438', '110.2939', '124.6027', '124.2549', '130.9174']
+2026-04-16 14:50:01,294 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-16 14:57:38,439 - INFO - [Epoch 282] Train Loss: 0.0147 | LR: 0.000001
+2026-04-16 14:57:38,440 - INFO -     >>> Val Avg RMSE (Real): 171.1818
+2026-04-16 14:57:38,440 - INFO -     >>> Val MAE Details: ['113.5689', '108.1024', '99.8494', '110.5092', '125.0324', '124.2373', '131.0133']
+2026-04-16 14:57:38,440 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-16 15:05:21,107 - INFO - [Epoch 283] Train Loss: 0.0148 | LR: 0.000001
+2026-04-16 15:05:21,107 - INFO -     >>> Val Avg RMSE (Real): 171.1297
+2026-04-16 15:05:21,107 - INFO -     >>> Val MAE Details: ['113.5853', '107.9357', '100.1086', '110.7733', '124.8446', '124.2918', '130.8393']
+2026-04-16 15:05:21,107 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-16 15:13:01,162 - INFO - [Epoch 284] Train Loss: 0.0147 | LR: 0.000001
+2026-04-16 15:13:01,162 - INFO -     >>> Val Avg RMSE (Real): 171.0229
+2026-04-16 15:13:01,162 - INFO -     >>> Val MAE Details: ['113.2867', '107.8297', '100.0659', '110.3805', '124.7495', '124.2021', '131.4012']
+2026-04-16 15:13:01,162 - INFO - ⏳ No improvement. Patience: 4/50
+2026-04-16 15:20:41,651 - INFO - [Epoch 285] Train Loss: 0.0147 | LR: 0.000001
+2026-04-16 15:20:41,651 - INFO -     >>> Val Avg RMSE (Real): 171.0105
+2026-04-16 15:20:41,652 - INFO -     >>> Val MAE Details: ['113.3774', '107.8153', '99.7893', '110.6639', '125.0180', '124.2707', '130.9839']
+2026-04-16 15:20:41,652 - INFO - ⏳ No improvement. Patience: 5/50
+2026-04-16 15:28:20,943 - INFO - [Epoch 286] Train Loss: 0.0148 | LR: 0.000001
+2026-04-16 15:28:20,944 - INFO -     >>> Val Avg RMSE (Real): 171.0311
+2026-04-16 15:28:20,944 - INFO -     >>> Val MAE Details: ['113.4709', '108.0689', '99.7527', '110.3219', '124.7449', '123.9704', '130.8440']
+2026-04-16 15:28:20,944 - INFO - ⏳ No improvement. Patience: 6/50
+2026-04-16 15:36:07,880 - INFO - [Epoch 287] Train Loss: 0.0147 | LR: 0.000000
+2026-04-16 15:36:07,880 - INFO -     >>> Val Avg RMSE (Real): 170.8725
+2026-04-16 15:36:07,881 - INFO -     >>> Val MAE Details: ['113.5478', '108.0297', '99.5545', '110.4196', '124.7252', '123.9475', '130.8522']
+2026-04-16 15:36:08,440 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-16 15:44:09,342 - INFO - [Epoch 288] Train Loss: 0.0147 | LR: 0.000000
+2026-04-16 15:44:09,342 - INFO -     >>> Val Avg RMSE (Real): 170.7293
+2026-04-16 15:44:09,343 - INFO -     >>> Val MAE Details: ['113.4030', '107.8337', '99.4722', '110.1252', '124.6408', '123.7945', '130.6658']
+2026-04-16 15:44:10,073 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-16 15:52:04,923 - INFO - [Epoch 289] Train Loss: 0.0146 | LR: 0.000000
+2026-04-16 15:52:04,924 - INFO -     >>> Val Avg RMSE (Real): 170.6283
+2026-04-16 15:52:04,924 - INFO -     >>> Val MAE Details: ['113.2639', '107.6226', '99.5509', '110.2513', '124.6604', '123.9944', '130.6898']
+2026-04-16 15:52:05,537 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_hybrid_fusion_UniFieldNet_MultiTask7_20260414_211723/best_model.pth
+2026-04-16 16:00:05,782 - INFO - [Epoch 290] Train Loss: 0.0146 | LR: 0.000000
+2026-04-16 16:00:05,783 - INFO -     >>> Val Avg RMSE (Real): 170.7636
+2026-04-16 16:00:05,783 - INFO -     >>> Val MAE Details: ['113.2446', '107.8111', '99.8822', '110.2319', '124.7358', '124.1702', '130.7416']
+2026-04-16 16:00:05,783 - INFO - ⏳ No improvement. Patience: 1/50
+2026-04-16 16:08:07,550 - INFO - [Epoch 291] Train Loss: 0.0147 | LR: 0.000000
+2026-04-16 16:08:07,551 - INFO -     >>> Val Avg RMSE (Real): 170.7227
+2026-04-16 16:08:07,551 - INFO -     >>> Val MAE Details: ['113.4616', '107.8169', '99.5811', '110.3623', '124.6481', '123.9358', '130.4485']
+2026-04-16 16:08:07,551 - INFO - ⏳ No improvement. Patience: 2/50
+2026-04-16 16:16:06,844 - INFO - [Epoch 292] Train Loss: 0.0146 | LR: 0.000000
+2026-04-16 16:16:06,844 - INFO -     >>> Val Avg RMSE (Real): 170.9264
+2026-04-16 16:16:06,844 - INFO -     >>> Val MAE Details: ['113.5025', '107.9891', '99.6853', '110.4086', '124.7589', '124.1760', '130.8318']
+2026-04-16 16:16:06,844 - INFO - ⏳ No improvement. Patience: 3/50
+2026-04-16 16:24:05,785 - INFO - [Epoch 293] Train Loss: 0.0147 | LR: 0.000000
+2026-04-16 16:24:05,786 - INFO -     >>> Val Avg RMSE (Real): 170.7651
+2026-04-16 16:24:05,786 - INFO -     >>> Val MAE Details: ['113.3687', '107.7822', '99.6954', '110.3257', '124.6666', '123.9465', '130.7313']
+2026-04-16 16:24:05,786 - INFO - ⏳ No improvement. Patience: 4/50

@@ -1,0 +1,55 @@
+2026-04-08 21:02:41,512 - INFO - 🎯 Evaluating Targets: ['homo_2', 'homo_1', 'homo_0', 'lumo_0', 'lumo_1', 'lumo_2', 'lumo_3']
+2026-04-08 21:02:41,513 - INFO - 📂 Loading checkpoint from: /home/zw/ED_all/task_ED5_OE/logs/ED5_repr_atomistic_graph_ComENet_MultiTask7_20260407_222118/best_model.pth
+2026-04-08 21:02:41,513 - INFO - 📝 Test log will be saved to: /home/zw/ED_all/task_ED5_OE/logs/ED5_repr_atomistic_graph_ComENet_MultiTask7_20260407_222118/test.log
+2026-04-08 21:08:05,572 - INFO - 🎯 Evaluating Targets: ['homo_2', 'homo_1', 'homo_0', 'lumo_0', 'lumo_1', 'lumo_2', 'lumo_3']
+2026-04-08 21:08:05,572 - INFO - 📂 Loading checkpoint from: /home/zw/ED_all/task_ED5_OE/logs/ED5_repr_atomistic_graph_ComENet_MultiTask7_20260407_222118/best_model.pth
+2026-04-08 21:08:05,572 - INFO - 📝 Test log will be saved to: /home/zw/ED_all/task_ED5_OE/logs/ED5_repr_atomistic_graph_ComENet_MultiTask7_20260407_222118/test.log
+2026-04-08 21:08:38,982 - INFO - ✅ Successfully loaded checkpoint from Epoch 163
+2026-04-08 21:08:38,982 - INFO -     Validation Avg RMSE at this epoch was: 227.4405
+2026-04-08 21:08:45,912 - INFO - ========================================
+2026-04-08 21:08:45,912 - INFO -  🎉 Test Set Evaluation Results 🎉
+2026-04-08 21:08:45,912 - INFO - ========================================
+2026-04-08 21:08:45,926 - INFO - Target Property : homo_2
+2026-04-08 21:08:45,926 - INFO - Test RMSE       : 215.3899
+2026-04-08 21:08:45,926 - INFO - Test MAE        : 157.0289
+2026-04-08 21:08:45,926 - INFO - Test Pearson r  : 0.9390
+2026-04-08 21:08:45,926 - INFO - Test Spearman r : 0.9383
+2026-04-08 21:08:45,926 - INFO - ----------------------------------------
+2026-04-08 21:08:45,929 - INFO - Target Property : homo_1
+2026-04-08 21:08:45,929 - INFO - Test RMSE       : 204.6845
+2026-04-08 21:08:45,929 - INFO - Test MAE        : 146.2722
+2026-04-08 21:08:45,929 - INFO - Test Pearson r  : 0.9432
+2026-04-08 21:08:45,929 - INFO - Test Spearman r : 0.9403
+2026-04-08 21:08:45,929 - INFO - ----------------------------------------
+2026-04-08 21:08:45,933 - INFO - Target Property : homo_0
+2026-04-08 21:08:45,933 - INFO - Test RMSE       : 220.7216
+2026-04-08 21:08:45,933 - INFO - Test MAE        : 146.7286
+2026-04-08 21:08:45,933 - INFO - Test Pearson r  : 0.9484
+2026-04-08 21:08:45,933 - INFO - Test Spearman r : 0.9528
+2026-04-08 21:08:45,933 - INFO - ----------------------------------------
+2026-04-08 21:08:45,936 - INFO - Target Property : lumo_0
+2026-04-08 21:08:45,936 - INFO - Test RMSE       : 236.4101
+2026-04-08 21:08:45,937 - INFO - Test MAE        : 158.4228
+2026-04-08 21:08:45,937 - INFO - Test Pearson r  : 0.9803
+2026-04-08 21:08:45,937 - INFO - Test Spearman r : 0.9808
+2026-04-08 21:08:45,937 - INFO - ----------------------------------------
+2026-04-08 21:08:45,940 - INFO - Target Property : lumo_1
+2026-04-08 21:08:45,940 - INFO - Test RMSE       : 229.0496
+2026-04-08 21:08:45,940 - INFO - Test MAE        : 157.4417
+2026-04-08 21:08:45,940 - INFO - Test Pearson r  : 0.9781
+2026-04-08 21:08:45,940 - INFO - Test Spearman r : 0.9751
+2026-04-08 21:08:45,940 - INFO - ----------------------------------------
+2026-04-08 21:08:45,944 - INFO - Target Property : lumo_2
+2026-04-08 21:08:45,944 - INFO - Test RMSE       : 230.9991
+2026-04-08 21:08:45,944 - INFO - Test MAE        : 166.0131
+2026-04-08 21:08:45,944 - INFO - Test Pearson r  : 0.9780
+2026-04-08 21:08:45,944 - INFO - Test Spearman r : 0.9776
+2026-04-08 21:08:45,944 - INFO - ----------------------------------------
+2026-04-08 21:08:45,947 - INFO - Target Property : lumo_3
+2026-04-08 21:08:45,947 - INFO - Test RMSE       : 238.9618
+2026-04-08 21:08:45,947 - INFO - Test MAE        : 172.4741
+2026-04-08 21:08:45,947 - INFO - Test Pearson r  : 0.9762
+2026-04-08 21:08:45,947 - INFO - Test Spearman r : 0.9720
+2026-04-08 21:08:45,947 - INFO - ----------------------------------------
+2026-04-08 21:08:45,947 - INFO - 🏆 Average Test RMSE (All 7 Targets): 225.1738
+2026-04-08 21:08:45,947 - INFO - ========================================

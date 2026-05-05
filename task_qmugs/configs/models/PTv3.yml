@@ -1,0 +1,8 @@
+# PTv3 Model Configuration
+name: "PointTransformerV3"
+in_channels: 1
+enc_depths: [2, 2, 2, 6, 2]
+enc_channels: [32, 64, 128, 256, 512]
+dec_channels: [64, 64, 128, 256]
+patch_size: 256
+drop_path_rate: 0.3

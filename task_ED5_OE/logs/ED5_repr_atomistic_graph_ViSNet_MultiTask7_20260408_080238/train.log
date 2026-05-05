@@ -1,0 +1,71 @@
+2026-04-08 08:02:38,997 - INFO - 💾 Config files backed up to ./logs/ED5_repr_atomistic_graph_ViSNet_MultiTask7_20260408_080238
+2026-04-08 08:02:38,998 - INFO - 🎯 Multi-Task Targets (7): ['homo_2', 'homo_1', 'homo_0', 'lumo_0', 'lumo_1', 'lumo_2', 'lumo_3']
+2026-04-08 08:02:38,998 - INFO - ========================================
+2026-04-08 08:02:38,998 - INFO -         Training Configuration        
+2026-04-08 08:02:38,998 - INFO - ========================================
+2026-04-08 08:02:38,999 - INFO - 
+{'data': {'dataset_mode': 'repr_atomistic_graph',
+          'max_neighbors': 32,
+          'max_radius': 5.0,
+          'pkl_path': '/home/zw/ED_all/data/ED5_OE/ed_homo_lumo_5w_1024_fusion.pkl',
+          'targets': ['homo_2',
+                      'homo_1',
+                      'homo_0',
+                      'lumo_0',
+                      'lumo_1',
+                      'lumo_2',
+                      'lumo_3']},
+ 'model': {'activation': 'silu',
+           'attn_activation': 'silu',
+           'cutoff': 10.0,
+           'hidden_channels': 512,
+           'lmax': 2,
+           'max_num_neighbors': 64,
+           'name': 'ViSNet',
+           'num_heads': 8,
+           'num_layers': 8,
+           'num_rbf': 64,
+           'rbf_type': 'expnorm',
+           'vertex_type': 'Edge'},
+ 'train': {'batch_size': 24,
+           'epochs': 300,
+           'grad_norm_clip': 1.0,
+           'lr': 0.0001,
+           'patience': 50,
+           'seed': 2025,
+           'weight_decay': 0.0001}}
+2026-04-08 08:02:38,999 - INFO - ========================================
+
+2026-04-08 08:02:38,999 - INFO - 🚀 Start Training on Device: cuda
+2026-04-08 08:02:38,999 - INFO - Loading Data...
+2026-04-08 08:02:38,999 - INFO - Loading Dataset Mode: repr_atomistic_graph...
+2026-04-08 08:02:42,422 - INFO - Stats - Mean: [[-7445.8413  -6840.216   -6120.3984   -467.5637    424.04166  1219.15
+   1809.3903 ]], Std: [[ 740.80115  706.1094   754.61444 1186.4424  1122.4873  1107.2244
+  1080.7959 ]]
+2026-04-08 08:02:42,422 - INFO - Building Model: ViSNet...
+2026-04-08 08:02:43,206 - INFO - Total Parameters: 40.4071 M
+
+2026-04-08 08:12:27,979 - INFO - [Epoch 1] Train Loss: 0.3737 | LR: 0.000100
+2026-04-08 08:12:27,979 - INFO -     >>> Val Avg RMSE (Real): 501.8367
+2026-04-08 08:12:27,979 - INFO -     >>> Val MAE Details: ['307.3900', '292.7531', '319.8197', '440.6957', '403.4572', '464.3300', '467.7037']
+2026-04-08 08:12:28,427 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_atomistic_graph_ViSNet_MultiTask7_20260408_080238/best_model.pth
+2026-04-08 08:22:09,837 - INFO - [Epoch 2] Train Loss: 0.2411 | LR: 0.000100
+2026-04-08 08:22:09,837 - INFO -     >>> Val Avg RMSE (Real): 435.9817
+2026-04-08 08:22:09,837 - INFO -     >>> Val MAE Details: ['266.6703', '244.4475', '291.7705', '396.5835', '360.9221', '356.0662', '346.1345']
+2026-04-08 08:22:10,511 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_atomistic_graph_ViSNet_MultiTask7_20260408_080238/best_model.pth
+2026-04-08 08:31:47,469 - INFO - [Epoch 3] Train Loss: 0.1921 | LR: 0.000100
+2026-04-08 08:31:47,469 - INFO -     >>> Val Avg RMSE (Real): 386.0717
+2026-04-08 08:31:47,469 - INFO -     >>> Val MAE Details: ['267.1725', '236.9546', '249.1854', '322.9597', '324.1773', '314.1371', '316.7696']
+2026-04-08 08:31:48,144 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_atomistic_graph_ViSNet_MultiTask7_20260408_080238/best_model.pth
+2026-04-08 08:41:19,782 - INFO - [Epoch 4] Train Loss: 0.1566 | LR: 0.000100
+2026-04-08 08:41:19,782 - INFO -     >>> Val Avg RMSE (Real): 357.8778
+2026-04-08 08:41:19,782 - INFO -     >>> Val MAE Details: ['234.3414', '230.6507', '231.9980', '276.3647', '283.2333', '337.9613', '278.9239']
+2026-04-08 08:41:20,457 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_atomistic_graph_ViSNet_MultiTask7_20260408_080238/best_model.pth
+2026-04-08 08:50:49,928 - INFO - [Epoch 5] Train Loss: 0.1366 | LR: 0.000100
+2026-04-08 08:50:49,929 - INFO -     >>> Val Avg RMSE (Real): 340.3738
+2026-04-08 08:50:49,929 - INFO -     >>> Val MAE Details: ['254.2094', '253.9939', '223.2812', '258.4619', '273.3727', '270.9257', '275.5345']
+2026-04-08 08:50:50,605 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_atomistic_graph_ViSNet_MultiTask7_20260408_080238/best_model.pth
+2026-04-08 09:00:20,645 - INFO - [Epoch 6] Train Loss: 0.1227 | LR: 0.000100
+2026-04-08 09:00:20,645 - INFO -     >>> Val Avg RMSE (Real): 318.7400
+2026-04-08 09:00:20,645 - INFO -     >>> Val MAE Details: ['212.0399', '214.3969', '221.4722', '242.9155', '255.7799', '260.0194', '262.1384']
+2026-04-08 09:00:21,323 - INFO - 💾 Saved Best Model to ./logs/ED5_repr_atomistic_graph_ViSNet_MultiTask7_20260408_080238/best_model.pth
