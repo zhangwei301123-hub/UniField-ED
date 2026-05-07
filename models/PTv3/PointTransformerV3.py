@@ -884,28 +884,28 @@ class PointTransformerV3(PointModule):
             x.item() for x in torch.linspace(0, drop_path, sum(enc_depths))
         ]
         
-        self.enc = PointSequential()  # 使用 PointSequential 容器，支持处理 Point 对象
+        self.enc = PointSequential()  
         for s in range(self.num_stages):
-            # 获取当前阶段每个 Block 的 drop_path 概率
+
             enc_drop_path_ = enc_drop_path[
                 sum(enc_depths[:s]) : sum(enc_depths[: s + 1])
             ]
             
             enc = PointSequential()
-            # 如果不是第一阶段，先添加下采样层 (Downsampling)
+
             if s > 0:
                 enc.add(
-                    SerializedPooling(  # 序列化池化层，利用序列化后的邻域信息进行池化
+                    SerializedPooling(  
                         in_channels=enc_channels[s - 1],
                         out_channels=enc_channels[s],
-                        stride=stride[s - 1],  # 下采样步长
+                        stride=stride[s - 1], 
                         norm_layer=bn_layer,
                         act_layer=act_layer,
                     ),
                     name="down",
                 )
             
-            # 添加当前阶段的 Transformer Blocks
+
             for i in range(enc_depths[s]):
                 enc.add(
                     Block(
@@ -917,12 +917,12 @@ class PointTransformerV3(PointModule):
                         qk_scale=qk_scale,
                         attn_drop=attn_drop,
                         proj_drop=proj_drop,
-                        drop_path=enc_drop_path_[i],  # 当前 Block 的随机深度概率
+                        drop_path=enc_drop_path_[i],
                         norm_layer=ln_layer,
                         act_layer=act_layer,
                         pre_norm=pre_norm,
-                        order_index=i % len(self.order),  # 轮换使用不同的序列化顺序
-                        cpe_indice_key=f"stage{s}",  # 上下文位置编码的索引键
+                        order_index=i % len(self.order), 
+                        cpe_indice_key=f"stage{s}",  
                         enable_rpe=enable_rpe,
                         enable_flash=enable_flash,
                         upcast_attention=upcast_attention,
@@ -930,44 +930,43 @@ class PointTransformerV3(PointModule):
                     ),
                     name=f"block{i}",
                 )
-            # 如果当前阶段包含层，将其添加到编码器容器中
+
             if len(enc) != 0:
                 self.enc.add(module=enc, name=f"enc{s}")
 
-        # ---------------- 构建解码器 (Decoder) ----------------
-        # 仅在非分类模式下构建解码器（即分割任务）
+
         if not self.cls_mode:
-            # 生成解码器的 drop path 概率列表
+
             dec_drop_path = [
                 x.item() for x in torch.linspace(0, drop_path, sum(dec_depths))
             ]
             self.dec = PointSequential()
             
-            # 准备解码器通道列表，添加最后一个编码器通道数作为起始
+   
             dec_channels = list(dec_channels) + [enc_channels[-1]]
             
-            # 逆序遍历阶段（从深层到浅层）
+
             for s in reversed(range(self.num_stages - 1)):
-                # 获取当前阶段的 drop_path 概率并反转（因为我们在逆序构建）
+
                 dec_drop_path_ = dec_drop_path[
                     sum(dec_depths[:s]) : sum(dec_depths[: s + 1])
                 ]
                 dec_drop_path_.reverse()
                 
                 dec = PointSequential()
-                # 添加上采样层 (Upsampling)
+
                 dec.add(
-                    SerializedUnpooling(  # 序列化反池化层
-                        in_channels=dec_channels[s + 1],  # 输入来自上一层（更深层）
-                        skip_channels=enc_channels[s],    # 跳跃连接通道数（来自对应的编码器层）
-                        out_channels=dec_channels[s],     # 输出通道数
+                    SerializedUnpooling( 
+                        in_channels=dec_channels[s + 1], 
+                        skip_channels=enc_channels[s],    
+                        out_channels=dec_channels[s],     
                         norm_layer=bn_layer,
                         act_layer=act_layer,
                     ),
                     name="up",
                 )
                 
-                # 添加当前阶段的 Transformer Blocks
+
                 for i in range(dec_depths[s]):
                     dec.add(
                         Block(
@@ -992,43 +991,26 @@ class PointTransformerV3(PointModule):
                         ),
                         name=f"block{i}",
                     )
-                # 将解码阶段添加到容器
+
                 self.dec.add(module=dec, name=f"dec{s}")
 
     def forward(self, data_dict):
-        """
-        前向传播函数。
-        
-        Args:
-            data_dict: 包含批量点云属性的字典。
-            对于 PTv3，通常需要包含以下属性：
-            1. "feat": 点云特征（输入特征）
-            2. "grid_coord": 网格采样（体素化）后的离散坐标，或者 "coord" + "grid_size"
-            3. "offset" 或 "batch": 用于指示不同点云样本在 batch 中的边界或索引
-               参考: https://github.com/Pointcept/Pointcept?tab=readme-ov-file#offset
-        """
-        # 将数据字典封装为 Point 对象，便于统一管理属性
+
         point = Point(data_dict)
         
-        # 1. 序列化 (Serialization)
-        # 根据预定义的顺序（如希尔伯特曲线）对点进行排序。
-        # 这一步对于 PTv3 至关重要，它将无序的点云转换为有序序列，从而利用结构化窗口注意力。
+
         point.serialization(order=self.order, shuffle_orders=self.shuffle_orders)
         
-        # 2. 稀疏化 (Sparsification)
-        # 处理体素化网格中的点，通常涉及特征聚合，减少计算量
+
         point.sparsify()
 
-        # 3. 嵌入层 (Embedding)
-        # 对输入特征进行投影
+
         point = self.embedding(point)
         
-        # 4. 编码器 (Encoder)
-        # 经过多个下采样和 Transformer Block
+
         point = self.enc(point)
         
-        # 5. 解码器 (Decoder)
-        # 如果不是分类模式，进行上采样和特征融合
+
         if not self.cls_mode:
             point = self.dec(point)
             

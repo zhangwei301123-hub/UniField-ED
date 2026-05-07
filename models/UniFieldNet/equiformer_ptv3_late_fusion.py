@@ -5,7 +5,7 @@ import torch
 import torch.nn as nn
 from torch_scatter import scatter, scatter_mean
 
-# ================== 💡 动态挂载路径 ==================
+
 current_dir = os.path.dirname(os.path.abspath(__file__))
 if current_dir not in sys.path:
     sys.path.insert(0, current_dir)
@@ -17,12 +17,12 @@ except ImportError as e:
     print(f"❌ 导入失败！请仔细检查路径。详细错误: {e}")
     raise e
 
-# ================== 主模型包装 ==================
+
 class EquiformerPTv3LateFusion(nn.Module):
     def __init__(self, config, output_dim=7, normalizer=None):
         super().__init__()
         
-        # 💡 挂载 mean 和 std 到模型缓冲区，供 test.py 评估使用
+
         if normalizer is not None:
             self.register_buffer('mean', normalizer['mean'])
             self.register_buffer('std', normalizer['std'])
@@ -33,22 +33,22 @@ class EquiformerPTv3LateFusion(nn.Module):
         equiformer_args = copy.deepcopy(config.get('equiformer_args', {}))
         ptv3_args = copy.deepcopy(config.get('ptv3_args', {}))
         
-        # 1. 弹出 output_dim，防止传给 Equiformer 底层报错
+
         equiformer_out_dim = equiformer_args.pop('output_dim', 64)
 
-        # 2. Equiformer 分支 (Structure)
+
         self.equiformer = GraphAttentionTransformer(**equiformer_args)
         irreps_feature_str = equiformer_args.get('irreps_feature', '512x0e')
         self.equiformer_dim = int(irreps_feature_str.split('x')[0])
         
-        # 将 Equiformer 的高维特征降维 (1024 -> 64)
+
         self.atom_proj = nn.Sequential(
             nn.Linear(self.equiformer_dim, self.equiformer_dim // 2),
             nn.SiLU(),
             nn.Linear(self.equiformer_dim // 2, equiformer_out_dim)
         )
 
-        # 3. PTv3 分支 (Density)
+
         enc_depths = ptv3_args.get('enc_depths', (2, 2, 2, 6, 2))
         num_stages = len(enc_depths)
         patch_size_base = ptv3_args.get('patch_size', 256)
@@ -72,10 +72,10 @@ class EquiformerPTv3LateFusion(nn.Module):
         )
         self.ptv3_dim = ptv3_args['dec_channels'][0] # Usually 64
 
-        # 4. 后融合头 (Late Fusion MLP)
+
         self.num_tasks = output_dim
         
-        # 融合后的维度：Equiformer 图级特征 (64) + PTv3 点云级特征 (64) = 128
+
         self.fusion_mlp = nn.Sequential(
             nn.Linear(equiformer_out_dim + self.ptv3_dim, 128),
             nn.BatchNorm1d(128),
@@ -90,33 +90,33 @@ class EquiformerPTv3LateFusion(nn.Module):
         atom_batch = input_dict['graph']
         ptv3_dict = input_dict['point_cloud']
 
-        # === 1. PTv3 网格准备 ===
+
         coord = ptv3_dict["coord"]
         grid_size = ptv3_dict.get("grid_size", 0.1)
         ptv3_dict["grid_coord"] = torch.div(coord - coord.min(0)[0], grid_size, rounding_mode='trunc').int()
 
-        # === 2. Equiformer 提取图特征 ===
+
         x_atom = self.equiformer(
             f_in=None, pos=atom_batch.pos, batch=atom_batch.batch, 
             node_atom=atom_batch.z, return_node_feats=True
         )
         pred_atom = self.atom_proj(x_atom) 
         
-        # 全局池化：原子级特征 -> 分子级特征
+
         equi_global_feat = scatter_mean(pred_atom, atom_batch.batch, dim=0)
 
-        # === 3. PTv3 提取点云特征 ===
+
         ptv3_out = self.ptv3(ptv3_dict)
         batch_cloud = self.offset2batch(ptv3_out.offset)
         
-        # 全局池化：点级特征 -> 点云全局特征
+
         ptv3_global_feat = scatter_mean(ptv3_out.feat, batch_cloud, dim=0)
 
-        # === 4. Late Fusion 拼接与预测 ===
-        # Concat: [Batch, 64] + [Batch, 64] -> [Batch, 128]
+
+
         combined_feat = torch.cat([equi_global_feat, ptv3_global_feat], dim=1)
         
-        # 经过 MLP 输出预测结果 (保持在归一化空间)
+
         out = self.fusion_mlp(combined_feat)
 
         return out

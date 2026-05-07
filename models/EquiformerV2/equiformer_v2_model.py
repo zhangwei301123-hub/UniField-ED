@@ -4,23 +4,20 @@ from torch_geometric.nn import global_add_pool
 import os
 import sys
 
-# 💡 动态挂载 Nets 路径
+
 current_dir = os.path.dirname(os.path.abspath(__file__))
 if current_dir not in sys.path:
     sys.path.append(current_dir)
 
-# 导入修改版的 EquiformerV2 核心代码
+
 from nets.equiformer_v2.equiformer_v2 import EquiformerV2
 
 class ED5EquiformerV2Model(nn.Module):
-    """
-    [EquiformerV2 适配版]
-    适配多任务回归架构，提取 L=0 标量特征进行分子级预测。
-    """
+
     def __init__(self, config, output_dim=1):
         super().__init__()
         
-        # 1. 实例化 EquiformerV2 骨干网络
+
         self.backbone = EquiformerV2(
             num_targets=output_dim, 
             use_pbc=config.get('use_pbc', False),
@@ -58,33 +55,31 @@ class ED5EquiformerV2Model(nn.Module):
             weight_init=config.get('weight_init', 'uniform')
         )
 
-        # 强制关闭力回归逻辑
+
         self.backbone.regress_forces = False
         
     def forward(self, input_dict):
-        # 兼容性解包：提取 PyG Batch 对象
+
         batch = input_dict['graph'] if 'graph' in input_dict else input_dict
         
-        # ================== 💡 关键补丁：字段对齐 ==================
-        # 1. 映射原子序数：EquiformerV2 强制要求 atomic_numbers 字段
+
         if not hasattr(batch, 'atomic_numbers'):
             batch.atomic_numbers = batch.z
             
-        # 2. 补全 natoms：EquiformerV2 内部需要此字段
+
         if not hasattr(batch, 'natoms'):
             batch.natoms = torch.bincount(batch.batch).to(batch.batch.device)
         # =========================================================
 
-        # 前向传播提取节点特征 [N_atoms, (Lmax+1)^2, Channels]
+
         node_feats = self.backbone(batch) 
         
-        # 提取 L=0 的标量分量
+
         if node_feats.ndim == 3:
             node_feats_scalar = node_feats[:, 0, :]  # [N, Channels]
         else:
             node_feats_scalar = node_feats
             
-        # 全局聚合
         mol_feats = global_add_pool(node_feats_scalar, batch.batch)
         
         return mol_feats

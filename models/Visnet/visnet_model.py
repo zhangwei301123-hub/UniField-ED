@@ -4,7 +4,7 @@ from torch_scatter import scatter
 import os
 import sys
 
-# 自动挂载，确保能找到 visnet 文件夹内的组件
+
 current_dir = os.path.dirname(os.path.abspath(__file__))
 if current_dir not in sys.path:
     sys.path.append(current_dir)
@@ -13,18 +13,15 @@ from visnet.models.visnet_block import ViSNetBlock
 from visnet.models.output_modules import EquivariantScalar 
 
 class ViSNetModel(nn.Module):
-    """
-    [ViSNet 纯原子图模型]
-    适配 ED5 OE 数据集的多任务回归。
-    """
+
     def __init__(self, config, output_dim=1):
         super().__init__()
         
-        # 提取参数
+
         hidden_channels = config.get('hidden_channels', 128)
         self.hidden_channels = hidden_channels
         
-        # 1. 核心表示层 (Representation)
+
         self.visnet_rep = ViSNetBlock(
             lmax=config.get('lmax', 2),
             vecnorm_type=config.get('vecnorm_type', 'none'),
@@ -43,7 +40,7 @@ class ViSNetModel(nn.Module):
             vertex_type=config.get('vertex_type', 'Edge')
         )
         
-        # 2. 等变输出模块 (Readout)
+
         self.visnet_out = EquivariantScalar(
             hidden_channels=hidden_channels,
             output_dim=output_dim

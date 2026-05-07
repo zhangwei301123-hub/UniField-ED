@@ -7,7 +7,7 @@ from torch_cluster import radius
 from torch_scatter import scatter
 from torch_geometric.utils import softmax as pyg_softmax
 
-# ================== 💡 动态挂载路径 ==================
+
 current_dir = os.path.dirname(os.path.abspath(__file__))
 if current_dir not in sys.path:
     sys.path.insert(0, current_dir)
@@ -19,8 +19,7 @@ except ImportError as e:
     print(f"❌ 导入失败！请仔细检查路径。详细错误: {e}")
     raise e
 
-# ================== 核心组件 ==================
-# 💡 [消融改动]：已移除 GaussianSmearing 类，因为不再需要计算 RBF 距离特征
+
 
 class CloudToAtomInteraction(nn.Module):
     def __init__(self, atom_dim, cloud_dim, interaction_radius=4.0, num_heads=4):
@@ -33,7 +32,7 @@ class CloudToAtomInteraction(nn.Module):
         self.k_cloud = nn.Linear(cloud_dim, atom_dim)
         self.v_cloud = nn.Linear(cloud_dim, atom_dim)
         
-        # 💡 [消融改动]：已移除 rbf_expansion 和 dist_mlp 网络
+
         
         self.out_proj = nn.Linear(atom_dim, atom_dim)
         self.norm = nn.LayerNorm(atom_dim)
@@ -51,11 +50,9 @@ class CloudToAtomInteraction(nn.Module):
         Q, K, V = self.q_atom(x_atom), self.k_cloud(x_cloud), self.v_cloud(x_cloud)
         q_vec, k_vec, v_vec = Q[idx_atom], K[idx_cloud], V[idx_cloud]
         
-        # 纯特征点积注意力分数
+
         scores = (q_vec * k_vec).sum(dim=-1) / (self.atom_dim ** 0.5)
-        
-        # 💡 [消融改动]：已移除 dist、edge_rbf 的计算以及 scores = scores + dist_bias 的相加逻辑
-        
+
         attn_weights = pyg_softmax(scores, idx_atom)
         msg = v_vec * attn_weights.unsqueeze(-1)
         aggr_feat = scatter(msg, idx_atom, dim=0, dim_size=x_atom.size(0), reduce='sum')
@@ -63,7 +60,7 @@ class CloudToAtomInteraction(nn.Module):
         
         return x_atom_new
 
-# ================== 主模型包装 ==================
+
 class UniFieldNet_NoDist(nn.Module):
     def __init__(self, config, output_dim=7, normalizer=None):
         super().__init__()
