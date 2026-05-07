@@ -1,6 +1,6 @@
 dataset_mode: "repr_hybrid_fusion"
 # 【关键修改】指向你专属的双流融合 pkl 文件
-pkl_path: "/home/zw/ED_all/data/ED5_OE/ed_homo_lumo_5w_1024_fusion.pkl"
+pkl_path: "../data/ED5_OE/ed_homo_lumo_5w_1024.pkl"
 
 # 针对点云的配置
 grid_size: 0.1

@@ -1,5 +1,5 @@
 dataset_mode: "repr_ed_dense"
-pkl_path: "/home/zw/ED_all/data/ED5_OE/ed_homo_lumo_5w_1024.pkl"
+pkl_path: "../data/ED5_OE/ed_homo_lumo_5w_1024.pkl"
 grid_size: 0.1
 targets: 
   - "homo_2"
