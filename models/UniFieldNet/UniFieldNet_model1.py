@@ -7,11 +7,10 @@ from torch_cluster import radius
 from torch_scatter import scatter
 from torch_geometric.utils import softmax as pyg_softmax
 
-# ================== 💡 关键补丁：动态挂载路径 ==================
-# 获取当前 UniFieldNet_model.py 所在的绝对路径
+
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
-# 把当前目录强制插入到系统路径的最前面！
+
 if current_dir not in sys.path:
     sys.path.insert(0, current_dir)
 
@@ -23,9 +22,9 @@ except ImportError as e:
     print(f"   1. {current_dir} 目录下是否有 PTv3 文件夹？")
     print(f"   2. {current_dir} 目录下是否有 nets/graph_attention_transformer.py？")
     print(f"   详细错误: {e}")
-    raise e  # 导入失败时立刻抛出异常，不要往下执行了
+    raise e 
 
-# ================== 核心组件 (复用你的优秀设计) ==================
+
 class GaussianSmearing(nn.Module):
     def __init__(self, start=0.0, stop=5.0, num_gaussians=32):
         super().__init__()
@@ -85,12 +84,11 @@ class CloudToAtomInteraction(nn.Module):
         msg = v_vec * attn_weights.unsqueeze(-1)
         aggr_feat = scatter(msg, idx_atom, dim=0, dim_size=x_atom.size(0), reduce='sum')
         
-        # 注意：这里返回的是云对原子的修正量 (Refinement)，不是最终特征
         x_atom_refinement = self.dropout(self.out_proj(self.act(aggr_feat)))
         
         return x_atom_refinement
 
-# ================== 主模型包装 ==================
+
 class ED5UniFieldNet(nn.Module):
     def __init__(self, config, output_dim=7, normalizer=None):
         super().__init__()
@@ -112,7 +110,7 @@ class ED5UniFieldNet(nn.Module):
         irreps_feature_str = equiformer_args.get('irreps_feature', '512x0e')
         self.equiformer_dim = int(irreps_feature_str.split('x')[0])
         
-        # PTv3 初始化
+
         enc_depths = ptv3_args.get('enc_depths', (2, 2, 2, 6, 2))
         num_stages = len(enc_depths)
         patch_size_base = ptv3_args.get('patch_size', 256)
@@ -141,9 +139,7 @@ class ED5UniFieldNet(nn.Module):
             atom_dim=self.equiformer_dim, cloud_dim=self.ptv3_dim, interaction_radius=4.0
         )
 
-        # ==============================================================
-        # 💡 核心注入：零初始化门控参数 (Zero-Initialized Residual Gating)
-        # ==============================================================
+
         self.fusion_gate = nn.Parameter(torch.zeros(1))
         # 用于特征融合后的归一化
         self.fusion_norm = nn.LayerNorm(self.equiformer_dim)
@@ -185,17 +181,12 @@ class ED5UniFieldNet(nn.Module):
         pos_cloud = ptv3_out.coord
         batch_cloud = self.offset2batch(ptv3_out.offset)
         
-        # 获得点云对原子的特征修正量
+
         x_atom_refinement = self.interaction(
             x_atom=x_atom, pos_atom=atom_batch.pos, batch_atom=atom_batch.batch,
             x_cloud=x_cloud, pos_cloud=pos_cloud, batch_cloud=batch_cloud
         )
         
-        # ==============================================================
-        # 💡 残差门控融合机制
-        # ==============================================================
-        # x_atom 是纯几何特征，x_atom_refinement 是电子云带来的修正
-        # 初始时 fusion_gate = 0，模型等价于纯 Equiformer
         x_atom_fused = x_atom + self.fusion_gate * x_atom_refinement
         x_atom_fused = self.fusion_norm(x_atom_fused)
         

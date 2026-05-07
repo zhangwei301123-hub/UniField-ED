@@ -7,11 +7,9 @@ from torch_cluster import radius
 from torch_scatter import scatter
 from torch_geometric.utils import softmax as pyg_softmax
 
-# ================== 💡 关键补丁：动态挂载路径 ==================
-# 获取当前 UniFieldNet_model.py 所在的绝对路径
+
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
-# 把当前目录强制插入到系统路径的最前面！
 if current_dir not in sys.path:
     sys.path.insert(0, current_dir)
 
@@ -23,9 +21,8 @@ except ImportError as e:
     print(f"   1. {current_dir} 目录下是否有 PTv3 文件夹？")
     print(f"   2. {current_dir} 目录下是否有 nets/graph_attention_transformer.py？")
     print(f"   详细错误: {e}")
-    raise e  # 导入失败时立刻抛出异常，不要往下执行了
+    raise e  
 
-# ================== 核心组件 (复用你的优秀设计) ==================
 class GaussianSmearing(nn.Module):
     def __init__(self, start=0.0, stop=5.0, num_gaussians=32):
         super().__init__()
@@ -75,7 +72,6 @@ class CloudToAtomInteraction(nn.Module):
         
         scores = (q_vec * k_vec).sum(dim=-1) / (self.atom_dim ** 0.5)
         
-        # 你的 RBF 偏置注入
         dist = (pos_cloud[idx_cloud] - pos_atom[idx_atom]).norm(dim=-1, keepdim=True)
         edge_rbf = self.rbf_expansion(dist)            
         dist_bias = self.dist_mlp(edge_rbf).squeeze(-1) 
@@ -88,14 +84,12 @@ class CloudToAtomInteraction(nn.Module):
         
         return x_atom_new
 
-# ================== 主模型包装 ==================
 class ED5UniFieldNet(nn.Module):
-    # 💡 [关键修复]：加上 normalizer=None，接收 builder 传来的统计量
+
     def __init__(self, config, output_dim=7, normalizer=None):
         super().__init__()
         
-        # 💡 挂载 mean 和 std 到模型缓冲区，供 test.py 反归一化评估使用
-        # 即使 forward 不用它，评估脚本也需要读取
+
         if normalizer is not None:
             self.register_buffer('mean', normalizer['mean'])
             self.register_buffer('std', normalizer['std'])
@@ -103,11 +97,10 @@ class ED5UniFieldNet(nn.Module):
             self.register_buffer('mean', torch.zeros(output_dim))
             self.register_buffer('std', torch.ones(output_dim))
 
-        # 💡 解耦：从 config 字典提取两边的参数，使用 deepcopy 避免修改原字典
         equiformer_args = copy.deepcopy(config.get('equiformer_args', {}))
         ptv3_args = copy.deepcopy(config.get('ptv3_args', {}))
         
-        # 从 equiformer_args 中安全弹出 output_dim，防止传给底层报错
+
         equiformer_out_dim = equiformer_args.pop('output_dim', 64)
 
         self.equiformer = GraphAttentionTransformer(**equiformer_args)
@@ -115,7 +108,6 @@ class ED5UniFieldNet(nn.Module):
         irreps_feature_str = equiformer_args.get('irreps_feature', '512x0e')
         self.equiformer_dim = int(irreps_feature_str.split('x')[0])
         
-        # PTv3 初始化
         enc_depths = ptv3_args.get('enc_depths', (2, 2, 2, 6, 2))
         num_stages = len(enc_depths)
         patch_size_base = ptv3_args.get('patch_size', 256)
@@ -147,7 +139,6 @@ class ED5UniFieldNet(nn.Module):
         self.num_tasks = output_dim 
         self.head_input_dim = config.get('head_input_dim', 64) 
         
-        # 自定义原子特征投影层
         self.atom_proj = nn.Sequential(
             nn.Linear(self.equiformer_dim, self.equiformer_dim // 2),
             nn.SiLU(),
@@ -200,7 +191,6 @@ class ED5UniFieldNet(nn.Module):
         task_outputs = [head(out) for head in self.independent_heads]
         out = torch.cat(task_outputs, dim=1) 
         
-        # 💡 前向传播依然保持干净输出（归一化空间），满足训练时 Loss < 1 的需求
         return out
 
     def offset2batch(self, offset):

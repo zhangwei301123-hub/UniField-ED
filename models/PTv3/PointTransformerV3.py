@@ -1022,7 +1022,6 @@ class PointTransformerV3(PointModule):
 class E3NNReadout(nn.Module):
     def __init__(self, C, out_dim):
         super().__init__()
-        # 输入是 C 个 0e
         self.irreps_in = Irreps(f"{C}x0e")
         self.irreps_hidden = Irreps("32x0e + 16x1o")
         self.irreps_out = Irreps("1x0e")

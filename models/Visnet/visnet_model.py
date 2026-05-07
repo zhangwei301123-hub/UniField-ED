@@ -47,21 +47,17 @@ class ViSNetModel(nn.Module):
         )
         
     def forward(self, input_dict):
-        # 兼容处理：如果是从 engine 传过来的，数据在 'graph' 键下
-        # 如果是单流直接调用，可能就是 batch 对象本身
+
         batch = input_dict['graph'] if 'graph' in input_dict else input_dict
         
-        # A. 提取原子特征和向量特征
+
         x, vec = self.visnet_rep(batch)
         
-        # B. 读出层预处理 (利用原子序数 z, 坐标 pos 等进行等变映射)
-        # x: [N, hidden], vec: [N, 3, hidden]
         pred_atom = self.visnet_out.pre_reduce(x, vec, batch.z, batch.pos, batch.batch)
         
-        # C. 分子级聚合 (Sum Pooling)
+
         out = scatter(pred_atom, batch.batch, dim=0, reduce='sum')
-        
-        # D. 读出层后处理 (线性映射到最终维度)
+
         out = self.visnet_out.post_reduce(out)
         
         return out
