@@ -1,6 +1,0 @@
-name: "SphereNet"
-hidden_channels: 256
-num_layers: 6
-cutoff: 8.0
-num_spherical: 6
-num_radial: 6

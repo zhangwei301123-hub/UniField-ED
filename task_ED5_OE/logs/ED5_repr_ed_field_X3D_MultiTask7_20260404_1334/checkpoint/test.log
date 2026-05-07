@@ -1,2 +1,0 @@
-[01/18 11:46:00] test INFO: 🔧 Testing Config: /home/zw/EDBench/src/quantum_property_prediction_tasks/PointCloud_code/cfgs/lumo_homo/pointmetabase-s-x-3d.yaml
-[01/18 11:46:00] test INFO: 📂 Model Path: /home/zw/EDBench/src/quantum_property_prediction_tasks/PointCloud_code/log/lumo_homo/lumo_homo-train-pointmetabase-s-x-3d-ngpus1-seed2025-20260117-213527-cReN9TG43xeQiQTunvAqhh/checkpoint/lumo_homo-train-pointmetabase-s-x-3d-ngpus1-seed2025-20260117-213527-cReN9TG43xeQiQTunvAqhh_ckpt_best.pth

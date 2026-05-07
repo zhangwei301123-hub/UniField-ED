@@ -1,4 +1,4 @@
 name: "GotenNet"
-hidden_channels: 256   # 对应你代码里的 embedding-dimension
-num_layers: 8          # 交互层数
-cutoff: 10.0           # 截断半径
+hidden_channels: 256   
+num_layers: 8          
+cutoff: 10.0           

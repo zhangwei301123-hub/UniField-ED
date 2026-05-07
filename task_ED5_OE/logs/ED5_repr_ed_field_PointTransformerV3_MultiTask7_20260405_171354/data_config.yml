@@ -1,4 +1,0 @@
-dataset_mode: "repr_ed_field"
-pkl_path: "/home/zw/ED_all/data/ED5_OE/ed_homo_lumo_5w_1024.pkl"
-grid_size: 0.1
-targets: ["homo_2", "homo_1", "homo_0", "lumo_0", "lumo_1", "lumo_2", "lumo_3"]

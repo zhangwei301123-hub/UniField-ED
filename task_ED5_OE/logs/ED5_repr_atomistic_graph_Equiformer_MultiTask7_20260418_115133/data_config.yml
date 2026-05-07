@@ -1,6 +1,0 @@
-dataset_mode: "repr_atomistic_graph"
-pkl_path: "/home/zw/ED_all/data/ED5_OE/ed_homo_lumo_5w_1024_fusion.pkl" # 确保该 pkl 中包含 atom_pos, atom_z 等信息
-# 分子图专有参数
-max_radius: 10.0
-max_neighbors: 32
-targets: ["homo_2", "homo_1", "homo_0", "lumo_0", "lumo_1", "lumo_2", "lumo_3"]

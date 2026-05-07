@@ -14,7 +14,7 @@ equiformer_args:
   irreps_feature: "1024x0e"
   irreps_head: "64x0e+32x1e+16x2e"
   num_heads: 8
-  output_dim: 64  # Equiformer提取后的单头维度
+  output_dim: 64 
 
 ptv3_args:
   in_channels: 1

@@ -1,8 +1,0 @@
-dataset_mode: "repr_ed_dense"
-pkl_path: "/home/zw/ED_all/data/qm9/qm9_ed_1024_multi_prop_Bohr.pkl"
-grid_size: 0.1
-targets: 
-  - "alpha_mBohr3"
-  - "r2_mBohr2"
-  - "zpve_meV"
-  - "Cv_mcal"
