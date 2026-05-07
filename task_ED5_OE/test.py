@@ -10,25 +10,22 @@ import logging
 from scipy.stats import pearsonr, spearmanr
 from tqdm import tqdm
 
-# 动态挂载项目根目录
 project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if project_root not in sys.path:
     sys.path.append(project_root)
 
 from utils.builder import build_model
-from utils.engine import to_device  # 复用我们写好的解耦迁移利器
+from utils.engine import to_device 
 
 def setup_test_logger(log_file):
-    """专门为测试脚本配置的 Logger，双向输出到终端和文件"""
+
     logger = logging.getLogger("TestLogger")
     logger.setLevel(logging.INFO)
     formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
 
-    # 文件 Handler
     file_handler = logging.FileHandler(log_file)
     file_handler.setFormatter(formatter)
     
-    # 终端 Handler
     console_handler = logging.StreamHandler()
     console_handler.setFormatter(formatter)
 
@@ -38,9 +35,7 @@ def setup_test_logger(log_file):
     return logger
 
 def build_test_dataset(data_config):
-    """
-    专门为测试集准备的工厂函数，动态读取 dataset_mode 并将 split 设为 'test'
-    """
+
     mode = data_config.get('dataset_mode')
     pkl_path = data_config.get('pkl_path')
     targets = data_config.get('targets')
@@ -62,7 +57,7 @@ def build_test_dataset(data_config):
         test_dataset = ED5OEDualDataset(pkl_path=pkl_path, split='test', grid_size=grid_size, max_radius=max_radius, targets=targets)
         return test_dataset, dual_collate_fn
 
-    # ================== 💡 关键补丁：添加原子图模式 ==================
+   
     elif mode == "repr_atomistic_graph":
         from dataset_ed5_oe_atomistic_graph import ED5OEAtomisticDataset, atomistic_collate_fn
         test_dataset = ED5OEAtomisticDataset(pkl_path=pkl_path, split='test', targets=targets)
@@ -75,7 +70,7 @@ def build_test_dataset(data_config):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--gpu', type=str, default='0', help='GPU ID to use')
-    # 只需要传入你训练好的模型文件夹路径即可！
+
     parser.add_argument('--ckpt_dir', type=str, required=True, help='Path to the saved model directory')
     args = parser.parse_args()
 
@@ -157,7 +152,7 @@ def main():
             # ========================================================
 
             feat_out = model(batch_data)
-# ================== 💡 输出格式兼容补丁 (增强版) ==================
+
             if hasattr(feat_out, 'feat'):
                 batch_idx = batch_data.get('batch', None)
                 
@@ -170,7 +165,7 @@ def main():
                         batch_idx[start:end] = b_id
                         start = end
 
-                # 现在一定有 batch_idx 了，执行分子级全局池化
+          
                 if batch_idx is not None:
                     from torch_scatter import scatter
                     feat_out = scatter(feat_out.feat, batch_idx, dim=0, reduce='mean')
@@ -181,7 +176,6 @@ def main():
 
             pred_norm = regressor(feat_out)
 
-            # 反归一化到真实尺度 (确保 Tensor 形状对齐)
             std = normalizer['std'].to(device)
             mean = normalizer['mean'].to(device)
             pred_real = pred_norm * std + mean
@@ -193,15 +187,13 @@ def main():
     all_preds = np.concatenate(all_preds, axis=0)
     all_labels = np.concatenate(all_labels, axis=0)
     
-    # ================== 5. 指标计算与日志打印 ==================
 
     logger.info("========================================")
     logger.info(" 🎉 Test Set Evaluation Results 🎉")
     logger.info("========================================")
 
-    all_rmses = [] # [💡 新增] 用来收集所有属性的 RMSE
+    all_rmses = [] 
 
-    # 因为是多任务，我们遍历每一个 Target 进行打印
     for i, target_name in enumerate(targets):
         pred_i = all_preds[:, i]
         true_i = all_labels[:, i]
@@ -209,9 +201,8 @@ def main():
         rmse = np.sqrt(np.mean((pred_i - true_i) ** 2))
         mae = np.mean(np.abs(pred_i - true_i))
         
-        all_rmses.append(rmse) # [💡 新增] 将当前属性的 RMSE 存入列表
+        all_rmses.append(rmse) 
         
-        # 防止常数预测导致 Pearson 计算报错
         if np.std(pred_i) > 1e-6 and np.std(true_i) > 1e-6:
             pearson = pearsonr(pred_i, true_i)[0]
             spearman = spearmanr(pred_i, true_i)[0]
@@ -225,7 +216,6 @@ def main():
         logger.info(f"Test Spearman r : {spearman:.4f}")
         logger.info("----------------------------------------")
 
-    # [💡 新增] 计算并打印全局平均 RMSE
     avg_rmse = np.mean(all_rmses)
     logger.info(f"🏆 Average Test RMSE (All {len(targets)} Targets): {avg_rmse:.4f}")
     logger.info("========================================")

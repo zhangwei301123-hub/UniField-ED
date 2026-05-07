@@ -8,14 +8,12 @@ import torch.optim as optim
 from torch.utils.data import DataLoader
 from datetime import datetime
 import pprint
-import shutil  # [💡 新增] 引入文件操作模块
+import shutil 
 
-# [💡 ED5特有修改] 动态挂载项目根目录，以便安全导入共享区 models
 project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if project_root not in sys.path:
     sys.path.append(project_root)
 
-# 导入共享工具和当前 task_ed5 的专属模块
 from utils.builder import build_model
 from utils.dataset_builder import build_dataset
 from utils.logger import setup_logger
@@ -24,7 +22,6 @@ from utils.engine import train_one_epoch, validate
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--gpu', type=str, default='1', help='GPU ID to use')
-    # [💡 ED5特有修改] 去掉了 --target 参数，目标现在由 data_config 内的 targets 列表决定
     parser.add_argument('--train_config', type=str, default='./configs/train_base.yml')
     parser.add_argument('--data_config', type=str, default='./configs/data/repr_ed_field.yml')
     parser.add_argument('--model_config', type=str, default='./configs/models/PTv3.yml')
@@ -58,7 +55,6 @@ def main():
     dataset_mode = config['data'].get('dataset_mode', 'UnknownMode')
     model_name = config['model'].get('name', 'UnknownModel')
     
-    # [💡 ED5特有修改] 获取多任务列表，推导输出维度
     targets_list = config['data'].get('targets', [])
     output_dim = len(targets_list)
     if output_dim == 0:
@@ -72,7 +68,6 @@ def main():
     os.makedirs(save_dir, exist_ok=True) 
     logger = setup_logger(save_dir)
 
-    # [💡 新增] 备份实验配置文件到 log 文件夹中
     shutil.copy(args.train_config, os.path.join(save_dir, 'train_config.yml'))
     shutil.copy(args.data_config, os.path.join(save_dir, 'data_config.yml'))
     shutil.copy(args.model_config, os.path.join(save_dir, 'model_config.yml'))
@@ -90,10 +85,8 @@ def main():
     logger.info("Loading Data...")
     logger.info(f"Loading Dataset Mode: {dataset_mode}...")
     
-    # [💡 ED5特有修改] 直接传入 data_config，不需要传 args.target
     train_dataset, val_dataset, collate_fn = build_dataset(config['data'])
 
-    # 如果是分子图 (AtomOnly)，可能不支持 num_workers 多线程，这里做个安全兼容
     num_workers = 8 if dataset_mode != "repr_atomistic_graph" else 0
     
     train_loader = DataLoader(
@@ -107,14 +100,12 @@ def main():
     )
 
     # ================= 计算统计量 =================
-    # [💡 ED5特有修改] ED5 数据集的属性是 labels，并且本身就是 (N, 8) 形状，不需要 view(-1, 1) 打平
     all_labels_tensor = torch.tensor(train_dataset.labels).float().to(device)
     normalizer = {
         'mean': all_labels_tensor.mean(dim=0),
         'std': all_labels_tensor.std(dim=0)
     }
     
-    # [💡 格式修改] 使用 unsqueeze(0) 将 (N,) 变成 (1, N)，转换为 numpy 后自带 [[ ]] 格式同行输出
     mean_str = str(normalizer['mean'].unsqueeze(0).cpu().numpy())
     std_str = str(normalizer['std'].unsqueeze(0).cpu().numpy())
     logger.info(f"Stats - Mean: {mean_str}, Std: {std_str}")
@@ -122,7 +113,6 @@ def main():
     # ================= 模型构建 =================
     logger.info(f"Building Model: {config['model']['name']}...")
     
-    # [💡 ED5特有修改] 必须将推导出的 output_dim (例如 8) 传给 builder！
     model, regressor = build_model(config['model'], output_dim=output_dim, normalizer=normalizer)
     
     model = model.to(device)
@@ -132,7 +122,6 @@ def main():
     logger.info(f"Total Parameters: {total_params / 1e6:.4f} M\n")
 
     # ================= 优化器 =================
-    # [💡 ED5特有修改] 多任务联合预测，MSELoss 会自动对所有 8 个属性的损失求平均
     criterion = nn.MSELoss()
     optimizer = optim.Adam(
         list(model.parameters()) + list(regressor.parameters()), 
@@ -152,11 +141,9 @@ def main():
         current_lr = optimizer.param_groups[0]['lr']
         val_metrics, val_avg_rmse = validate(model, regressor, val_loader, epoch, normalizer, config, device)
 
-        # [💡 格式修改] 去掉了 \n，防止时间戳前缀换行断层
         logger.info(f"[Epoch {epoch}] Train Loss: {train_loss:.4f} | LR: {current_lr:.6f}")
         logger.info(f"    >>> Val Avg RMSE (Real): {val_avg_rmse:.4f}")
         
-        # [💡 格式修改] 格式化所有的 MAE 值并作为完整列表打印
         print_maes = [f'{x:.4f}' for x in val_metrics['MAE']]
         logger.info(f"    >>> Val MAE Details: {print_maes}")
         

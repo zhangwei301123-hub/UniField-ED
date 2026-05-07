@@ -9,15 +9,13 @@ def setup_logger(save_dir, log_name="train.log"):
     logger = logging.getLogger("PTv3_Training")
     logger.setLevel(logging.INFO)
     
-    # 避免重复添加 handler
     if not logger.handlers:
         formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
         
-        # 文件 Handler
+       
         file_handler = logging.FileHandler(os.path.join(save_dir, log_name))
         file_handler.setFormatter(formatter)
         
-        # 控制台 Handler
         stream_handler = logging.StreamHandler(sys.stdout)
         stream_handler.setFormatter(formatter)
         

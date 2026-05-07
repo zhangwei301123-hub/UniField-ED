@@ -1,7 +1,0 @@
-name: "ComENet"
-hidden_channels: 128        # <--- 保持 128！ComENet 的基函数计算同样吃显存，在复杂的 QMugs 上，128 是兼顾训练速度和防止过拟合的最优解。
-num_layers: 5               # <--- 💡 核心修改一：4 层变 5 层。分子变大了，多加 1 跳（hop）让长链两端的原子能够完美互通信息。
-cutoff: 10.0                # <--- ✅ 完美保持：10.0 Bohr (5.3 Å) 的截断半径，统一基准，公平竞技。
-max_num_neighbors: 64       # <--- 💡 核心修改二 (致命防坑)：在 QMugs 拥挤的 10.0 Bohr 空间内，必须放大邻居上限，否则 PyG 底层建图切断边后，ComENet 的角度编码会直接失效！
-num_spherical: 7            # <--- 保持标准配置
-num_radial: 6               # <--- 保持标准配置

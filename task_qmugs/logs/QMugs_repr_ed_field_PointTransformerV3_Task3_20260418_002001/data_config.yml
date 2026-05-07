@@ -1,7 +1,0 @@
-dataset_mode: "repr_ed_field"
-pkl_path:  '../data/QMugs/qmugs_ed_1024_dft_meV_fps.pkl'
-grid_size: 0.1
-targets: 
-  - 'homo_energy_meV'
-  - 'lumo_energy_meV'
-  - 'homo_lumo_gap_meV'

@@ -3,7 +3,6 @@ import sys
 import torch
 import torch.nn as nn
 
-# ================== 路径挂载 ==================
 current_file_path = os.path.abspath(__file__)
 utils_dir = os.path.dirname(current_file_path)      
 task_dir = os.path.dirname(utils_dir)               
@@ -14,19 +13,13 @@ if project_root not in sys.path:
 # ==============================================
 
 class PTv3Wrapper(nn.Module):
-    """
-    [💡 终极封装器] 
-    1. 自动解包：兼容双流嵌套字典 {'point_cloud': {...}} 和单流标准字典。
-    2. 智能索引：支持从 'offset' 快速还原 'batch' 索引。
-    3. 全局池化：将点级特征 [N, C] 压缩为分子级特征 [B, C]。
-    """
+
     def __init__(self, backbone):
         super().__init__()
         self.backbone = backbone
 
     def forward(self, data_dict):
-        # 1. 【自动解包】判断是否被包裹在 'point_cloud' 键下
-        # 如果是双流模型传来的数据，我们只取点云部分喂给 PTv3 骨干
+
         input_dict = data_dict.get('point_cloud', data_dict)
         
         # 2. 【骨干前向】PTv3 提取逐点特征
@@ -155,7 +148,7 @@ def build_model(model_config, output_dim, normalizer=None):
         # 1. 实例化 Backbone (Wrapper 内部处理了池化)
         model = ED5EquiformerV2Model(config=model_config, output_dim=output_dim)
         
-        # 2. 实例化回归头 (使用 sphere_channels 作为输入维度)
+       
         sphere_channels = model_config.get('sphere_channels', 64)
         regressor = nn.Sequential(
             nn.Linear(sphere_channels, sphere_channels // 2),
@@ -184,21 +177,21 @@ def build_model(model_config, output_dim, normalizer=None):
         
         return model, regressor
     
-    # ================== 12. 自定义 UniFieldNet模型 ==================
+    # ================== 12.UniFieldNet模型 ==================
     elif model_name == "UniFieldNet":
         from models.UniFieldNet.UniFieldNet_model import ED5UniFieldNet
-        # 把 normalizer 传进去
+       
         model = ED5UniFieldNet(config=model_config, output_dim=output_dim, normalizer=normalizer)
         regressor = nn.Identity()
         return model, regressor
     
     elif model_name == "UniFieldNet1":
         from models.UniFieldNet.UniFieldNet_model1 import ED5UniFieldNet
-        # 把 normalizer 传进去
+        
         model = ED5UniFieldNet(config=model_config, output_dim=output_dim, normalizer=normalizer)
         regressor = nn.Identity()
         return model, regressor
-    # ================== 纯 Equiformer 消融实验模型 ==================
+    # ==================  消融实验模型 ==================
     elif model_name == "Equiformer":
         from models.Equiformer.equiformer_model import ED5Equiformer
         

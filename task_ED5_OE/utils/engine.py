@@ -25,7 +25,7 @@ def train_one_epoch(model, regressor, train_loader, optimizer, criterion, epoch,
         optimizer.zero_grad()
         batch_data = to_device(batch_data, device)
 
-        # 兼容补丁：确保 grid_size
+
         if "point_cloud" in batch_data:
             if "grid_size" not in batch_data["point_cloud"]:
                 batch_data["point_cloud"]["grid_size"] = default_grid_size
@@ -35,7 +35,7 @@ def train_one_epoch(model, regressor, train_loader, optimizer, criterion, epoch,
         labels = batch_data.get("labels", batch_data.get("label"))
         norm_labels = (labels - normalizer['mean']) / normalizer['std']
 
-        # ================== 💡 异常捕获防弹衣 ==================
+    
         try:
             feat_out = model(batch_data)
             pred = regressor(feat_out)
@@ -54,15 +54,15 @@ def train_one_epoch(model, regressor, train_loader, optimizer, criterion, epoch,
             pbar.set_postfix({'loss': f"{loss.item():.4f}"})
 
         except RuntimeError as e:
-            # 专门捕获那个恼人的索引不匹配错误
+          
             if "must match the existing size" in str(e):
                 print(f"\n⚠️ [Epoch {epoch}] 跳过了一个由于 DIG 库索引 Bug 导致的坏 Batch (Size: {labels.size(0)})")
                 optimizer.zero_grad() # 确保梯度清零，不污染下一批数据
                 continue
             else:
-                # 如果是其他错误（比如显存溢出），依然正常抛出
+                
                 raise e
-        # ========================================================
+   
 
     return total_loss / len(train_loader) if len(train_loader) > 0 else 0
 

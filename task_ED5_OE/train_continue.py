@@ -10,7 +10,7 @@ from datetime import datetime
 import pprint
 import shutil
 
-# 动态挂载项目根目录
+
 project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if project_root not in sys.path:
     sys.path.append(project_root)
@@ -28,7 +28,7 @@ def parse_args():
     parser.add_argument('--data_config', type=str, default='./configs/data/repr_ed_field.yml')
     parser.add_argument('--model_config', type=str, default='./configs/models/PTv3.yml')
 
-    # 初始化权重，但不恢复 optimizer / scheduler / epoch
+
     parser.add_argument(
         '--init_ckpt',
         type=str,
@@ -57,11 +57,9 @@ def load_and_merge_config(train_cfg_path, data_cfg_path, model_cfg_path):
 def main():
     args = parse_args()
 
-    # 环境设置
     os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-    # 加载配置
     config = load_and_merge_config(args.train_config, args.data_config, args.model_config)
 
     dataset_mode = config['data'].get('dataset_mode', 'UnknownMode')
@@ -72,7 +70,6 @@ def main():
     if output_dim == 0:
         raise ValueError("❌ 数据配置中找不到 targets 列表，请检查 YAML 文件！")
 
-    # 新实验目录：每次都新建
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     init_tag = "scratch" if args.init_ckpt is None else "init_from_ckpt"
     save_dir = f"./logs/ED5OE_{dataset_mode}_{model_name}_MultiTask{output_dim}_{init_tag}_{timestamp}"
@@ -80,7 +77,7 @@ def main():
 
     logger = setup_logger(save_dir)
 
-    # 备份配置
+
     shutil.copy(args.train_config, os.path.join(save_dir, 'train_config.yml'))
     shutil.copy(args.data_config, os.path.join(save_dir, 'data_config.yml'))
     shutil.copy(args.model_config, os.path.join(save_dir, 'model_config.yml'))
