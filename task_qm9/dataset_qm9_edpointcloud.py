@@ -4,9 +4,7 @@ import numpy as np
 from torch.utils.data import Dataset
 
 class QM9EDPointCloudDataset(Dataset):
-    """
-    QM9 稀疏点云 Dataset (专为 PTv3 等稀疏模型适配)
-    """
+
     def __init__(self, pkl_path, split='train', grid_size=0.1, targets=None):
         super().__init__()
         self.split = split
@@ -64,7 +62,6 @@ def ptv3_collate_fn(batch):
         batch_offset += n_points
         offsets.append(batch_offset)
         
-        # [💡 核心] 生成 PTv3 报缺失的那个 batch 键
         batch_idx.append(torch.full((n_points,), i, dtype=torch.long))
 
     ptv3_data = {

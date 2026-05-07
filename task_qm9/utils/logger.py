@@ -3,13 +3,12 @@ import logging
 import sys
 
 def setup_logger(save_dir, log_name="train.log"):
-    """配置并返回一个 logger 实例"""
     os.makedirs(save_dir, exist_ok=True)
     
     logger = logging.getLogger("PTv3_Training")
     logger.setLevel(logging.INFO)
     
-    # 避免重复添加 handler
+
     if not logger.handlers:
         formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
         

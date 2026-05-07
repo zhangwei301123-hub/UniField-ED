@@ -15,30 +15,22 @@ if project_root not in sys.path:
 
 class PTv3Wrapper(nn.Module):
     """
-    [💡 终极封装器] 
-    1. 自动解包：兼容双流嵌套字典 {'point_cloud': {...}} 和单流标准字典。
-    2. 智能索引：支持从 'offset' 快速还原 'batch' 索引。
-    3. 全局池化：将点级特征 [N, C] 压缩为分子级特征 [B, C]。
+
     """
     def __init__(self, backbone):
         super().__init__()
         self.backbone = backbone
 
     def forward(self, data_dict):
-        # 1. 【自动解包】判断是否被包裹在 'point_cloud' 键下
-        # 如果是双流模型传来的数据，我们只取点云部分喂给 PTv3 骨干
+
         input_dict = data_dict.get('point_cloud', data_dict)
         
-        # 2. 【骨干前向】PTv3 提取逐点特征
-        # 注意：此时 input_dict 必须包含 'coord' 和 'grid_size' (engine.py 已补齐)
         out = self.backbone(input_dict)
         feat = out.feat  # 形状为 [N, C]
         
-        # 3. 【获取索引】用于将点归属到对应的分子
         batch = input_dict.get('batch', None)
         
         if batch is None:
-            # 💡 如果数据集只提供了 offset (如老版本或特定稀疏格式)
             if 'offset' in input_dict:
                 offset = input_dict['offset']
                 # 使用向量化操作快速还原 batch 索引，性能远超 Python 循环
@@ -50,8 +42,7 @@ class PTv3Wrapper(nn.Module):
             else:
                 raise KeyError("❌ PTv3Wrapper 无法在输入中找到 'batch' 或 'offset'，无法执行全局池化。")
         
-        # 4. 【全局池化】[N, C] -> [Batch_Size, C]
-        # 使用 scatter_mean 得到每个分子（点云簇）的平均特征向量
+
         from torch_scatter import scatter
         pooled_feat = scatter(feat, batch, dim=0, reduce='mean')
         
@@ -81,10 +72,8 @@ def build_model(model_config, output_dim, normalizer=None):
             drop_path=model_config['drop_path_rate']
         )
         
-        # 套上封装器，让输出变成 [B, C]
         model = PTv3Wrapper(raw_backbone)
         
-        # 回归头：PTv3 的输出维度通常是 dec_channels[0]
         regressor = nn.Sequential(
             nn.Linear(model_config['dec_channels'][0], 32),
             nn.GELU(),
@@ -122,10 +111,8 @@ def build_model(model_config, output_dim, normalizer=None):
     elif model_name == "SchNet":
         from models.Schnet.schnet_model import ED5SchNetModel
         
-        # 实例化封装后的模型
         model = ED5SchNetModel(config=model_config, output_dim=output_dim)
         
-        # 因为模型内部已经集成了 out_net，所以回归器设为 Identity
         regressor = nn.Identity()
         
         return model, regressor
@@ -135,7 +122,7 @@ def build_model(model_config, output_dim, normalizer=None):
         from models.Spherenet.spherenet_model import ED5SphereNetModel
         
         model = ED5SphereNetModel(config=model_config, output_dim=output_dim)
-        regressor = nn.Identity() # 内部自带 Readout
+        regressor = nn.Identity() 
         
         return model, regressor
     
@@ -152,10 +139,8 @@ def build_model(model_config, output_dim, normalizer=None):
     elif model_name == "EquiformerV2":
         from models.EquiformerV2.equiformer_v2_model import ED5EquiformerV2Model
         
-        # 1. 实例化 Backbone (Wrapper 内部处理了池化)
         model = ED5EquiformerV2Model(config=model_config, output_dim=output_dim)
         
-        # 2. 实例化回归头 (使用 sphere_channels 作为输入维度)
         sphere_channels = model_config.get('sphere_channels', 64)
         regressor = nn.Sequential(
             nn.Linear(sphere_channels, sphere_channels // 2),
@@ -170,7 +155,7 @@ def build_model(model_config, output_dim, normalizer=None):
         from models.Dimenet_pp.dimenet_pp_model import ED5DimeNetPPModel
         
         model = ED5DimeNetPPModel(config=model_config, output_dim=output_dim)
-        regressor = nn.Identity() # 内部自带 Readout
+        regressor = nn.Identity()
         
         return model, regressor
     
@@ -178,7 +163,6 @@ def build_model(model_config, output_dim, normalizer=None):
     elif model_name == "GotenNet":
         from models.Gotennet.gotennet_model import ED5GotenNetModel
         
-        # 模型内部已经包含了 Atom-wise Readout 和 Global Pool
         model = ED5GotenNetModel(config=model_config, output_dim=output_dim)
         regressor = nn.Identity() 
         
@@ -188,14 +172,13 @@ def build_model(model_config, output_dim, normalizer=None):
     elif model_name == "UniFieldNet":
         from models.UniFieldNet.UniFieldNet_model import ED5UniFieldNet
         
-        # 回归器设为 Identity
         model = ED5UniFieldNet(config=model_config, output_dim=output_dim)
         regressor = nn.Identity()
         
         return model, regressor
     
     elif model_name == "UniFieldNet_NoDist":
-        # 💡 从你刚刚新建的文件中导入消融模型
+        
         from models.UniFieldNet_without_distance_bias.UniFieldNet_without_distance_bias_model import UniFieldNet_NoDist
         
         model = UniFieldNet_NoDist(config=model_config, output_dim=output_dim)

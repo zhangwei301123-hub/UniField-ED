@@ -1,7 +1,6 @@
 # configs/models/PointNext.yml
 name: "PointNext"
 
-# PointNext-B 核心配置
 in_channels: 1
 width: 64
 blocks: [1, 2, 4, 2, 1]
@@ -12,6 +11,5 @@ expansion: 4
 radius: 0.1
 nsample: 32
 
-# 正则化
 drop_path_rate: 0.1
 dropout: 0.5
