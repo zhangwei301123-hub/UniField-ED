@@ -8,14 +8,13 @@ import torch.optim as optim
 from torch.utils.data import DataLoader
 from datetime import datetime
 import pprint
-import shutil  # [💡 新增] 引入文件操作模块
+import shutil  
 
-# [💡 ED5特有修改] 动态挂载项目根目录，以便安全导入共享区 models
+
 project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if project_root not in sys.path:
     sys.path.append(project_root)
 
-# 导入共享工具和当前 task 的专属模块
 from utils.builder import build_model
 from utils.dataset_builder import build_dataset
 from utils.logger import setup_logger
@@ -48,17 +47,15 @@ def load_and_merge_config(train_cfg_path, data_cfg_path, model_cfg_path):
 def main():
     args = parse_args()
 
-    # 环境设置
+
     os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     
-    # 加载并合并配置
     config = load_and_merge_config(args.train_config, args.data_config, args.model_config)
     
     dataset_mode = config['data'].get('dataset_mode', 'UnknownMode')
     model_name = config['model'].get('name', 'UnknownModel')
     
-    # 获取多任务列表，推导输出维度
     targets_list = config['data'].get('targets', [])
     output_dim = len(targets_list)
     if output_dim == 0:
@@ -68,11 +65,9 @@ def main():
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     save_dir = f"./logs/QMugs_{dataset_mode}_{model_name}_Task{output_dim}_{timestamp}"
     
-    # 确保保存目录一定存在，防止后续拷贝文件报错
     os.makedirs(save_dir, exist_ok=True) 
     logger = setup_logger(save_dir)
 
-    # 备份实验配置文件到 log 文件夹中
     shutil.copy(args.train_config, os.path.join(save_dir, 'train_config.yml'))
     shutil.copy(args.data_config, os.path.join(save_dir, 'data_config.yml'))
     shutil.copy(args.model_config, os.path.join(save_dir, 'model_config.yml'))
@@ -86,14 +81,12 @@ def main():
     logger.info("=" * 40 + "\n")
     logger.info(f"🚀 Start Training on Device: {device}")
 
-    # ================= 数据加载 =================
+
     logger.info("Loading Data...")
     logger.info(f"Loading Dataset Mode: {dataset_mode}...")
     
-    # 直接传入 data_config，不需要传 args.target
     train_dataset, val_dataset, collate_fn = build_dataset(config['data'])
 
-    # 如果是分子图 (AtomOnly)，可能不支持 num_workers 多线程，这里做个安全兼容
     num_workers = 8 if dataset_mode != "repr_atomistic_graph" else 0
     
     train_loader = DataLoader(
@@ -106,25 +99,20 @@ def main():
         shuffle=False, collate_fn=collate_fn, num_workers=num_workers
     )
 
-    # ================= 计算统计量 =================
-    # ED5 / QMugs 数据集的属性是 labels，并且本身就是 (N, Dim) 形状，不需要 view(-1, 1) 打平
+  
     all_labels_tensor = torch.tensor(train_dataset.labels).float().to(device)
     normalizer = {
         'mean': all_labels_tensor.mean(dim=0),
         'std': all_labels_tensor.std(dim=0)
     }
     
-    # 使用 unsqueeze(0) 将 (N,) 变成 (1, N)，转换为 numpy 后自带 [[ ]] 格式同行输出
     mean_str = str(normalizer['mean'].unsqueeze(0).cpu().numpy())
     std_str = str(normalizer['std'].unsqueeze(0).cpu().numpy())
     logger.info(f"Stats - Mean: {mean_str}, Std: {std_str}")
 
-    # ================= 模型构建 =================
     logger.info(f"Building Model: {config['model']['name']}...")
     
-    # =========================================================================
-    # 传入 normalizer，确保模型内部的 mean 和 std 被正确赋值！
-    # =========================================================================
+
     model, regressor = build_model(config['model'], output_dim=output_dim, normalizer=normalizer)
     
     model = model.to(device)
@@ -133,8 +121,7 @@ def main():
     total_params = sum(p.numel() for p in model.parameters()) + sum(p.numel() for p in regressor.parameters())
     logger.info(f"Total Parameters: {total_params / 1e6:.4f} M\n")
 
-    # ================= 优化器 =================
-    # 多任务联合预测，MSELoss 会自动对所有的损失求平均
+
     criterion = nn.MSELoss()
     optimizer = optim.Adam(
         list(model.parameters()) + list(regressor.parameters()), 
@@ -143,26 +130,24 @@ def main():
     )
     scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=config['train']['epochs'])
 
-    # ================= 训练循环 =================
     best_rmse = float('inf')
     patience_counter = 0 
 
     for epoch in range(1, config['train']['epochs'] + 1):
-        # 注意：这里的 train_one_epoch 和 validate 内部可能需要兼容三种模态字典，模型通过 model(batch_data) 自行取用
+       
         train_loss = train_one_epoch(model, regressor, train_loader, optimizer, criterion, epoch, normalizer, config, device)
         scheduler.step()
         current_lr = optimizer.param_groups[0]['lr']
         val_metrics, val_avg_rmse = validate(model, regressor, val_loader, epoch, normalizer, config, device)
 
-        # 去掉了 \n，防止时间戳前缀换行断层
+
         logger.info(f"[Epoch {epoch}] Train Loss: {train_loss:.4f} | LR: {current_lr:.6f}")
         logger.info(f"    >>> Val Avg RMSE (Real): {val_avg_rmse:.4f}")
         
-        # 格式化所有的 MAE 值并作为完整列表打印
+
         print_maes = [f'{x:.4f}' for x in val_metrics['MAE']]
         logger.info(f"    >>> Val MAE Details: {print_maes}")
         
-        # 早停与保存逻辑
         if val_avg_rmse < best_rmse:
             best_rmse = val_avg_rmse
             patience_counter = 0 
@@ -174,7 +159,7 @@ def main():
                 'optimizer': optimizer.state_dict(),
                 'normalizer': normalizer,
                 'best_rmse': best_rmse,
-                'targets': targets_list # 把预测的多个目标存进去，方便测试时读取
+                'targets': targets_list 
             }, save_path)
             logger.info(f"💾 Saved Best Model to {save_path}")
         else:

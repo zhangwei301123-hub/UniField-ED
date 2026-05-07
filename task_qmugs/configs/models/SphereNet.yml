@@ -1,7 +1,7 @@
 name: "SphereNet"
-hidden_channels: 128        # <--- 保持 128 维。SphereNet 计算扭转角极耗显存，128 是速度和精度的最佳平衡点。
-num_layers: 5               # <--- 💡 核心修改一：提升至 5 层！确保信息能穿透 80 个原子的长链结构。
-cutoff: 10.0                # <--- 💡 核心修改二：从 9.5 统一提升至 10.0 Bohr。一方面为了和其他 Benchmark (如 SchNet) 严格对齐，另一方面 5.3 Å 能更完整地捕捉二面角信息。
+hidden_channels: 128        
+num_layers: 5             
+cutoff: 10.0             
 num_spherical: 7
 num_radial: 6
-max_num_neighbors: 64       # <--- 💡 致命防坑补丁：虽然你原配置没写，但跑 QMugs 必须显式加上！防止 PyG 底层截断局部图导致无法计算二面角。
+max_num_neighbors: 64      

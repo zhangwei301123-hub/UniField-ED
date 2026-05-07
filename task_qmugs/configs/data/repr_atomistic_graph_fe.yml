@@ -1,18 +1,10 @@
-# ==========================================
-# QMugs 前线轨道多任务配置 (纯原子图模式)
-# ==========================================
 
-# 1. 触发 builder.py 中的 dataset_qmugs_atomistic_graph 分支
 dataset_mode: 'repr_atomistic_graph'
 
-# 2. 你的 pkl 文件真实绝对路径 (或者相对路径)
 pkl_path: '../data/QMugs/qmugs_ed_1024_dft_meV_fps.pkl'
 
-# 3. 🎯 多任务学习目标：严格对齐 pkl 里的字典键名
 targets: 
   - 'formation_energy_meV'
 
-
-# 4. 几何与截断参数
-max_radius: 10.0     # 保持 10.0 Bohr (约 5.3 Å) 的黄金物理感受野
-grid_size: 0.1       # 纯图模型其实不用网格，但为了兼容统一的读取逻辑，保留一个默认值即可
+max_radius: 10.0    
+grid_size: 0.1       
