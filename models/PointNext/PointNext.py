@@ -19,7 +19,7 @@ class PointNextModel(nn.Module):
     def __init__(self, config, output_dim):
         super().__init__()
         
-        # ================= 1. 构建 Backbone 配置 =================
+
         backbone_cfg = EasyConfig()
         backbone_cfg.update({
             'NAME': 'PointNextEncoder',
