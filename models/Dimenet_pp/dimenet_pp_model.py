@@ -16,19 +16,16 @@ if current_dir not in sys.path:
 from dig.threedgraph.method import DimeNetPP
 
 class ED5DimeNetPPModel(nn.Module):
-    """
-    [DimeNet++ 适配版]
-    基于 DIG 库实现，适配多任务回归架构。
-    """
+
     def __init__(self, config, output_dim=1):
         super().__init__()
         
         self.model = DimeNetPP(
-            energy_and_force=False, # 属性预测，不计算力
+            energy_and_force=False, 
             cutoff=config.get('cutoff', 5.0),
             num_layers=config.get('num_layers', 4),
             hidden_channels=config.get('hidden_channels', 128),
-            out_channels=output_dim,  # 动态匹配任务数 (如 7)
+            out_channels=output_dim, 
             int_emb_size=config.get('int_emb_size', 64),
             basis_emb_size=config.get('basis_emb_size', 8),
             out_emb_channels=config.get('out_emb_channels', 256),
