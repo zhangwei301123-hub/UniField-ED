@@ -1,11 +1,9 @@
 dataset_mode: "repr_hybrid_fusion"
-# 【关键修改】指向你专属的双流融合 pkl 文件
+
 pkl_path: "../data/qm9/qm9_ed_1024_multi_prop_Bohr.pkl"
 
-# 针对点云的配置
 grid_size: 0.1
 
-# 针对分子图 (图神经网络) 的配置
 max_radius: 5.0
 targets: 
   - "alpha_mBohr3"
