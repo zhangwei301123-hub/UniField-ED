@@ -25,7 +25,7 @@ class ED5ComENetModel(nn.Module):
             cutoff=config.get('cutoff', 10.0),             
             num_layers=config.get('num_layers', 5),       
             hidden_channels=config.get('hidden_channels', 128), 
-            out_channels=output_dim,      # 动态匹配任务数 (如 7)
+            out_channels=output_dim,    
             num_radial=config.get('num_radial', 6),       
             num_spherical=config.get('num_spherical', 3),
             num_output_layers=3                           
