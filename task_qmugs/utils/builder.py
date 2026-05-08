@@ -48,7 +48,7 @@ class PTv3Wrapper(nn.Module):
 def build_model(model_config, output_dim, normalizer=None):
     model_name = model_config.get('name')
 
-    # ================== 1. 稀疏点云模型 PTv3 ==================
+    # ================== 1.  PTv3 ==================
     if model_name == "PointTransformerV3":
         from models.PTv3.PointTransformerV3 import PointTransformerV3
         
@@ -78,20 +78,19 @@ def build_model(model_config, output_dim, normalizer=None):
         
         return model, regressor
 
-    # ================== 2. 双流融合模型 ==================
     elif model_name == "DualCrossattention_visnet":
         from models.Dual_crossattention.dual_crossattention_visnet import DualStreamFusionModel
         model = DualStreamFusionModel(config=model_config, output_dim=output_dim)
         regressor = nn.Identity()
         return model, regressor
 
-    # ================== 3. 稠密模型 PointNext ==================
+    # ================== 3. PointNext ==================
     elif model_name == "PointNext":
         from models.PointNext.PointNext import PointNextModel
         model = PointNextModel(config=model_config, output_dim=output_dim)
         regressor = nn.Identity()
         return model, regressor
-    # ================== 4. 纯图网络模型 ViSNet ==================
+    # ================== 4. ViSNet ==================
     elif model_name == "ViSNet":
         from models.Visnet.visnet_model import ViSNetModel
         
@@ -101,7 +100,7 @@ def build_model(model_config, output_dim, normalizer=None):
         
         return model, regressor
     
-    # ================== 5. 基于 SchNetPack 的 SchNet ==================
+    # ================== 5.  SchNet ==================
     elif model_name == "SchNet":
         from models.Schnet.schnet_model import ED5SchNetModel
         
@@ -120,7 +119,7 @@ def build_model(model_config, output_dim, normalizer=None):
         
         return model, regressor
     
-    # ================== 8. 高效边图模型 ComENet ==================
+    # ================== 8.  ComENet ==================
     elif model_name == "ComENet":
         from models.Comenet.comenet_model import ED5ComENetModel
         
@@ -131,7 +130,7 @@ def build_model(model_config, output_dim, normalizer=None):
 
 
     
-    # ================== 10. 引入夹角信息的模型 DimeNet++ ==================
+    # ================== 10.  DimeNet++ ==================
     elif model_name == "DimeNetPP":
         from models.Dimenet_pp.dimenet_pp_model import ED5DimeNetPPModel
         
@@ -140,7 +139,7 @@ def build_model(model_config, output_dim, normalizer=None):
         
         return model, regressor
     
-    # ================== 11. 原子级预测模型 GotenNet ==================
+    # ================== 11.  GotenNet ==================
     elif model_name == "GotenNet":
         from models.Gotennet.gotennet_model import ED5GotenNetModel
         
@@ -149,7 +148,7 @@ def build_model(model_config, output_dim, normalizer=None):
         
         return model, regressor
     
-    # ================== 12. 自定义 UniFieldNet模型 ==================
+    # ================== 12.  UniFieldNet ==================
     elif model_name == "UniFieldNet":
         from models.UniFieldNet.UniFieldNet_model import ED5UniFieldNet
         

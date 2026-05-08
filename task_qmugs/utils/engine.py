@@ -2,10 +2,7 @@ import torch
 from tqdm import tqdm
 
 def to_device(data, device):
-    """
-    [核心黑科技]: 递归地将任意嵌套的数据结构移动到 GPU
-    支持: Tensor, 字典, 列表, 以及 PyG 的 Data/Batch 对象
-    """
+
     if isinstance(data, torch.Tensor):
         return data.to(device)
     elif hasattr(data, 'to'): 
