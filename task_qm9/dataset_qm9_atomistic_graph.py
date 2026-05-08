@@ -5,9 +5,7 @@ from torch.utils.data import Dataset
 from torch_geometric.data import Data, Batch
 
 class QM9AtomisticDataset(Dataset):
-    """
-    QM9 纯原子图 Dataset
-    """
+
     def __init__(self, pkl_path, split='train', targets=None):
         super().__init__()
         self.split = split
@@ -40,7 +38,6 @@ class QM9AtomisticDataset(Dataset):
     def __getitem__(self, idx):
         item = self.sample_list[idx]
         
-        # ================== 仅提取原子图数据 ==================
         mol_coords = torch.from_numpy(item['atom_coords']).float()
         atomic_numbers = torch.tensor(item['atom_types'], dtype=torch.long)
         

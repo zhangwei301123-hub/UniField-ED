@@ -44,10 +44,7 @@ class QM9EDPointCloudDataset(Dataset):
         }
 
 def ptv3_collate_fn(batch):
-    """
-    稀疏点云 Collate 函数：
-    将点云沿第 0 维度展平合并 (cat)，并生成 PTv3 必须的 offset 和 batch 索引
-    """
+
     coords, feats, offsets = [], [], []
     batch_offset = 0
     batch_idx = [] 

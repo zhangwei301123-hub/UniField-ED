@@ -3,7 +3,6 @@ import sys
 import torch
 import torch.nn as nn
 
-# ================== 路径挂载 ==================
 current_file_path = os.path.abspath(__file__)
 utils_dir = os.path.dirname(current_file_path)      
 task_dir = os.path.dirname(utils_dir)               
@@ -26,14 +25,13 @@ class PTv3Wrapper(nn.Module):
         input_dict = data_dict.get('point_cloud', data_dict)
         
         out = self.backbone(input_dict)
-        feat = out.feat  # 形状为 [N, C]
+        feat = out.feat  
         
         batch = input_dict.get('batch', None)
         
         if batch is None:
             if 'offset' in input_dict:
                 offset = input_dict['offset']
-                # 使用向量化操作快速还原 batch 索引，性能远超 Python 循环
                 counts = torch.diff(offset, prepend=torch.tensor([0], device=offset.device))
                 batch = torch.repeat_interleave(
                     torch.arange(len(counts), device=feat.device), 
@@ -102,7 +100,6 @@ def build_model(model_config, output_dim, normalizer=None):
         # 直接实例化
         model = ViSNetModel(config=model_config, output_dim=output_dim)
         
-        # ViSNet 内部自带输出层，回归器用 Identity 占位
         regressor = nn.Identity()
         
         return model, regressor
@@ -131,7 +128,7 @@ def build_model(model_config, output_dim, normalizer=None):
         from models.Comenet.comenet_model import ED5ComENetModel
         
         model = ED5ComENetModel(config=model_config, output_dim=output_dim)
-        regressor = nn.Identity() # 内部自带 Readout
+        regressor = nn.Identity() 
         
         return model, regressor
     

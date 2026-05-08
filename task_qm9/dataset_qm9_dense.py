@@ -17,10 +17,8 @@ class QM9DenseDataset(Dataset):
             
         self.sample_list = list(data_dict[split].values())
         
-        # 预先提取全局标签矩阵
         self.labels = []
         for item in self.sample_list:
-            # 动态获取 targets
             lbl_array = [item[t] for t in self.targets]
             self.labels.append(lbl_array)
             
@@ -60,7 +58,6 @@ def pointnext_collate_fn(batch):
     x = torch.stack(batch_feat, dim=0).contiguous()
     labels = torch.stack(batch_labels, dim=0)
 
-    # 完美适配通用 engine.py
     return {
         "point_cloud": {"pos": pos, "x": x},
         "labels": labels

@@ -132,7 +132,7 @@ def main():
     patience_counter = 0 
 
     for epoch in range(1, config['train']['epochs'] + 1):
-        # 注意：这里的 train_one_epoch 和 validate 内部可能需要兼容三种模态字典，模型通过 model(batch_data) 自行取用
+        
         train_loss = train_one_epoch(model, regressor, train_loader, optimizer, criterion, epoch, normalizer, config, device)
         scheduler.step()
         current_lr = optimizer.param_groups[0]['lr']
@@ -156,7 +156,7 @@ def main():
                 'optimizer': optimizer.state_dict(),
                 'normalizer': normalizer,
                 'best_rmse': best_rmse,
-                'targets': targets_list # 把预测的是哪8个目标存进去，方便测试时读取
+                'targets': targets_list 
             }, save_path)
             logger.info(f"💾 Saved Best Model to {save_path}")
         else:
