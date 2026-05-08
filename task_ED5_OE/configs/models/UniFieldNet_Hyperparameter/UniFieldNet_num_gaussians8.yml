@@ -1,0 +1,25 @@
+name: "UniFieldNet"
+num_gaussians: 8
+head_input_dim: 64
+
+equiformer_args:
+  irreps_in: "5x0e"
+  irreps_node_embedding: "256x0e+128x1e+64x2e"
+  num_layers: 6
+  irreps_node_attr: "1x0e"
+  irreps_sh: "1x0e+1x1o+1x2e+1x3o"
+  max_radius: 10.0
+  number_of_basis: 256
+  basis_type: "gaussian"
+  fc_neurons: [128, 128]
+  irreps_feature: "1024x0e"
+  irreps_head: "64x0e+32x1e+16x2e"
+  num_heads: 8
+  output_dim: 64 
+
+ptv3_args:
+  in_channels: 1
+  enc_depths: [2, 2, 2, 6, 2]
+  enc_channels: [32, 64, 128, 256, 512]
+  dec_channels: [64, 64, 128, 256]
+  patch_size: 64
