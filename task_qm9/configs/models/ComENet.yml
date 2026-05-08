@@ -1,0 +1,6 @@
+name: "ComENet"
+hidden_channels: 128       
+num_layers: 4               
+cutoff: 10.0               
+num_spherical: 7           
+num_radial: 6               

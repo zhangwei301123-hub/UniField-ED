@@ -1,0 +1,10 @@
+name: "DimeNetPP"
+hidden_channels: 128       
+out_emb_channels: 256       
+int_emb_size: 64           
+basis_emb_size: 8
+num_layers: 4               
+cutoff: 10.0               
+num_spherical: 7
+num_radial: 6
+envelope_exponent: 5
